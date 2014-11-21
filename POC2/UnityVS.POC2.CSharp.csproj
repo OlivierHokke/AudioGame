@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Audio\FIR\AudioGeneratorTest.cs" />
     <Compile Include="Assets\AudioGameController.cs" />
     <Compile Include="Assets\FootStepScript.cs" />
     <Compile Include="Assets\Utils\Dump\Dump.cs" />

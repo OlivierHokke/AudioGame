@@ -24,7 +24,7 @@ public class FootStepScript : MonoBehaviour
         // start playing the given sound
         audioSource.clip = stepSounds.GetRandom();
         audioSource.pitch = Randomg.Symmetrical(1f, maxRandomPitch);
-        audioSource.Play();
+        audioSource.Play(); 
 
         Debug.DrawLine(transform.position, transform.position + Vector3.up, Color.red, audioSource.clip.length);
     }
