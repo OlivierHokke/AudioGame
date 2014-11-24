@@ -1,7 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-Project("{E12D8702-FEB3-DF06-BCF4-B5B36EB1A819}") = "POC2", "Assembly-CSharp-vs.csproj", "{29BEFC23-91D0-FAD8-39DB-D7C817D580F4}"
+Project("{271D5653-AF66-A149-2533-B6278A5B9A77}") = "NavMesh Sound Propagation", "Assembly-CSharp.csproj", "{ECD12C47-8B9A-45F1-349D-FF16F972D37E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,15 +9,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{29BEFC23-91D0-FAD8-39DB-D7C817D580F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29BEFC23-91D0-FAD8-39DB-D7C817D580F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29BEFC23-91D0-FAD8-39DB-D7C817D580F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29BEFC23-91D0-FAD8-39DB-D7C817D580F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECD12C47-8B9A-45F1-349D-FF16F972D37E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECD12C47-8B9A-45F1-349D-FF16F972D37E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECD12C47-8B9A-45F1-349D-FF16F972D37E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECD12C47-8B9A-45F1-349D-FF16F972D37E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-										GlobalSection(MonoDevelopProperties) = preSolution
+					GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
