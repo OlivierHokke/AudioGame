@@ -2,14 +2,18 @@
 using System.Collections;
 
 public class WalkScript : MonoBehaviour {
-
+    
     public GameObject footStep;
     public Vector3 localWalkingDirection = Vector3.forward;
     public Vector3 distanceToGround = Vector3.down * 2;
     public float feetReachForward = 0.4f;
     public float feetGapWidth = 0.2f;
     public float distancePerStep = 0.4f;
+    [Header("Naturality Extension")]
+    [Range(0.0F, 1.0F)]
+    [Tooltip("Adds a random number to each step length, from a uniform distribution with range [-r, r]")]
     public float randomness = 0.01f;
+
     private float toStep = 0f;
     private Foot passingFoot = Foot.LEFT;
     private Vector3 previousPosition = Vector3.zero;
