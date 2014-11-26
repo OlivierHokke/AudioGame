@@ -46,8 +46,11 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\NavMesh\NavMeshCache.cs" />
      <Compile Include="Assets\NavMesh\NavMeshEdge.cs" />
+     <Compile Include="Assets\NavMesh\NavMeshManager.cs" />
      <Compile Include="Assets\NavMesh\NavMeshNode.cs" />
+     <Compile Include="Assets\NavMeshOccluder.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
