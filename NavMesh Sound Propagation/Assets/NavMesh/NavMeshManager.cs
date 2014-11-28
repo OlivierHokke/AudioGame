@@ -14,7 +14,7 @@ public class NavMeshManager : MonoBehaviour {
 
     void CheckConnections()
     {
-        NavMeshNode[] allNodes = transform.root.GetComponentsInChildren<NavMeshNode>();
+        NavMeshNode[] allNodes = FindObjectsOfType<NavMeshNode>();
 
         foreach (NavMeshNode n in allNodes)
         {
@@ -26,6 +26,11 @@ public class NavMeshManager : MonoBehaviour {
         {
             AddEdgeToNode(e, e.Node1);
             AddEdgeToNode(e, e.Node2);
+        }
+
+        foreach (NavMeshNode n in allNodes)
+        {
+            n.ValidateEdges();
         }
     }
 

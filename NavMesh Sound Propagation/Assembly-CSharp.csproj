@@ -50,7 +50,13 @@
      <Compile Include="Assets\NavMesh\NavMeshEdge.cs" />
      <Compile Include="Assets\NavMesh\NavMeshManager.cs" />
      <Compile Include="Assets\NavMesh\NavMeshNode.cs" />
+     <Compile Include="Assets\NavMesh\NavMeshPath.cs" />
+     <Compile Include="Assets\NavMeshListener.cs" />
      <Compile Include="Assets\NavMeshOccluder.cs" />
+     <Compile Include="Assets\NavMeshSource.cs" />
+     <Compile Include="Assets\Utils\ListExtension.cs" />
+     <Compile Include="Assets\Utils\Randomg.cs" />
+     <Compile Include="Assets\Utils\VectorExtension.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
