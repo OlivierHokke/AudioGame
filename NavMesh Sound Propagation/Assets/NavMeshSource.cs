@@ -1,9 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class NavMeshSource : NavMeshNode
 {
 
+    public override List<NavMeshNode> GetNodes()
+    {
+        NavMeshNode[] nmns = FindObjectsOfType<NavMeshNode>();
+        Vector3 pos = transform.position;
+        List<NavMeshNode> nodes = new List<NavMeshNode>();
+        foreach (NavMeshNode node in nmns)
+        {
+            if (node.IsInside(pos) && node != this) nodes.Add(node);
+        }
+        return nodes;
+    }
 
     void OnDrawGizmos()
     {

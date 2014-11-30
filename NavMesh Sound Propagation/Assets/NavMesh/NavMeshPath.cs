@@ -8,28 +8,37 @@ public class NavMeshPath : List<NavMeshNode>
     public float length = 0f;
     public bool occluded = false;
     public float score = 0f;
+    public float remainderScore = 0f;
 
-    public NavMeshPath(NavMeshNode start, NavMeshNode end, float length, bool occluded = false)
-    {
-        Add(start);
-        Add(end);
-        this.occluded = occluded;
-        this.length = length;
-    }
+    public NavMeshPath() { }
 
-    public NavMeshPath(NavMeshPath path, NavMeshEdge next)
+    public NavMeshPath(NavMeshPath path, NavMeshNode next, float remainderScore, float penalty= 0f)
         : base(path)
     {
-        this.length = path.length + next.Length;
-        this.occluded = path.occluded || next.Occluded;
-        Add(next.GetTarget(this.Last()));
-    }
+        this.remainderScore = remainderScore;
+        this.score = remainderScore + penalty;
 
-    public NavMeshPath(NavMeshPath path, NavMeshNode next, float additionalLength, bool occluded = false)
-        : base(path)
-    {
-        this.length = path.length + additionalLength;
-        this.occluded = path.occluded || occluded;
+        if (path.Count > 0) // the other path contains some info we need to take into account
+        {
+            NavMeshNode from = path.Last();
+            float extraLength = from.Distance(next);
+
+            this.length = path.length + extraLength;
+            this.occluded = path.occluded || from.IsOccluded(next);
+            this.score += path.score - path.remainderScore + extraLength;
+        }
+
         Add(next);
+    }
+
+    public override string ToString()
+    {
+        string path = Count + "; ";
+        path += "Length  = " + length + "; Score = " + score + " ; ";
+        foreach (NavMeshNode n in this)
+        {
+            path += n.GetType().Name + " (" + n.GetHashCode() + "), ";
+        }
+        return path;
     }
 }

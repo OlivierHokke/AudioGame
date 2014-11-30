@@ -5,10 +5,24 @@ using System.Linq;
 
 public class NavMeshListener : NavMeshNode {
 
+    public float[] filter = new float[1024 * 2];
+    public float normalizer = 0f;
+
+    public override List<NavMeshNode> GetNodes()
+    {
+        NavMeshNode[] nmns = FindObjectsOfType<NavMeshNode>();
+        Vector3 pos = transform.position;
+        List<NavMeshNode> nodes = new List<NavMeshNode>();
+        foreach (NavMeshNode node in nmns)
+        {
+            if (node.IsInside(pos) && node != this) nodes.Add(node);
+        }
+        return nodes;
+    }
 
     void OnDrawGizmos()
     {
-        // Draw a yellow sphere at the transform's position
+        // Draw a blue sphere at the transform's position
         Gizmos.color = new Color(0.3f, 0.5f, 1f);
         Gizmos.DrawSphere(transform.position, gizmoSize * 2f);
         Gizmos.color = new Color(0f, 0f, 0f, 0.2f);
@@ -30,125 +44,76 @@ public class NavMeshListener : NavMeshNode {
             }
         }
 
-        DrawPaths();
+        //DrawPaths();
     }
 
-    public List<NavMeshNode> GetNodes()
+    void Update()
     {
-        NavMeshNode[] nmns = FindObjectsOfType<NavMeshNode>();
-        Vector3 pos = transform.position;
-        List<NavMeshNode> nodes = new List<NavMeshNode>();
-        foreach (NavMeshNode node in nmns)
-        {
-            if (node.IsInside(pos)) nodes.Add(node);
-        }
-        return nodes;
+        DrawPaths();
     }
 
     public void DrawPaths()
     {
-        NavMeshSource[] sources = FindObjectsOfType<NavMeshSource>();
-        List<NavMeshNode> nodes = GetNodes();
+        List<NavMeshPath> paths = new List<NavMeshPath>();
 
+        NavMeshSource[] sources = FindObjectsOfType<NavMeshSource>();
         // for all sources, find the path
         foreach (NavMeshSource source in sources)
         {
-            List<NavMeshPath> todo = new List<NavMeshPath>();
-            Vector3 sourcePosition = source.transform.position;
+            NavMeshPathFinder pathFinder = new NavMeshPathFinder(this, source);
+            float maxPaths = 10f;
+            float minLength = 0f;
 
-            // populate the start paths, by add all adjecent nodes
-            foreach (NavMeshNode n in nodes)
+            while (maxPaths > 0)
             {
-                float length = Vector3.Distance(this.transform.position, n.transform.position);
-                NavMeshPath path = new NavMeshPath(this, n, length, this.IsOccluded(n));
-                path.score = path.length + Vector3.Distance(sourcePosition, n.transform.position);
-                todo.Add(path);
-            }
-
-            {
-                // also add the trivial path
-                float length = Vector3.Distance(sourcePosition, transform.position);
-                NavMeshPath path = new NavMeshPath(this, source, length, this.IsOccluded(source));
-                path.score = length;
-                todo.Add(path);
-            }
-
-            todo = todo.OrderBy(o => o.score).ToList();
-
-            float latestDrawnPathLength = 0f;
-            int maxIterations = 30;
-            int maxPaths = 5;
-            int sourceArrivalCount = 0;
-
-            // path find until no more options
-            while (todo.Count > 0 && maxIterations > 0 && maxPaths > 0)
-            {
-                maxIterations--;
-                NavMeshPath currentPath = todo[0];
-                NavMeshNode currentNode = currentPath.Last();
-                todo.RemoveAt(0);
-
-                if (currentNode == source)
-                {
-                    sourceArrivalCount++;
-                    //log += currentPath.length + " > " + (latestDrawnPathLength * 1.2f) + " = " + (currentPath.length > latestDrawnPathLength * 1.2f) + "\n";
-                    if (currentPath.length > latestDrawnPathLength * 1.2f)
-                    {
-                        DrawPath(currentPath);
-                        latestDrawnPathLength = currentPath.length;
-                        maxPaths--;
-                    }
-                }
-                else
-                {
-                    {
-                        // first add the trivial path from current node to source
-                        float remainder = Vector3.Distance(sourcePosition, currentNode.transform.position);
-                        NavMeshPath trivialPath = new NavMeshPath(currentPath, source, remainder, currentNode.IsOccluded(source));
-                        trivialPath.score = trivialPath.length;
-                        todo.Add(trivialPath);
-                    }
-
-                    foreach (NavMeshEdge e in currentNode.edges)
-                    {
-                        // add new neighbouring edges
-                        NavMeshNode nextNode = e.GetTarget(currentNode);
-                        if (currentPath.Contains(nextNode)) continue;
-                        float remainder = Vector3.Distance(sourcePosition, nextNode.transform.position);
-                        NavMeshPath nextPath = new NavMeshPath(currentPath, e);
-                        nextPath.score = nextPath.length + remainder;
-                        todo.Add(nextPath);
-                    }
-
-                    todo = todo.OrderBy(o => o.score).ToList();
-                }
-            }
-
-            foreach (NavMeshPath p in todo)
-            {
-                string log = "";
-                Vector3 previous = transform.position;
-                float length = 0f;
-                foreach (NavMeshNode n in p)
-                {
-                    length += Vector3.Distance(n.transform.position, previous);
-                    log += length + "\n";
-                    previous = n.transform.position;
-                }
-                //Debug.Log(log);
+                //maxPaths--;
+                NavMeshPath path = pathFinder.FindPath(minLength);
+                if (path == null) break;
+                minLength = path.length * 1f;
+                DrawPath(path);
+                paths.Add(path);
             }
         }
+
+        MakeFilter(paths);
+    }
+    public void InitFilter()
+    {
+        for (int i = 0; i < filter.Length; i++)
+        {
+            filter[i] = 0;
+        }
+    }
+    public void MakeFilter(List<NavMeshPath> paths)
+    {
+        InitFilter();
+        foreach (NavMeshPath p in paths)
+        {
+            AddPathToFilter(p);
+        }
+    }
+    public void AddPathToFilter(NavMeshPath p)
+    {
+        float length = p.length / 10f;
+        float speedSound = 340f * 10f;
+        int delay = (int)((p.length / speedSound) * 44100);
+        if (delay > filter.Length)
+        {
+            Debug.Log("too much delay: " + delay);
+            return;
+        }
+        filter[filter.Length - delay] = Mathf.Min(1f, 1f / (length * length));
     }
 
     public void DrawPath(NavMeshPath path)
     {
         Vector3 offset = Vector3.zero.mutate(0.2f);
         Vector3 previous = transform.position + offset;
-        Gizmos.color = Color.magenta;
+        //Gizmos.color = Color.magenta;
         foreach (NavMeshNode n in path)
         {
             Vector3 current = n.transform.position + offset;
-            Gizmos.DrawLine(previous, current);
+            //Gizmos.DrawLine(previous, current);
             previous = current;
         }
     }
