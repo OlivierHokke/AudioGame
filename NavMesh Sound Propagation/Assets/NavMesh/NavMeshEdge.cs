@@ -9,7 +9,7 @@ public class NavMeshEdge : IEqualityComparer<NavMeshEdge>, IEquatable<NavMeshEdg
     public NavMeshNode Node1;
     public NavMeshNode Node2;
     public bool Occluded;
-    public float Length { get; private set; }
+    public float Length;
 
     public NavMeshEdge(NavMeshNode node1, NavMeshNode node2, bool occluded)
     {
@@ -17,7 +17,7 @@ public class NavMeshEdge : IEqualityComparer<NavMeshEdge>, IEquatable<NavMeshEdg
         this.Node2 = node2;
         this.Length = (node1.transform.position - node2.transform.position).magnitude;
 
-        this.Occluded = Physics.Raycast(Node1.transform.position, node2.transform.position - Node1.transform.position, this.Length);
+        this.Occluded = node1.IsOccluded(node2);
     }
 
     public NavMeshNode GetTarget(NavMeshNode source)
