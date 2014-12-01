@@ -17,6 +17,10 @@ public static class ListExtension
     {
         return list[list.Count - 1];
     }
+    public static T Last<T>(this List<T> list, int offset)
+    {
+        return list[list.Count - (1 + offset)];
+    }
     public static T First<T>(this List<T> list)
     {
         return list[0];

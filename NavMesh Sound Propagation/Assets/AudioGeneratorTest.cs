@@ -71,10 +71,15 @@ public class AudioGeneratorTest : MonoBehaviour {
         if (ReferenceEquals(listener,null)) return 0f;
         if (listener.threadSafeFilters.Count == 0) return 0f;
 
-        List<BaseFilter> filters = listener.threadSafeFilters.Pop();
-        if (filters == null) filters = listener.threadSafeFilters.Pop();
-        listener.threadSafeFilters.Clear();
-        listener.threadSafeFilters.Add(filters);
+        List<BaseFilter> filters = listener.threadSafeFilters.Last();
+        if (filters == null) filters = listener.threadSafeFilters.Last(1);
+        if (listener.threadSafeFilters.Count > 10000)
+        {
+            listener.threadSafeFilters.Clear();
+            listener.threadSafeFilters.Add(filters);
+
+            Debug.Log("Deleting old filters");
+        }
 
         float processed = 0f;
         foreach (BaseFilter filter in filters)

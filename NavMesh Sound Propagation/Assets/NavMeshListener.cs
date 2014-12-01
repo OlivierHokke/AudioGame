@@ -86,7 +86,8 @@ public class NavMeshListener : NavMeshNode {
     public void MakeFilter(List<NavMeshPath> paths)
     {
         List<BaseFilter> filters = new List<BaseFilter>();
-        normalizer = 1f / paths.Count;
+        //normalizer = 1f / paths.Count;
+        normalizer = 1f;
         foreach (NavMeshPath p in paths)
         {
             AddPathToFilter(p, filters);
