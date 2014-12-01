@@ -5,8 +5,13 @@ using System.Linq;
 
 public class NavMeshListener : NavMeshNode {
 
-    public float[] filter = new float[1024 * 2];
+    public float[] filter = new float[AudioGeneratorTest.MAX_FIR_LENGTH];
+
+    public List<List<BaseFilter>> threadSafeFilters = new List<List<BaseFilter>>();
+
     public float normalizer = 0f;
+    public float unitScalar = 10f;
+    public float falloffScalar = 10f;
 
     public override List<NavMeshNode> GetNodes()
     {
@@ -77,32 +82,29 @@ public class NavMeshListener : NavMeshNode {
 
         MakeFilter(paths);
     }
-    public void InitFilter()
-    {
-        for (int i = 0; i < filter.Length; i++)
-        {
-            filter[i] = 0;
-        }
-    }
+
     public void MakeFilter(List<NavMeshPath> paths)
     {
-        InitFilter();
+        List<BaseFilter> filters = new List<BaseFilter>();
+        normalizer = 1f / paths.Count;
         foreach (NavMeshPath p in paths)
         {
-            AddPathToFilter(p);
+            AddPathToFilter(p, filters);
         }
+        threadSafeFilters.Add(filters);
     }
-    public void AddPathToFilter(NavMeshPath p)
+
+    public void AddPathToFilter(NavMeshPath p, List<BaseFilter> filters)
     {
-        float length = p.length / 10f;
-        float speedSound = 340f * 10f;
-        int delay = (int)((p.length / speedSound) * 44100);
-        if (delay > filter.Length)
-        {
-            Debug.Log("too much delay: " + delay);
-            return;
-        }
-        filter[filter.Length - delay] = Mathf.Min(1f, 1f / (length * length));
+        float length = p.length / unitScalar;
+        float speedSound = 340f;
+        int delay = (int)((length / speedSound) * 44100);
+        float volume = Mathf.Min(1f, (falloffScalar * falloffScalar) / (length * length));
+
+        if (p.occluded)
+            filters.Add(new LowPassFilter(new FilterSettings(volume, normalizer, delay)));
+        else
+            filters.Add(new NormalFilter(new FilterSettings(volume, normalizer, delay)));
     }
 
     public void DrawPath(NavMeshPath path)

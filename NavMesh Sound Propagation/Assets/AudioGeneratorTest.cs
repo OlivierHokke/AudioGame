@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AudioGeneratorTest : MonoBehaviour {
 
-    private const int MAX_FIR_LENGTH = 1024 * 1;
+    public const int MAX_FIR_LENGTH = 512;
+    //private const int MAX_FIR_LENGTH = 6;
     private const int MAX_DATA_CACHE_LENGTH = 655360;
+
+    //private float[] filter = new float[] { 0f, 0f, 0f, .5f, .5f, 0f };
 
     private float normalizer = 0f;
     private float[] data_1 = new float[MAX_DATA_CACHE_LENGTH];
@@ -16,7 +20,6 @@ public class AudioGeneratorTest : MonoBehaviour {
 
     void Start()
     {
-
         listener = GetComponent<NavMeshListener>();
     }
 
@@ -31,7 +34,6 @@ public class AudioGeneratorTest : MonoBehaviour {
         {
             if (i % channels == 0) // check channel
             {
-
                 data_1[pos_1] = data[i];
                 data[i] = firFilter(data_1, pos_1);
                 pos_1++;
@@ -67,19 +69,21 @@ public class AudioGeneratorTest : MonoBehaviour {
     private float firFilter(float[] data, int startIndex)
     {
         if (ReferenceEquals(listener,null)) return 0f;
+        if (listener.threadSafeFilters.Count == 0) return 0f;
+
+        List<BaseFilter> filters = listener.threadSafeFilters.Pop();
+        if (filters == null) filters = listener.threadSafeFilters.Pop();
+        listener.threadSafeFilters.Clear();
+        listener.threadSafeFilters.Add(filters);
 
         float processed = 0f;
-        int i = listener.filter.Length - 1;
-        int x = startIndex;
-        while (i >= 0)
+        foreach (BaseFilter filter in filters)
         {
-            if (listener.filter[i] > 0.0001f)
-            {
-                processed += data[x] * listener.filter[i];
-            }
-            i--; x--;
+            processed += filter.Apply(data, startIndex);
         }
-        return processed / normalizer;
+
+
+        return processed;
     }
 
     /*float time = 0f;

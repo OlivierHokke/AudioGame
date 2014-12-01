@@ -7,6 +7,11 @@ public class NavMeshManager : MonoBehaviour {
 
     public List<NavMeshEdge> connections;
 
+    void Start()
+    {
+        CheckConnections();
+    }
+
     void OnValidate()
     {
         CheckConnections();
