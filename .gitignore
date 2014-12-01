@@ -20,3 +20,6 @@ sysinfo.txt
 /NavMesh Sound Propagation/NavMesh Sound Propagation-csharp.v12.suo
 /NavMesh Sound Propagation/Assembly-CSharp.csproj
 /NavMesh Sound Propagation/Assembly-CSharp-vs.csproj
+/NavMesh Sound Propagation/*.csproj
+/NavMesh Sound Propagation/*.sln
+/NavMesh Sound Propagation/*.suo
