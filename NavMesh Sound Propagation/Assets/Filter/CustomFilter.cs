@@ -19,10 +19,8 @@ public class CustomFilter : BaseFilter
     {
         // add offset due to center
         int f_index = filter.Length - 1;
-        int d_index = startIndex + filter.Length - center;
+        int d_index = startIndex + filter.Length - center - settings.delay;
         int d_stop = d_index - filter.Length;
-
-        d_index -= settings.delay;
 
         d_index = Mathf.Min(d_index, data.Length - 1);
         d_stop = Mathf.Max(d_stop, 0);

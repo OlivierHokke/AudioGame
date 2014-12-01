@@ -52,7 +52,7 @@ public class NavMeshListener : NavMeshNode {
         //DrawPaths();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         DrawPaths();
     }
@@ -104,18 +104,17 @@ public class NavMeshListener : NavMeshNode {
         if (p.occluded)
             filters.Add(new LowPassFilter(new FilterSettings(volume, normalizer, delay)));
         else
-            filters.Add(new NormalFilter(new FilterSettings(volume, normalizer, delay)));
+            filters.Add(new SmallFilter(new FilterSettings(volume, normalizer, delay)));
     }
 
     public void DrawPath(NavMeshPath path)
     {
         Vector3 offset = Vector3.zero.mutate(0.2f);
         Vector3 previous = transform.position + offset;
-        //Gizmos.color = Color.magenta;
         foreach (NavMeshNode n in path)
         {
             Vector3 current = n.transform.position + offset;
-            //Gizmos.DrawLine(previous, current);
+            Debug.DrawLine(current, previous, Color.magenta, Time.fixedDeltaTime);
             previous = current;
         }
     }

@@ -51,6 +51,7 @@
      <Compile Include="Assets\Filter\CustomFilter.cs" />
      <Compile Include="Assets\Filter\LowPassFilter.cs" />
      <Compile Include="Assets\Filter\NormalFilter.cs" />
+     <Compile Include="Assets\Filter\SmallFilter.cs" />
      <Compile Include="Assets\NavMesh\NavMeshCache.cs" />
      <Compile Include="Assets\NavMesh\NavMeshEdge.cs" />
      <Compile Include="Assets\NavMesh\NavMeshManager.cs" />
