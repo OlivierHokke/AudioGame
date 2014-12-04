@@ -29,7 +29,7 @@ public class Story : MonoBehaviour {
     /// The player hears the parents talking (screaming) but still has to follow lucy, who is at the next door
     /// </summary>
     [Header("Level 1")]
-    public SimpleFollowLucyState ParentRoomState = new SimpleFollowLucyState();
+    public FollowLucyWithTalkingParentsState ParentRoomState = new FollowLucyWithTalkingParentsState();
     public LucyRemoveObjectState RemoveElevatorDoor = new LucyRemoveObjectState();
     /// <summary>
     /// The player is in the elevator, waiting to get to the street
