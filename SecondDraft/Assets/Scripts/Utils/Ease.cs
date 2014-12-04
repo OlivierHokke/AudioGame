@@ -9,6 +9,36 @@ using UnityEngine;
     /// </summary>
     class Ease
     {
+        /// <summary>
+        /// Assuming t is positive, result will bounce from 0 to 1 to 0 to 1 to 0 etc.
+        /// </summary>
+        /// <param name="t">The time value (positive)</param>
+        /// <param name="d">The duration of a single forward/backward bounce</param>
+        /// <returns></returns>
+        public static float loopBounce(float t, float d)
+        {
+            return 1f - Mathf.Abs(((t / d) % 2f) - 1f);
+        }
+        /// <summary>
+        /// Assuming t is positive, result will bounce from 0 to 1 to 0 to 1 to 0 etc.
+        /// </summary>
+        /// <param name="t">The time value (positive)</param>
+        /// <param name="d">The duration of a single forward/backward bounce</param>
+        /// <returns></returns>
+        public static float loopBounce(float t)
+        {
+            return 1f - Mathf.Abs((t % 2f) - 1f);
+        }
+        /// <summary>
+        /// Assuming t is positive, result will loop from 0 to 1, from 0 to 1 etc.
+        /// </summary>
+        /// <param name="t">The time value (positive)</param>
+        /// <param name="d">The duration of a single forward/backward bounce</param>
+        /// <returns></returns>
+        public static float loop(float t, float d = 1f)
+        {
+            return (t/d) % 1f;
+        }
 
         /// <param name="t">Current time</param>
         /// <param name="b">Start value</param>

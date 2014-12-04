@@ -46,7 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\EventEffectScript.cs" />
      <Compile Include="Assets\FairyController.cs" />
+     <Compile Include="Assets\LucyHoverScript.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Utils\ColorExtension.cs" />
      <Compile Include="Assets\Scripts\Utils\Ease.cs" />

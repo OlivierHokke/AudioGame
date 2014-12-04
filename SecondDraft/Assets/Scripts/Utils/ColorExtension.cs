@@ -55,7 +55,7 @@ public static class ColorExtension
     public static Color addh(this Color c, float h)
     {
         HSV hsv = new HSV(c);
-        return hsv.RotateH(h + hsv.h).ToColor();
+        return hsv.RotateH((h + hsv.h) % 1f).ToColor();
     }
     public static Color adds(this Color c, float s)
     {
