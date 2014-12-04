@@ -4,14 +4,16 @@ using System.Collections.Generic;
 
 public class Story : MonoBehaviour {
 
-    public GameObject player;
+    public GameObject Player;
+    public GameObject Lucy;
 
     [Header("Tutorial")]
-    public StartState startState;
-    public StartState someState;
+    public LucyExplainingState LucyExplains = new LucyExplainingState();
+    public SimpleFollowLucyState InitialMove = new SimpleFollowLucyState();
+    public SimpleFollowLucyState SecondMove = new SimpleFollowLucyState();
 
     [Header("Level 1")]
-    public StartState someOtherState;
+    public SimpleFollowLucyState SomeOtherState = new SimpleFollowLucyState();
 
     // Current state that we are in
     private BaseState currentState;
@@ -19,7 +21,7 @@ public class Story : MonoBehaviour {
     // Let's load the start state
     void Start()
     {
-        LoadState(startState);
+        LoadState(LucyExplains);
 	}
 	
 	void Update () 

@@ -23,3 +23,7 @@ sysinfo.txt
 /NavMesh Sound Propagation/*.csproj
 /NavMesh Sound Propagation/*.sln
 /NavMesh Sound Propagation/*.suo
+*.csproj
+*.sln
+*.unityproj
+*.suo
