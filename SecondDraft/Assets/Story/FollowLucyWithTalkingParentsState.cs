@@ -39,7 +39,7 @@ public class FollowLucyWithTalkingParentsState : SimpleFollowLucyState
     private AudioPlayer PlayWithRandomDelay(GameObject source, AudioClip clip)
     {
         AudioObject ao = new AudioObject(source, clip, 1, Randomg.Range(0, MaxRandomDelay));
-        return AudioManagerScript.PlayAudio(ao);
+        return AudioManager.PlayAudio(ao);
     }
 
     public override void Update(Story script)
