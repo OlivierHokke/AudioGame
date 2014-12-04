@@ -2846,10 +2846,22 @@ MonoBehaviour:
   RemoveDoor:
     TargetObject: {fileID: 307997353}
   ParentRoomState:
-    TargetLocation: {fileID: 0}
+    TargetLocation: {fileID: 893553411}
+    LucyAppearanceDelay: 5
+    MotherSound: {fileID: 8300000, guid: 83612f8b7bd5b1f47bcf487c9eb581a3, type: 3}
+    FatherSound: {fileID: 8300000, guid: 83612f8b7bd5b1f47bcf487c9eb581a3, type: 3}
+    BrotherSound: {fileID: 8300000, guid: 83612f8b7bd5b1f47bcf487c9eb581a3, type: 3}
+    Mother: {fileID: 1222203104}
+    Father: {fileID: 1799797404}
+    Brother: {fileID: 2035692462}
+    MaxRandomDelay: .5
+  RemoveFlatDoor:
+    TargetObject: {fileID: 893553411}
+  FollowLucyToElevator:
+    TargetLocation: {fileID: 60341502}
     LucyAppearanceDelay: 5
   RemoveElevatorDoor:
-    TargetObject: {fileID: 0}
+    TargetObject: {fileID: 60341502}
   LucyExplainsCars:
     playableSound: {fileID: 0}
   EvadeFirstRoad:
