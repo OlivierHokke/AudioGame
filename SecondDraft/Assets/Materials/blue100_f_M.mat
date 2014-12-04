@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: playerEvent_M
-  m_Shader: {fileID: 4800000, guid: 1028a7b384b66e047b15650cf6eeac16, type: 3}
+  m_Name: blue100_f_M
+  m_Shader: {fileID: 4800000, guid: 40c600541d119d6428731a712352fc5d, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -20,13 +20,9 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-    m_Floats:
-      data:
-        first:
-          name: PixelSnap
-        second: 0
+    m_Floats: {}
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: .655172348, g: 1, b: 0, a: .192156866}
+        second: {r: .272058845, g: .668661356, b: 1, a: 1}

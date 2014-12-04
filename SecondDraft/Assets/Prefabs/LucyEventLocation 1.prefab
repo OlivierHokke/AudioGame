@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: .300000012
-  magnitude: .0500000007
+  magnitude: .0199999996
   animateColor: 0
 --- !u!135 &13500000
 SphereCollider:
