@@ -85,6 +85,7 @@ public class Story : MonoBehaviour {
 		RemoveFlatDoor.NextState = FollowLucyToElevator;
 		FollowLucyToElevator.NextState = RemoveElevatorDoor;
 		RemoveElevatorDoor.NextState = ElevatorState;
+		ElevatorState.NextState = LucyExplainsCars;
 	}
 	
 	void Update () 
