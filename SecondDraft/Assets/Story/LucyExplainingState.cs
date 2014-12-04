@@ -16,7 +16,7 @@ public class LucyExplainingState : BaseState
     public override void Start(Story script)
     { 
         AudioObject ao = new AudioObject(script.Lucy, playableSound);
-        audioPlayer = AudioManagerScript.PlayAudio(ao);
+        audioPlayer = AudioManager.PlayAudio(ao);
     }
 
     public override void Update(Story script)

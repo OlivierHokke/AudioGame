@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class AudioManagerScript : MonoBehaviour {
+public class AudioManager : MonoBehaviour {
 
-    public static AudioManagerScript instance;
+    public static AudioManager instance;
 
     public static AudioPlayer PlayAudio(AudioObject clip)
     {
@@ -44,6 +44,7 @@ public class AudioManagerScript : MonoBehaviour {
             ap.Update(Time.deltaTime);
             if (ap.removable)
             {
+                ap.OnRemove();
                 audioPlayers.Remove(ap);
                 i--;
             }
