@@ -3,23 +3,15 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+    public float walkUnitsPerSecond= 4f;
+    public float anglesPerPixel = 0.5f;
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+        transform.Translate(Vector3.forward * Time.deltaTime * walkUnitsPerSecond * Input.GetAxis("Vertical"), Space.Self);
+        transform.Translate(Vector3.right * Time.deltaTime * walkUnitsPerSecond * Input.GetAxis("Horizontal"), Space.Self);
 
-	void FixedUpdate () {
-
-	}
-
-	void OnTriggerEnter (Collider other) {
-		if (other.gameObject.tag == "Lucy") {
-			// found the fairy
-		}
+        transform.rotation = transform.rotation * Quaternion.AngleAxis(Input.GetAxis("Mouse X") * anglesPerPixel, Vector3.up);
 	}
 }
