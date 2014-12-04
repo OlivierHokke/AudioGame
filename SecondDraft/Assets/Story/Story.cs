@@ -30,7 +30,14 @@ public class Story : MonoBehaviour {
     /// </summary>
     [Header("Level 1")]
     public FollowLucyWithTalkingParentsState ParentRoomState = new FollowLucyWithTalkingParentsState();
+	public LucyRemoveObjectState RemoveFlatDoor = new LucyRemoveObjectState();
+
+	/// <summary>
+	/// Leave the flat and follow lucy to the elevator door
+	/// </summary>
+	public SimpleFollowLucyState FollowLucyToElevator = new SimpleFollowLucyState ();
     public LucyRemoveObjectState RemoveElevatorDoor = new LucyRemoveObjectState();
+
     /// <summary>
     /// The player is in the elevator, waiting to get to the street
     /// </summary>
@@ -74,7 +81,11 @@ public class Story : MonoBehaviour {
         SecondMove.NextState = RemoveDoor;
         // Level 1
         RemoveDoor.NextState = ParentRoomState;
-
+		ParentRoomState.NextState = RemoveFlatDoor;
+		RemoveFlatDoor.NextState = FollowLucyToElevator;
+		FollowLucyToElevator.NextState = RemoveElevatorDoor;
+		RemoveElevatorDoor.NextState = ElevatorState;
+		ElevatorState.NextState = LucyExplainsCars;
 	}
 	
 	void Update () 
