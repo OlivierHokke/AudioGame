@@ -31,16 +31,19 @@ public class SimpleFollowLucyState : BaseState
     {
         timeInState += Time.deltaTime;
         float progress = timeInState / LucyAppearanceDelay;
-        // TODO: Add Oliviers easing
         if (progress < 1)
         {
             script.Lucy.transform.position = this.lucyStartPosition + ((this.TargetLocation.transform.position - lucyStartPosition) * Ease.ioSinusoidal(progress));
-            Debug.Log(progress + " " + script.Lucy.transform.position + Ease.ioSinusoidal(progress));
+            script.Lucy.transform.rotation = Quaternion.RotateTowards(this.lucyStartRotation, this.TargetLocation.transform.rotation, 
+                Quaternion.Angle(this.lucyStartRotation, this.TargetLocation.transform.rotation) * Ease.ioSinusoidal(progress));
+        }
+        else
+        {
+            script.Lucy.transform.position = TargetLocation.transform.position;
+            script.Lucy.transform.rotation = TargetLocation.transform.rotation;
         }
 
-
         Vector3 distance = TargetLocation.transform.position - script.Player.transform.position;
-
         // we arrived at the target location, thus load our next state
         if (distance.magnitude < 2f)
         {
@@ -50,6 +53,6 @@ public class SimpleFollowLucyState : BaseState
 
     public override void End(Story script)
     {
-        throw new NotImplementedException();
+
     }
 }
