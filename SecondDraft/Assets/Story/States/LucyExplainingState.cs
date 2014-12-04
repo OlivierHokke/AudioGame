@@ -17,6 +17,9 @@ public class LucyExplainingState : BaseState
     { 
         AudioObject ao = new AudioObject(script.Lucy, playableSound);
         audioPlayer = AudioManager.PlayAudio(ao);
+
+        // set the player's compass to target lucy
+        PlayerCompass.SetTarget(script.Lucy);
     }
 
     public override void Update(Story script)
