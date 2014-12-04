@@ -8,12 +8,12 @@ public class Story : MonoBehaviour {
     public GameObject Lucy;
 
     [Header("Tutorial")]
-    public LucyExplainingState LucyExplains;
-    public SimpleFollowLucyState InitialMove;
-    public SimpleFollowLucyState SecondMove;
+    public LucyExplainingState LucyExplains = new LucyExplainingState();
+    public SimpleFollowLucyState InitialMove = new SimpleFollowLucyState();
+    public SimpleFollowLucyState SecondMove = new SimpleFollowLucyState();
 
     [Header("Level 1")]
-    public SimpleFollowLucyState SomeOtherState;
+    public SimpleFollowLucyState SomeOtherState = new SimpleFollowLucyState();
 
     // Current state that we are in
     private BaseState currentState;
@@ -21,7 +21,7 @@ public class Story : MonoBehaviour {
     // Let's load the start state
     void Start()
     {
-        LoadState(StartState);
+        LoadState(LucyExplains);
 	}
 	
 	void Update () 

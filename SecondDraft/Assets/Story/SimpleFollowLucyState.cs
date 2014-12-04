@@ -32,7 +32,12 @@ public class SimpleFollowLucyState : BaseState
         timeInState += Time.deltaTime;
         float progress = timeInState / LucyAppearanceDelay;
         // TODO: Add Oliviers easing
-        script.Lucy.transform.position = this.lucyStartPosition + ((this.lucyStartPosition - script.Lucy.transform.position) * Ease.ioSinusoidal(progress));
+        if (progress < 1)
+        {
+            script.Lucy.transform.position = this.lucyStartPosition + ((this.TargetLocation.transform.position - lucyStartPosition) * Ease.ioSinusoidal(progress));
+            Debug.Log(progress + " " + script.Lucy.transform.position + Ease.ioSinusoidal(progress));
+        }
+
 
         Vector3 distance = TargetLocation.transform.position - script.Player.transform.position;
 
