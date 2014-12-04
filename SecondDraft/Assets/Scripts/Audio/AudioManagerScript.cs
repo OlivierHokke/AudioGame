@@ -1,0 +1,53 @@
+﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
+public class AudioManagerScript : MonoBehaviour {
+
+    public static AudioManagerScript instance;
+
+    public static AudioPlayer PlayAudio(AudioObject clip)
+    {
+        AudioPlayer ap = new AudioPlayer(clip);
+        instance.audioPlayers.Add(ap);
+        return ap;
+    }
+
+    public static SpeechPlayer PlaySpeech(SpeechObject speech)
+    {
+        SpeechPlayer sp = new SpeechPlayer(speech);
+        instance.audioPlayers.Add(sp);
+        return sp;
+    }
+
+    // ---------------- 
+
+    public GameObject audioSourcePrefab;
+
+    private List<AudioPlayer> audioPlayers = new List<AudioPlayer>();
+    private void onAudioFinished(AudioPlayer audio)
+    {
+        audioPlayers.Remove(audio);
+    }
+
+    void Awake()
+    {
+        instance = this;
+    }
+	
+	// Update is called once per frame
+	void Update () 
+    {
+        for (int i = 0; i < audioPlayers.Count; i++)
+        {
+            AudioPlayer ap = audioPlayers[i];
+            ap.Update(Time.deltaTime);
+            if (ap.removable)
+            {
+                audioPlayers.Remove(ap);
+                i--;
+            }
+        }
+	}
+}
+

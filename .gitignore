@@ -27,3 +27,17 @@ sysinfo.txt
 *.sln
 *.unityproj
 *.suo
+/SecondDraft/Assembly-CSharp.csproj
+/SecondDraft/Assembly-CSharp-firstpass.csproj
+/SecondDraft/Assembly-CSharp-firstpass-vs.csproj
+/SecondDraft/Assembly-CSharp-vs.csproj
+/SecondDraft/Assembly-UnityScript.unityproj
+/SecondDraft/Assembly-UnityScript-firstpass.unityproj
+/SecondDraft/Assembly-UnityScript-firstpass-vs.unityproj
+/SecondDraft/Assembly-UnityScript-vs.unityproj
+/SecondDraft/SecondDraft.sln
+/SecondDraft/SecondDraft-csharp.sln
+/SecondDraft/SecondDraft-csharp.v12.suo
+/SecondDraft/UnityVS.SecondDraft.CSharp.csproj
+/SecondDraft/UnityVS.SecondDraft.CSharp.Plugins.csproj
+/SecondDraft/UnityVS.SecondDraft.sln
