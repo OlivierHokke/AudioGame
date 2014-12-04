@@ -25,7 +25,7 @@ public class AudioPlayer
         this.audio = audio;
 
         // create audio source with clip
-        audioGO = (GameObject)GameObject.Instantiate(AudioManagerScript.instance.audioSourcePrefab);
+        audioGO = (GameObject)GameObject.Instantiate(AudioManager.instance.audioSourcePrefab);
         audioGO.transform.parent = audio.parent.transform;
         audioGO.transform.localPosition = Vector3.zero;
         audioAS = audioGO.GetComponent<AudioSource>();
@@ -40,9 +40,13 @@ public class AudioPlayer
 
         if (!audioAS.isPlaying)
         {
-            GameObject.Destroy(audioGO);
             finished = true;
             removable = true;
         }
+    }
+
+    public virtual void OnRemove()
+    {
+        GameObject.Destroy(audioGO);
     }
 }
