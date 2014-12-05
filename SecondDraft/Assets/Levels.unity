@@ -4590,7 +4590,7 @@ MonoBehaviour:
   Player: {fileID: 378899700}
   Lucy: {fileID: 1438888187}
   LucyExplains:
-    playableSound: {fileID: 8300000, guid: 83612f8b7bd5b1f47bcf487c9eb581a3, type: 3}
+    playableSound: {fileID: 8300000, guid: cf9215ca205bb4a9d94e6413a8b89d62, type: 3}
   InitialMove:
     TargetLocation: {fileID: 654400981}
     LucyAppearanceDelay: 2
@@ -4605,9 +4605,11 @@ MonoBehaviour:
     MotherSound: {fileID: 8300000, guid: 0fc97fbd29ebc4a678aa723a6b1534f6, type: 3}
     FatherSound: {fileID: 8300000, guid: e05163236ef2943ee80bb42bf64caa0b, type: 3}
     BrotherSound: {fileID: 8300000, guid: 90d1cf9a45403468d8ffbb1182aec141, type: 3}
+    LucySound: {fileID: 8300000, guid: 13f632c3f916d41e684e5fcfe378e000, type: 3}
     Mother: {fileID: 1222203104}
     Father: {fileID: 1799797404}
     Brother: {fileID: 2035692462}
+    Lucy: {fileID: 0}
     MaxRandomDelay: .5
   RemoveFlatDoor:
     TargetObject: {fileID: 893553411}
