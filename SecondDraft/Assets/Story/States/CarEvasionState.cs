@@ -12,6 +12,7 @@ public class CarEvasionState: SimpleFollowLucyState
 
 	// the sound to play, can be attached in unity editor
 	public AudioClip carBraking;
+	public AudioClip lucyWarning;
 	
 	// the object that is returned that we listen to, to check if sound is played
 	private AudioPlayer audioPlayer;
@@ -30,6 +31,8 @@ public class CarEvasionState: SimpleFollowLucyState
 				Debug.Log("Hey you are hitting a car");
 				AudioObject ao = new AudioObject(listCars[i].gameObject, carBraking);
 				AudioManager.PlayAudio(ao);
+				AudioObject ao1 = new AudioObject(script.Lucy.gameObject, lucyWarning);
+				AudioManager.PlayAudio(ao1);
 
 			} else {
 				listCars[i].changeSpeed(10f);
