@@ -8,11 +8,10 @@ using UnityEngine;
 /// Lucy flies to the target location and emits sounds to guide the player
 /// </summary>
 [Serializable]
-public class SimpleFollowLucyState : BaseState
+public class SimpleFollowLucyState : LucyRingingBellState
 {
     public GameObject TargetLocation;
     public BaseState NextState;
-	public float MaxRandomBellDelay = 0.5f;
     public AudioClip SuccesSound;
 
 
@@ -22,24 +21,21 @@ public class SimpleFollowLucyState : BaseState
     private float timeInState = 0f;
     private Vector3 lucyStartPosition;
     private Quaternion lucyStartRotation;
-	protected AudioPlayer LucyBellPlayer;
 
 
 
     public override void Start(Story script)
     {
+        base.Start(script);
+
         timeInState = 0f;
         lucyStartPosition = script.Lucy.transform.position;
         lucyStartRotation = script.Lucy.transform.rotation;
-		AudioObject lb = new AudioObject(script.Lucy, script.LucyBell, 1, Randomg.Range(0, MaxRandomBellDelay));
-		LucyBellPlayer = PlayWithRandomDelay (script.Lucy, script.LucyBell);
-
     }
 
     public override void Update(Story script)
     {
-        if (LucyBellPlayer.finished)
-            LucyBellPlayer = PlayWithRandomDelay(script.Lucy, script.LucyBell);
+        base.Update(script);
 
         timeInState += Time.deltaTime;
         float progress = timeInState / LucyAppearanceDelay;
@@ -55,27 +51,30 @@ public class SimpleFollowLucyState : BaseState
             script.Lucy.transform.rotation = TargetLocation.transform.rotation;
         }
 
-        Vector3 distance = TargetLocation.transform.position - script.Player.transform.position;
-        // we arrived at the target location, thus load our next state
-        if (distance.magnitude < 2f)
+        //Vector3 distance = TargetLocation.transform.position - script.Player.transform.position;
+        //// we arrived at the target location, thus load our next state
+        //if (distance.magnitude < 2f)
+        //{
+        //    if (SuccesSound != null)
+        //        AudioManager.PlayAudio(new AudioObject(TargetLocation, SuccesSound));
+        //    script.LoadState(NextState);
+        //}
+    }
+
+    public override void PlayerEnteredTrigger(Collider collider, Story script)
+    {
+        if (collider.gameObject == TargetLocation.gameObject)
         {
             if (SuccesSound != null)
                 AudioManager.PlayAudio(new AudioObject(TargetLocation, SuccesSound));
+
             script.LoadState(NextState);
         }
-
-
+        base.PlayerEnteredTrigger(collider, script);
     }
-
-	private AudioPlayer PlayWithRandomDelay(GameObject source, AudioClip clip)
-	{
-		AudioObject ao = new AudioObject(source, clip, 1, Randomg.Range(0, MaxRandomBellDelay));
-		return AudioManager.PlayAudio(ao);
-	}
-
 
     public override void End(Story script)
     {
-
+        base.End(script);
     }
 }

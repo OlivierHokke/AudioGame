@@ -57,6 +57,9 @@ public class Story : MonoBehaviour {
     /// </summary>
     public CarEvasionState EvadeFirstRoad = new CarEvasionState();
 
+    public StepwiseFollowLucyState WalkPastBuilding1 = new StepwiseFollowLucyState();
+    public StepwiseFollowLucyState WalkPastBuilding2 = new StepwiseFollowLucyState();
+
     /// <summary>
     /// Lucy explains to the player that he/she has to cross some more roads
     /// </summary>
@@ -93,10 +96,19 @@ public class Story : MonoBehaviour {
 		RemoveElevatorDoor.NextState = ElevatorState;
 		ElevatorState.NextState = LucyExplainsCars;
         LucyExplainsCars.NextState = EvadeFirstRoad;
-        EvadeFirstRoad.NextState = LucyExplainsToCrossOtherRoad;
+        EvadeFirstRoad.NextState = WalkPastBuilding1;
+        WalkPastBuilding1.NextState = WalkPastBuilding2;
+        WalkPastBuilding2.NextState = LucyExplainsToCrossOtherRoad;
         LucyExplainsToCrossOtherRoad.NextState = EvadeRoundaboutCars;
         EvadeRoundaboutCars.NextState = PortalState;
+
+        Player.GetComponent<PlayerController>().TriggerEntered += OnPlayerEnteredTrigger;
 	}
+
+    void OnPlayerEnteredTrigger(object sender, TriggerEventArgs e)
+    {
+        currentState.PlayerEnteredTrigger(e.Trigger, this);
+    }
 	
 	void Update () 
     {

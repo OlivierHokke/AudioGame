@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class PlayerController : MonoBehaviour {
 
@@ -9,6 +10,8 @@ public class PlayerController : MonoBehaviour {
     public float maxLookVertical = 25f;
     public float minLookVertical = -25f;
     public float currentLookVertical = 0f;
+
+    public event EventHandler<TriggerEventArgs> TriggerEntered;
 	
 	// Update is called once per frame
 	void Update ()
@@ -26,6 +29,12 @@ public class PlayerController : MonoBehaviour {
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, 1f);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (TriggerEntered != null)
+            TriggerEntered(this, new TriggerEventArgs(other));
     }
 
 

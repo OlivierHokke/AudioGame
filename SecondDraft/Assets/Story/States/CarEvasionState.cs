@@ -9,6 +9,5 @@ public class CarEvasionState: SimpleFollowLucyState
     public override void Update(Story script)
     {
         base.Update(script);
-
     }
 }
