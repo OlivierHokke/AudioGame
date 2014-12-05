@@ -57,7 +57,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106709}
+  m_LocalRotation: {x: 0, y: -.707106888, z: 0, w: .707106769}
   m_LocalPosition: {x: 7.80000019, y: 2.03999996, z: -1.26999998}
   m_LocalScale: {x: 2.57415247, y: 1, z: .473654896}
   m_Children: []
@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 78.6999969, y: 0, z: -84.5999985}
+  m_LocalPosition: {x: 78.6999969, y: -.600000024, z: -84.5999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -139,7 +139,7 @@ BoxCollider:
   m_GameObject: {fileID: 100000}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -166,10 +166,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041f713ea5f6e49438fe088ec8528527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 11400000, guid: 7bc69e29ef1a34aedbd32d8336386d62, type: 2}
+  car: {fileID: 11400000, guid: 66363ddfec70c4859924a093e915b13c, type: 2}
   spawnPosition: {fileID: 100000}
   carLiveArea: {fileID: 100004}
-  carSpeed: 20
+  carSpeed: 10
+  street: {fileID: 0}
+  isActive: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

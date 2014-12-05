@@ -83,11 +83,11 @@ public class Story : MonoBehaviour {
         // Define for some states that require it what the next state is.
         LucyExplains1.NextState = InitialMove;
         InitialMove.NextState = SecondMove;
-        SecondMove.NextState = LucyExplains2;
+        SecondMove.NextState = RemoveDoor;
         // Level 1
-        LucyExplains2.NextState = RemoveDoor;
         RemoveDoor.NextState = ParentRoomState;
-		ParentRoomState.NextState = RemoveFlatDoor;
+        ParentRoomState.NextState = LucyExplains2;
+        LucyExplains2.NextState = RemoveFlatDoor;
 		RemoveFlatDoor.NextState = FollowLucyToElevator;
 		FollowLucyToElevator.NextState = RemoveElevatorDoor;
 		RemoveElevatorDoor.NextState = ElevatorState;
