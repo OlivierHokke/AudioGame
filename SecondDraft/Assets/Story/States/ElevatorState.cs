@@ -28,9 +28,15 @@ public class ElevatorState : BaseState
 
 	public override void End(Story script) {
         script.Player.GetComponent<PlayerController>().LockMovement = false;
-		script.Player.transform.position = targetPlayerPosition.transform.position;
-		script.Player.transform.rotation = targetPlayerPosition.transform.rotation;
-        script.Lucy.transform.position = targetLucyPosition.transform.position;
-        script.Lucy.transform.rotation = targetLucyPosition.transform.rotation;
+        if (targetPlayerPosition != null)
+        {
+            script.Player.transform.position = targetPlayerPosition.transform.position;
+            script.Player.transform.rotation = targetPlayerPosition.transform.rotation;
+        }
+        if (targetLucyPosition != null)
+        {
+            script.Lucy.transform.position = targetLucyPosition.transform.position;
+            script.Lucy.transform.rotation = targetLucyPosition.transform.rotation;
+        }
 	}
 }
