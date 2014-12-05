@@ -30,10 +30,17 @@ public class CarScript : MonoBehaviour {
 
 	void OnTriggerExit(Collider other) {
 		if (other == generator.carLiveArea.collider) {
+			// If a car isn't in the game anymore we take if off the car list
+			generator.removeCarAt(0);
 			Destroy (gameObject);
+
 		} else if (other.tag == "Player" || other.tag == "Car") {
 			speed = initialSpeed;
 			generator.SetActive(true);
 		}
+	}
+
+	public void changeSpeed(float newSpeed){
+		this.speed = newSpeed;
 	}
 }
