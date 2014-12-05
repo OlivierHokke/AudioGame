@@ -13,6 +13,7 @@ public class SimpleFollowLucyState : BaseState
     public GameObject TargetLocation;
     public BaseState NextState;
 	public float MaxRandomBellDelay = 0.5f;
+    public AudioClip SuccesSound;
 
 
     [Tooltip("Time it takes lucy to fly to the new location")]
@@ -58,6 +59,8 @@ public class SimpleFollowLucyState : BaseState
         // we arrived at the target location, thus load our next state
         if (distance.magnitude < 2f)
         {
+            if (SuccesSound != null)
+                AudioManager.PlayAudio(new AudioObject(TargetLocation, SuccesSound));
             script.LoadState(NextState);
         }
 

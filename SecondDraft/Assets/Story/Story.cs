@@ -14,7 +14,7 @@ public class Story : MonoBehaviour {
     /// Lucy explains what happened to the player
     /// </summary>
     [Header("Tutorial")]
-    public LucyExplainingState LucyExplains = new LucyExplainingState();
+    public LucyExplainingState LucyExplains1 = new LucyExplainingState();
     /// <summary>
     /// Lucy shows moves a bit to teach the player movement controls
     /// </summary>
@@ -23,6 +23,7 @@ public class Story : MonoBehaviour {
     /// Lucy moves to the door, inviting the player to open it
     /// </summary>
     public SimpleFollowLucyState SecondMove = new SimpleFollowLucyState();
+    public LucyExplainingState LucyExplains2 = new LucyExplainingState();
     /// <summary>
     /// The door is opened when the player moved to it
     /// </summary>
@@ -77,18 +78,24 @@ public class Story : MonoBehaviour {
     // Load the start state
     void Start()
     {
-        LoadState(LucyExplains);
+        LoadState(LucyExplains1);
 
         // Define for some states that require it what the next state is.
+        LucyExplains1.NextState = InitialMove;
         InitialMove.NextState = SecondMove;
-        SecondMove.NextState = RemoveDoor;
+        SecondMove.NextState = LucyExplains2;
         // Level 1
+        LucyExplains2.NextState = RemoveDoor;
         RemoveDoor.NextState = ParentRoomState;
 		ParentRoomState.NextState = RemoveFlatDoor;
 		RemoveFlatDoor.NextState = FollowLucyToElevator;
 		FollowLucyToElevator.NextState = RemoveElevatorDoor;
 		RemoveElevatorDoor.NextState = ElevatorState;
 		ElevatorState.NextState = LucyExplainsCars;
+        LucyExplainsCars.NextState = EvadeFirstRoad;
+        EvadeFirstRoad.NextState = LucyExplainsToCrossOtherRoad;
+        LucyExplainsToCrossOtherRoad.NextState = EvadeRoundaboutCars;
+        EvadeRoundaboutCars.NextState = PortalState;
 	}
 	
 	void Update () 

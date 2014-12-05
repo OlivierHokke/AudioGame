@@ -8,6 +8,7 @@ using UnityEngine;
 public class LucyExplainingState : BaseState
 {
     public bool Skip = false;
+    public BaseState NextState;
 
     // the sound to play, can be attached in unity editor
     public AudioClip playableSound;
@@ -19,6 +20,11 @@ public class LucyExplainingState : BaseState
     {
         if (!Skip)
         {
+            if (playableSound == null)
+            {
+                Skip = true;
+                throw new Exception("Error: No sound set for LucyExplainingState! Skipping state...");
+            }
             AudioObject ao = new AudioObject(script.Lucy, playableSound);
             audioPlayer = AudioManager.PlayAudio(ao);
         }
@@ -32,7 +38,7 @@ public class LucyExplainingState : BaseState
         // wait untill sound is finished, then continue
         if (Skip || audioPlayer.finished)
         {
-            script.LoadState(script.InitialMove);
+            script.LoadState(NextState);
         }
     }
 

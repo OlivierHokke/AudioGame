@@ -10,7 +10,7 @@ public class FollowLucyWithTalkingParentsState : SimpleFollowLucyState
     public AudioClip MotherSound;
     public AudioClip FatherSound;
     public AudioClip BrotherSound;
-	public AudioClip LucySound;
+    //public AudioClip LucySound;
 
     public GameObject Mother;
     public GameObject Father;
@@ -21,7 +21,7 @@ public class FollowLucyWithTalkingParentsState : SimpleFollowLucyState
     private AudioPlayer motherPlayer;
     private AudioPlayer fatherPlayer;
     private AudioPlayer brotherPlayer;
-	private AudioPlayer LucyPlayer;
+    //private AudioPlayer LucyPlayer;
 
 
     public override void Start(Story script)
@@ -29,12 +29,12 @@ public class FollowLucyWithTalkingParentsState : SimpleFollowLucyState
         AudioObject m = new AudioObject(script.Lucy, MotherSound, 1, Randomg.Range(0, MaxRandomDelay));
         AudioObject f = new AudioObject(script.Lucy, FatherSound, 1, Randomg.Range(0, MaxRandomDelay));
         AudioObject b = new AudioObject(script.Lucy, BrotherSound, 1, Randomg.Range(0, MaxRandomDelay));
-		AudioObject l = new AudioObject(script.Lucy, LucySound, 1, Randomg.Range(0, MaxRandomDelay));
+        //AudioObject l = new AudioObject(script.Lucy, LucySound, 1, Randomg.Range(0, MaxRandomDelay));
 
         motherPlayer = PlayWithRandomDelay(Mother, MotherSound);
         fatherPlayer = PlayWithRandomDelay(Father, FatherSound);
         brotherPlayer = PlayWithRandomDelay(Brother, BrotherSound);
-		LucyPlayer = PlayWithRandomDelay (script.Lucy, LucySound);
+        //LucyPlayer = PlayWithRandomDelay (script.Lucy, LucySound);
 
         base.Start(script);
     }
