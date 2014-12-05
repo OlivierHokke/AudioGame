@@ -70,6 +70,9 @@ public class Story : MonoBehaviour {
     public CarEvasionState EvadeFirstRoadCars = new CarEvasionState();
 	public CarEvasionState EvadeSecondRoadCars = new CarEvasionState();
 
+    public StepwiseFollowLucyState WalkToPortal = new StepwiseFollowLucyState();
+
+    public LucyExplainingState LucyExplainsPortal = new LucyExplainingState();
     /// <summary>
     /// The player reached the end of the level and is transported to a magical forest.
     /// </summary>
@@ -102,7 +105,9 @@ public class Story : MonoBehaviour {
         WalkPastBuilding2.NextState = LucyExplainsToCrossOtherRoad;
         LucyExplainsToCrossOtherRoad.NextState = EvadeFirstRoadCars;
 		EvadeFirstRoadCars.NextState = EvadeSecondRoadCars;
-		EvadeSecondRoadCars.NextState=PortalState;
+		EvadeSecondRoadCars.NextState=WalkToPortal;
+        WalkToPortal.NextState = LucyExplainsPortal;
+        LucyExplainsPortal.NextState = PortalState;
 
         Player.GetComponent<PlayerController>().TriggerEntered += OnPlayerEnteredTrigger;
 	}
@@ -114,7 +119,8 @@ public class Story : MonoBehaviour {
 	
 	void Update () 
     {
-        currentState.Update(this);
+        if (currentState != null)
+            currentState.Update(this);
 	}
 
     public void LoadState(BaseState state)
