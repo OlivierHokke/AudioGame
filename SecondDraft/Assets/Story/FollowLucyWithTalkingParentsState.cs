@@ -15,7 +15,6 @@ public class FollowLucyWithTalkingParentsState : SimpleFollowLucyState
     public GameObject Mother;
     public GameObject Father;
     public GameObject Brother;
-	public GameObject Lucy;
 
     public float MaxRandomDelay = 0.5f;
 
@@ -31,11 +30,14 @@ public class FollowLucyWithTalkingParentsState : SimpleFollowLucyState
         AudioObject f = new AudioObject(script.Lucy, FatherSound, 1, Randomg.Range(0, MaxRandomDelay));
         AudioObject b = new AudioObject(script.Lucy, BrotherSound, 1, Randomg.Range(0, MaxRandomDelay));
 		AudioObject l = new AudioObject(script.Lucy, LucySound, 1, Randomg.Range(0, MaxRandomDelay));
+		AudioObject lb = new AudioObject(script.Lucy, LucyBell, 1, Randomg.Range(0, MaxRandomDelay));
 
         motherPlayer = PlayWithRandomDelay(Mother, MotherSound);
         fatherPlayer = PlayWithRandomDelay(Father, FatherSound);
         brotherPlayer = PlayWithRandomDelay(Brother, BrotherSound);
 		LucyPlayer = PlayWithRandomDelay (Lucy, LucySound);
+		//LucyBellPlayer = PlayWithRandomDelay (Lucy, LucyBell);
+
 
         base.Start(script);
     }
@@ -48,11 +50,17 @@ public class FollowLucyWithTalkingParentsState : SimpleFollowLucyState
 
     public override void Update(Story script)
     {
-		/*
+
         if (motherPlayer.finished) motherPlayer = PlayWithRandomDelay(Mother, MotherSound);
         if (fatherPlayer.finished) fatherPlayer = PlayWithRandomDelay(Father, FatherSound);
         if (brotherPlayer.finished) brotherPlayer = PlayWithRandomDelay(Brother, BrotherSound);
-		*/
+
+		//LucyBellPlayer = PlayWithRandomDelay (Lucy, LucyBell);
+
+	if (LucyBellPlayer!=null){
+			LucyBellPlayer = PlayWithRandomDelay (Lucy, LucyBell);
+		}
+
         base.Update(script);
     }
 
