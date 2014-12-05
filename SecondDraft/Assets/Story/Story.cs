@@ -77,6 +77,8 @@ public class Story : MonoBehaviour {
     /// The player reached the end of the level and is transported to a magical forest.
     /// </summary>
     public PortalState PortalState = new PortalState();
+
+    public EndState EndState = new EndState();
  
        
     // Current state that we are in
@@ -108,6 +110,7 @@ public class Story : MonoBehaviour {
 		EvadeSecondRoadCars.NextState=WalkToPortal;
         WalkToPortal.NextState = LucyExplainsPortal;
         LucyExplainsPortal.NextState = PortalState;
+        PortalState.NextState = EndState;
 
         Player.GetComponent<PlayerController>().TriggerEntered += OnPlayerEnteredTrigger;
 	}
