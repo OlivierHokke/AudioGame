@@ -12,10 +12,7 @@ public class SimpleFollowLucyState : BaseState
 {
     public GameObject TargetLocation;
     public BaseState NextState;
-	public GameObject Lucy;
 	public float MaxRandomBellDelay = 0.5f;
-	public AudioClip LucyBell;
-
 
 
     [Tooltip("Time it takes lucy to fly to the new location")]
@@ -33,15 +30,15 @@ public class SimpleFollowLucyState : BaseState
         timeInState = 0f;
         lucyStartPosition = script.Lucy.transform.position;
         lucyStartRotation = script.Lucy.transform.rotation;
-		AudioObject lb = new AudioObject(script.Lucy, LucyBell, 1, Randomg.Range(0, MaxRandomBellDelay));
-		LucyBellPlayer = PlayWithRandomDelay (Lucy, LucyBell);
+		AudioObject lb = new AudioObject(script.Lucy, script.LucyBell, 1, Randomg.Range(0, MaxRandomBellDelay));
+		LucyBellPlayer = PlayWithRandomDelay (script.Lucy, script.LucyBell);
 
     }
 
     public override void Update(Story script)
     {
-
-		LucyBellPlayer = PlayWithRandomDelay (Lucy, LucyBell);
+        if (LucyBellPlayer.finished)
+            LucyBellPlayer = PlayWithRandomDelay(script.Lucy, script.LucyBell);
 
         timeInState += Time.deltaTime;
         float progress = timeInState / LucyAppearanceDelay;

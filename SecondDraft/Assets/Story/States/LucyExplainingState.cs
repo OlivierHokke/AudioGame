@@ -7,6 +7,8 @@ using UnityEngine;
 [Serializable]
 public class LucyExplainingState : BaseState
 {
+    public bool Skip = false;
+
     // the sound to play, can be attached in unity editor
     public AudioClip playableSound;
 
@@ -14,9 +16,12 @@ public class LucyExplainingState : BaseState
     private AudioPlayer audioPlayer;
 
     public override void Start(Story script)
-    { 
-        AudioObject ao = new AudioObject(script.Lucy, playableSound);
-        audioPlayer = AudioManager.PlayAudio(ao);
+    {
+        if (!Skip)
+        {
+            AudioObject ao = new AudioObject(script.Lucy, playableSound);
+            audioPlayer = AudioManager.PlayAudio(ao);
+        }
 
         // set the player's compass to target lucy
         PlayerCompass.SetTarget(script.Lucy);
@@ -25,7 +30,7 @@ public class LucyExplainingState : BaseState
     public override void Update(Story script)
     {
         // wait untill sound is finished, then continue
-        if (audioPlayer.finished)
+        if (Skip || audioPlayer.finished)
         {
             script.LoadState(script.InitialMove);
         }

@@ -4,8 +4,11 @@ using System.Collections.Generic;
 
 public class Story : MonoBehaviour {
 
+    [Header("Important objects")]
     public GameObject Player;
     public GameObject Lucy;
+    [Header("Important sounds")]
+    public AudioClip LucyBell;
 
     /// <summary>
     /// Lucy explains what happened to the player
