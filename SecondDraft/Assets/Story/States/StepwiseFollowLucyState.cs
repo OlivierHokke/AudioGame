@@ -16,13 +16,13 @@ public class StepwiseFollowLucyState : LucyRingingBellState
     public float maxStepDistance = 25f;
 
     [Tooltip("Time it takes lucy to fly to the new location")]
-    public float LucyStepFlyTime = 5f;
+    public float LucyStepFlyTime = 2f;
 
     private float lucyFlyTime = 0f;
     private PositionRotation LucyLastPosRot;
 
-    public Queue<PositionRotation> steps = new Queue<PositionRotation>();
-    public GameObject currentTarget;
+    private Queue<PositionRotation> steps = new Queue<PositionRotation>();
+    private GameObject currentTarget;
 
     public override void Start(Story script)
     {
