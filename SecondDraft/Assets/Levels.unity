@@ -5753,7 +5753,7 @@ MonoBehaviour:
   Lucy: {fileID: 1438888187}
   LucyBell: {fileID: 8300000, guid: eb066a4523c4d9d4cb0b95b229c0bc18, type: 3}
   LucyExplains1:
-    Skip: 1
+    Skip: 0
     playableSound: {fileID: 8300000, guid: cf9215ca205bb4a9d94e6413a8b89d62, type: 3}
   InitialMove:
     MaxRandomBellDelay: .5
@@ -5763,10 +5763,10 @@ MonoBehaviour:
   SecondMove:
     MaxRandomBellDelay: .5
     TargetLocation: {fileID: 647160121}
-    SuccesSound: {fileID: 0}
+    SuccesSound: {fileID: 8300000, guid: 83612f8b7bd5b1f47bcf487c9eb581a3, type: 3}
     LucyAppearanceDelay: 2
   LucyExplains2:
-    Skip: 1
+    Skip: 0
     playableSound: {fileID: 8300000, guid: 13f632c3f916d41e684e5fcfe378e000, type: 3}
   RemoveDoor:
     TargetObject: {fileID: 307997353}
@@ -5796,7 +5796,7 @@ MonoBehaviour:
     targetLucyPosition: {fileID: 649924019}
     elevatorSound: {fileID: 8300000, guid: 58343a7cff18e41c98d5d4afde274ec9, type: 3}
   LucyExplainsCars:
-    Skip: 1
+    Skip: 0
     playableSound: {fileID: 8300000, guid: 300a0b67b92ba429ebc34bcb819caabe, type: 3}
   EvadeFirstRoad:
     MaxRandomBellDelay: .5
@@ -5809,14 +5809,14 @@ MonoBehaviour:
   WalkPastBuilding1:
     MaxRandomBellDelay: .5
     TargetLocation: {fileID: 1597091515}
-    SuccesSound: {fileID: 0}
+    SuccesSound: {fileID: 8300000, guid: 83612f8b7bd5b1f47bcf487c9eb581a3, type: 3}
     LucyEventPrefab: {fileID: 100000, guid: 772288348916a114fb961e5437deebcf, type: 2}
     maxStepDistance: 25
     LucyStepFlyTime: 5
   WalkPastBuilding2:
     MaxRandomBellDelay: .5
     TargetLocation: {fileID: 1911813122}
-    SuccesSound: {fileID: 0}
+    SuccesSound: {fileID: 8300000, guid: 83612f8b7bd5b1f47bcf487c9eb581a3, type: 3}
     LucyEventPrefab: {fileID: 100000, guid: 772288348916a114fb961e5437deebcf, type: 2}
     maxStepDistance: 25
     LucyStepFlyTime: 5
@@ -5826,7 +5826,7 @@ MonoBehaviour:
   EvadeFirstRoadCars:
     MaxRandomBellDelay: .5
     TargetLocation: {fileID: 1446391181}
-    SuccesSound: {fileID: 0}
+    SuccesSound: {fileID: 8300000, guid: 83612f8b7bd5b1f47bcf487c9eb581a3, type: 3}
     LucyAppearanceDelay: 5
     generator: {fileID: 1896195561}
     carBraking: {fileID: 8300000, guid: 914afc29ee4ac4cf99d401ed8dd2cc9c, type: 3}
@@ -5834,7 +5834,7 @@ MonoBehaviour:
   EvadeSecondRoadCars:
     MaxRandomBellDelay: .5
     TargetLocation: {fileID: 273513871}
-    SuccesSound: {fileID: 0}
+    SuccesSound: {fileID: 8300000, guid: 83612f8b7bd5b1f47bcf487c9eb581a3, type: 3}
     LucyAppearanceDelay: 5
     generator: {fileID: 391341157}
     carBraking: {fileID: 8300000, guid: 914afc29ee4ac4cf99d401ed8dd2cc9c, type: 3}
