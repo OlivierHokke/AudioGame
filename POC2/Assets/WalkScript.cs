@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class WalkScript : MonoBehaviour {
+
+    public const GroundType DEFAULT_GROUND_TYPE = GroundType.PAVEMENT;
     
-    public GameObject footStep;
     public Vector3 localWalkingDirection = Vector3.forward;
     public Vector3 distanceToGround = Vector3.down * 2;
     public float feetReachForward = 0.4f;
@@ -13,6 +15,19 @@ public class WalkScript : MonoBehaviour {
     [Range(0.0F, 1.0F)]
     [Tooltip("Adds a random number to each step length, from a uniform distribution with range [-r, r]")]
     public float randomness = 0.01f;
+
+    [Header("Ground type")]
+    public List<GoundTypeToSound> sounds;
+    public GroundType currentGroundType;
+    public FootStepScript currentFootsteps;
+
+    [System.Serializable]
+    public class GoundTypeToSound
+    {
+        public GroundType ground;
+        public FootStepScript sounds;
+    }
+
 
     private float toStep = 0f;
     private Foot passingFoot = Foot.LEFT;
@@ -30,10 +45,13 @@ public class WalkScript : MonoBehaviour {
         previousPosition = transform.position;
         direction = transform.TransformDirection(localWalkingDirection).normalized;
         toStep = distancePerStep / 0.5f;
+        currentGroundType = DEFAULT_GROUND_TYPE;
 	}
 	
 	void FixedUpdate () 
     {
+        DetermineGroundType();
+
         Vector3 positionNow = transform.position;
         Vector3 moved = positionNow - previousPosition;
         float distanceMoved = moved.magnitude;
@@ -71,6 +89,28 @@ public class WalkScript : MonoBehaviour {
 
 	}
 
+    void DetermineGroundType()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position - Vector3.up * 100f, Vector3.up, out hit, 200f))
+        {
+            GroundTypeArea gta = hit.collider.GetComponent<GroundTypeArea>();
+            currentGroundType = gta.groundType;
+        }
+        else
+        {
+            currentGroundType = DEFAULT_GROUND_TYPE;
+        }
+
+        foreach (GoundTypeToSound gtts in sounds)
+        {
+            if (gtts.ground == currentGroundType)
+            {
+                currentFootsteps = gtts.sounds;
+            }
+        }
+    }
+
     void setNewFootstepTimer()
     {
         toStep += distancePerStep + Randomg.Symmetrical(randomness);
@@ -85,7 +125,7 @@ public class WalkScript : MonoBehaviour {
     {
         Vector3 side = direction.rotatey((passingFoot == Foot.LEFT) ? 90 : -90);
 
-        GameObject go = Pool.get(footStep, transform.position + distanceToGround + direction * feetReachForward + side * feetGapWidth * 0.5f);
+        GameObject go = Pool.get(currentFootsteps.gameObject, transform.position + distanceToGround + direction * feetReachForward + side * feetGapWidth * 0.5f);
         go.GetComponent<FootStepScript>().Initialize();
 
         passingFoot = (passingFoot == Foot.LEFT) ? Foot.RIGHT : Foot.LEFT;
