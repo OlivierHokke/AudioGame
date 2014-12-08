@@ -9,7 +9,7 @@ using System.Text;
 [Serializable]
 public class CarGeneratorScript : MonoBehaviour {
 
-	public CarScript car;
+	public GameObject car;
 	public GameObject spawnPosition;
 	public GameObject carLiveArea;
 	public float carSpeed;
@@ -38,10 +38,11 @@ public class CarGeneratorScript : MonoBehaviour {
 
 		if (timeUntilNextCar < 0 && isActive) {
 			timeUntilNextCar = Randomg.Range(MIN_RANDOM_DELAY, MAX_RANDOM_DELAY);
-			CarScript newCar = Instantiate(car, spawnPosition.transform.position, spawnPosition.transform.rotation) as CarScript;
-			newCar.Init(this, carSpeed);
-			newCar.transform.parent = street.transform;
-			listCarsActive.Add (newCar);
+            GameObject carGO = Instantiate(car, spawnPosition.transform.position, spawnPosition.transform.rotation) as GameObject;
+            CarScript carCS = carGO.GetComponent<CarScript>();
+            carCS.Init(this, carSpeed);
+            carGO.transform.parent = street.transform;
+            listCarsActive.Add(carCS);
 		}
 	}
 
