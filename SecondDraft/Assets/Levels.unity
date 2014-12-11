@@ -2385,8 +2385,7 @@ Prefab:
     - target: {fileID: 11400000, guid: 447c25bb1c7554158bb06a70200245c6, type: 2}
       propertyPath: car
       value: 
-      objectReference: {fileID: 11400000, guid: 66363ddfec70c4859924a093e915b13c,
-        type: 2}
+      objectReference: {fileID: 100012, guid: 66363ddfec70c4859924a093e915b13c, type: 2}
     - target: {fileID: 100002, guid: 447c25bb1c7554158bb06a70200245c6, type: 2}
       propertyPath: m_Name
       value: ThirdCarGenerator
@@ -3446,7 +3445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041f713ea5f6e49438fe088ec8528527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 0}
+  car: {fileID: 100012, guid: 66363ddfec70c4859924a093e915b13c, type: 2}
   spawnPosition: {fileID: 1344174525}
   carLiveArea: {fileID: 505153441}
   carSpeed: 15
@@ -8692,7 +8691,7 @@ MonoBehaviour:
   Lucy: {fileID: 1438888187}
   LucyBell: {fileID: 8300000, guid: eb066a4523c4d9d4cb0b95b229c0bc18, type: 3}
   LucyExplains1:
-    Skip: 0
+    Skip: 1
     playableSound: {fileID: 8300000, guid: cf9215ca205bb4a9d94e6413a8b89d62, type: 3}
   InitialMove:
     MaxRandomBellDelay: .5
@@ -8705,7 +8704,7 @@ MonoBehaviour:
     SuccesSound: {fileID: 8300000, guid: 83612f8b7bd5b1f47bcf487c9eb581a3, type: 3}
     LucyAppearanceDelay: 2
   LucyExplains2:
-    Skip: 0
+    Skip: 1
     playableSound: {fileID: 8300000, guid: 13f632c3f916d41e684e5fcfe378e000, type: 3}
   RemoveDoor:
     TargetObject: {fileID: 307997353}
@@ -8735,7 +8734,7 @@ MonoBehaviour:
     targetLucyPosition: {fileID: 649924019}
     elevatorSound: {fileID: 8300000, guid: 58343a7cff18e41c98d5d4afde274ec9, type: 3}
   LucyExplainsCars:
-    Skip: 0
+    Skip: 1
     playableSound: {fileID: 8300000, guid: 300a0b67b92ba429ebc34bcb819caabe, type: 3}
   EvadeFirstRoad:
     MaxRandomBellDelay: .5
@@ -13888,8 +13887,7 @@ Prefab:
     - target: {fileID: 11400000, guid: 447c25bb1c7554158bb06a70200245c6, type: 2}
       propertyPath: car
       value: 
-      objectReference: {fileID: 11400000, guid: 66363ddfec70c4859924a093e915b13c,
-        type: 2}
+      objectReference: {fileID: 100012, guid: 66363ddfec70c4859924a093e915b13c, type: 2}
     - target: {fileID: 11400000, guid: 447c25bb1c7554158bb06a70200245c6, type: 2}
       propertyPath: carSpeed
       value: 15
@@ -15959,7 +15957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041f713ea5f6e49438fe088ec8528527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 0}
+  car: {fileID: 100012, guid: 66363ddfec70c4859924a093e915b13c, type: 2}
   spawnPosition: {fileID: 2113517528}
   carLiveArea: {fileID: 257596066}
   carSpeed: 15
