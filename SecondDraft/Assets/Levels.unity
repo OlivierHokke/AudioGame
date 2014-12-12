@@ -9244,7 +9244,7 @@ MonoBehaviour:
   ElevatorState:
     targetPlayerPosition: {fileID: 866151723}
     targetLucyPosition: {fileID: 649924019}
-    elevatorSound: {fileID: 8300000, guid: 58343a7cff18e41c98d5d4afde274ec9, type: 3}
+    sound: {fileID: 8300000, guid: 58343a7cff18e41c98d5d4afde274ec9, type: 3}
   LucyExplainsCars:
     Skip: 1
     playableSound: {fileID: 8300000, guid: 300a0b67b92ba429ebc34bcb819caabe, type: 3}
@@ -9306,17 +9306,20 @@ MonoBehaviour:
     Skip: 0
     playableSound: {fileID: 8300000, guid: 83612f8b7bd5b1f47bcf487c9eb581a3, type: 3}
   SingPuzzle:
-    Monster1: {fileID: 0}
-    Monster2: {fileID: 0}
-    Monster3: {fileID: 0}
-    Ruby: {fileID: 0}
-    playableSoundMonster1: {fileID: 0}
-    playableSoundMonster2: {fileID: 0}
-    playableSoundMonster3: {fileID: 0}
-    playableSoundRuby: {fileID: 0}
+    Monster1: {fileID: 179509352}
+    Monster2: {fileID: 786942741}
+    Monster3: {fileID: 752428692}
+    Ruby: {fileID: 486269475}
+    playableSoundMonster1: {fileID: 8300000, guid: df5ecf7a3c3514ea2a16cb03cf751456,
+      type: 3}
+    playableSoundMonster2: {fileID: 8300000, guid: 71dc568742e2f460cbe7274711bd9375,
+      type: 3}
+    playableSoundMonster3: {fileID: 8300000, guid: 2ce822648aa7e486bae293f3f5c1e561,
+      type: 3}
+    playableSoundRuby: {fileID: 8300000, guid: 7c7b80d4eb3ef499b8846ef90298ee8b, type: 3}
     playableSoundLucyWarning: {fileID: 0}
   RubyRemovesDoorState:
-    TargetObject: {fileID: 0}
+    TargetObject: {fileID: 548368509}
   FollowLucyToMines1:
     MaxRandomBellDelay: .5
     TargetLocation: {fileID: 0}

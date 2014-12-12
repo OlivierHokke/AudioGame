@@ -45,7 +45,7 @@ public class Story : MonoBehaviour {
     /// <summary>
     /// The player is in the elevator, waiting to get to the street
     /// </summary>
-    public ElevatorState ElevatorState = new ElevatorState();
+    public TeleportState ElevatorState = new TeleportState();
 
     /// <summary>
     /// Lucy explains the cars
