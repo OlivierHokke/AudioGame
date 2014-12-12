@@ -42,12 +42,25 @@ public class SingPuzzleState : BaseState
 		var distanceMonster2 = script.Lucy.transform.position - Monster2.transform.position;
 		var distanceMonster3 = script.Lucy.transform.position - Monster3.transform.position;
 		var distanceRuby = script.Lucy.transform.position - Ruby.transform.position;
+
+
+		AudioObject ao = new AudioObject(script.Lucy.gameObject, playableSoundLucyWarning);
+		AudioObject ao1 = new AudioObject(Monster1, playableSoundMonster1);
+		AudioObject ao2 = new AudioObject(Monster2, playableSoundMonster2);
+		AudioObject ao3 = new AudioObject(Monster3, playableSoundMonster3);
+		AudioObject ao4 = new AudioObject(Ruby, playableSoundRuby);
+		AudioManager.PlayAudio(ao1);
+		AudioManager.PlayAudio(ao2);
+		AudioManager.PlayAudio(ao3);
+		AudioManager.PlayAudio(ao4);
+
+		
 		if (distanceMonster1.magnitude < 5f) {
-
+			AudioManager.PlayAudio(ao);
 		} else if (distanceMonster2.magnitude < 5f) {
-
+			AudioManager.PlayAudio(ao);
 		} else if (distanceMonster3.magnitude < 5f) {
-
+			AudioManager.PlayAudio(ao);
 		} else if (distanceRuby.magnitude < 5f) {
 			script.LoadState(NextState);
 		}
