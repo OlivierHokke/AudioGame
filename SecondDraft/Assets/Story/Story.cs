@@ -78,6 +78,17 @@ public class Story : MonoBehaviour {
     /// </summary>
     public PortalState PortalState = new PortalState();
 
+    [Header("Level 2")]
+    public LucyExplainingState ExplainsFortress = new LucyExplainingState();
+    public SingPuzzleState SingPuzzle = new SingPuzzleState();
+    public CharacterExplainingState RubyExplainsSomething = new CharacterExplainingState();
+    public StepwiseFollowLucyState FollowLucyToMines1 = new StepwiseFollowLucyState();
+    public StepwiseFollowLucyState FollowLucyToMines2 = new StepwiseFollowLucyState();
+    public MinesPuzzleState MinesPuzzle = new MinesPuzzleState();
+    public StepwiseFollowLucyState FollowLucyToBoss = new StepwiseFollowLucyState();
+    public LucyExplainingState LucyExplainsBoss = new LucyExplainingState();
+    public FinalBossState FinalBoss = new FinalBossState();
+    public LucyExplainingState LucyExplainsYouWin = new LucyExplainingState();
     public EndState EndState = new EndState();
  
        
@@ -110,7 +121,18 @@ public class Story : MonoBehaviour {
 		EvadeSecondRoadCars.NextState=WalkToPortal;
         WalkToPortal.NextState = LucyExplainsPortal;
         LucyExplainsPortal.NextState = PortalState;
-        PortalState.NextState = EndState;
+        PortalState.NextState = ExplainsFortress;
+        // Level 2
+        ExplainsFortress.NextState = SingPuzzle;
+        SingPuzzle.NextState = RubyExplainsSomething;
+        RubyExplainsSomething.NextState = FollowLucyToMines1;
+        FollowLucyToMines1.NextState = FollowLucyToMines2;
+        FollowLucyToMines2.NextState = MinesPuzzle;
+        MinesPuzzle.NextState = FollowLucyToBoss;
+        FollowLucyToBoss.NextState = LucyExplainsBoss;
+        LucyExplainsBoss.NextState = FinalBoss;
+        FinalBoss.NextState = LucyExplainsYouWin;
+        LucyExplainsYouWin.NextState = EndState;
 
         Player.GetComponent<PlayerController>().TriggerEntered += OnPlayerEnteredTrigger;
 	}

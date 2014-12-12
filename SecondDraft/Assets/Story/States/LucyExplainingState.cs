@@ -23,7 +23,7 @@ public class LucyExplainingState : BaseState
             if (playableSound == null)
             {
                 Skip = true;
-                throw new Exception("Error: No sound set for LucyExplainingState! Skipping state...");
+                Debug.LogError("Error: No sound set for LucyExplainingState! Skipping state...");
             }
             AudioObject ao = new AudioObject(script.Lucy, playableSound);
             audioPlayer = AudioManager.PlayAudio(ao);
