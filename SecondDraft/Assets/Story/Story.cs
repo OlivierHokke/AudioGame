@@ -82,6 +82,7 @@ public class Story : MonoBehaviour {
     public LucyExplainingState ExplainsFortress = new LucyExplainingState();
     public SingPuzzleState SingPuzzle = new SingPuzzleState();
     public CharacterExplainingState RubyExplainsSomething = new CharacterExplainingState();
+	public LucyRemoveObjectState RubyRemovesDoorState = new LucyRemoveObjectState();
     public StepwiseFollowLucyState FollowLucyToMines1 = new StepwiseFollowLucyState();
     public StepwiseFollowLucyState FollowLucyToMines2 = new StepwiseFollowLucyState();
     public MinesPuzzleState MinesPuzzle = new MinesPuzzleState();
@@ -125,7 +126,8 @@ public class Story : MonoBehaviour {
         // Level 2
         ExplainsFortress.NextState = SingPuzzle;
         SingPuzzle.NextState = RubyExplainsSomething;
-        RubyExplainsSomething.NextState = FollowLucyToMines1;
+		RubyExplainsSomething.NextState = RubyRemovesDoorState;
+		RubyRemovesDoorState.NextState=FollowLucyToMines1;
         FollowLucyToMines1.NextState = FollowLucyToMines2;
         FollowLucyToMines2.NextState = MinesPuzzle;
         MinesPuzzle.NextState = FollowLucyToBoss;
