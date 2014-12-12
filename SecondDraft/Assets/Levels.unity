@@ -1460,11 +1460,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 179509352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 1, z: 133.639999}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 61.4253349, y: .53678894, z: -51.7401581}
+  m_LocalScale: {x: .699300706, y: 1, z: .699300706}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 953750468}
+  m_RootOrder: 1
 --- !u!1 &183931009
 GameObject:
   m_ObjectHideFlags: 0
@@ -4238,11 +4238,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 486269475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.6899996, y: 1, z: 128.639999}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 24.3274307, y: .53678894, z: -50.64925}
+  m_LocalScale: {x: .699300706, y: 1, z: .699300706}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Father: {fileID: 953750468}
+  m_RootOrder: 4
 --- !u!1 &488529025
 GameObject:
   m_ObjectHideFlags: 0
@@ -7268,11 +7268,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 752428692}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: 1, z: 128.639999}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 60.1665878, y: .53678894, z: -68.8870087}
+  m_LocalScale: {x: .699300706, y: 1, z: .699300706}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 953750468}
+  m_RootOrder: 3
 --- !u!1 &754804848
 GameObject:
   m_ObjectHideFlags: 0
@@ -7920,11 +7920,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 786942741}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8, y: 1, z: 133.639999}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 23.3344231, y: .53678894, z: -70.432457}
+  m_LocalScale: {x: .699300706, y: 1, z: .699300706}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 953750468}
+  m_RootOrder: 2
 --- !u!1 &793194525
 GameObject:
   m_ObjectHideFlags: 0
@@ -9188,7 +9188,23 @@ MonoBehaviour:
     playableSound: {fileID: 8300000, guid: fdc5ab3ab88ddf44db3232e66e81629d, type: 3}
   ExplainsFortress:
     Skip: 0
-    playableSound: {fileID: 0}
+    playableSound: {fileID: 8300000, guid: 83612f8b7bd5b1f47bcf487c9eb581a3, type: 3}
+  SingPuzzle:
+    Monster1: {fileID: 179509352}
+    Monster2: {fileID: 786942741}
+    Monster3: {fileID: 752428692}
+    Ruby: {fileID: 486269475}
+    playableSoundMonster1: {fileID: 8300000, guid: df5ecf7a3c3514ea2a16cb03cf751456,
+      type: 3}
+    playableSoundMonster2: {fileID: 8300000, guid: 71dc568742e2f460cbe7274711bd9375,
+      type: 3}
+    playableSoundMonster3: {fileID: 8300000, guid: 2ce822648aa7e486bae293f3f5c1e561,
+      type: 3}
+    playableSoundRuby: {fileID: 8300000, guid: 7c7b80d4eb3ef499b8846ef90298ee8b, type: 3}
+    playableSoundLucyWarning: {fileID: 8300000, guid: 01049e900b5e54ac4bb386f24b46ee07,
+      type: 3}
+  RubyRemovesDoorState:
+    TargetObject: {fileID: 548368509}
   FollowLucyToMines1:
     MaxRandomBellDelay: .5
     TargetLocation: {fileID: 0}
@@ -9418,6 +9434,10 @@ Transform:
   m_LocalScale: {x: 1.10000002, y: 1, z: 1.10000002}
   m_Children:
   - {fileID: 1519315080}
+  - {fileID: 179509356}
+  - {fileID: 786942746}
+  - {fileID: 752428696}
+  - {fileID: 486269479}
   m_Father: {fileID: 137546452}
   m_RootOrder: 0
 --- !u!1 &954326817
@@ -16060,7 +16080,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1853649755}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -1505839009, guid: 205382ed54b28421a9cdbe54fcccba1b, type: 3}
   m_Name: 
