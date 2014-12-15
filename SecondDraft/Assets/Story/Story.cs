@@ -45,7 +45,7 @@ public class Story : MonoBehaviour {
     /// <summary>
     /// The player is in the elevator, waiting to get to the street
     /// </summary>
-    public ElevatorState ElevatorState = new ElevatorState();
+    public TeleportState ElevatorState = new TeleportState();
 
     /// <summary>
     /// Lucy explains the cars
@@ -77,6 +77,7 @@ public class Story : MonoBehaviour {
     /// The player reached the end of the level and is transported to a magical forest.
     /// </summary>
     public PortalState PortalState = new PortalState();
+	public TeleportState teleportLevel2 = new TeleportState();
 
     [Header("Level 2")]
     public LucyExplainingState ExplainsFortress = new LucyExplainingState();
@@ -122,7 +123,8 @@ public class Story : MonoBehaviour {
 		EvadeSecondRoadCars.NextState=WalkToPortal;
         WalkToPortal.NextState = LucyExplainsPortal;
         LucyExplainsPortal.NextState = PortalState;
-        PortalState.NextState = ExplainsFortress;
+        PortalState.NextState = teleportLevel2;
+		teleportLevel2.NextState = ExplainsFortress;
         // Level 2
         ExplainsFortress.NextState = SingPuzzle;
         SingPuzzle.NextState = RubyExplainsSomething;

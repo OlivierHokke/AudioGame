@@ -6,5 +6,6 @@ using System.Text;
 [Serializable]
 public class MinesPuzzleState : BaseState
 {
+
     public BaseState NextState;
 }
