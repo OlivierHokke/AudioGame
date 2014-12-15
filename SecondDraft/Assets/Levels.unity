@@ -1592,7 +1592,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 179509352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 61.4253349, y: .53678894, z: -51.7401581}
+  m_LocalPosition: {x: 57.7599983, y: .5, z: -51.7400017}
   m_LocalScale: {x: .699300706, y: 1, z: .699300706}
   m_Children: []
   m_Father: {fileID: 953750468}
@@ -4492,7 +4492,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 486269475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.3274307, y: .53678894, z: -50.64925}
+  m_LocalPosition: {x: 28.7000008, y: .5, z: -50.5999985}
   m_LocalScale: {x: .699300706, y: 1, z: .699300706}
   m_Children: []
   m_Father: {fileID: 953750468}
@@ -7537,7 +7537,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 752428692}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 60.1665878, y: .53678894, z: -68.8870087}
+  m_LocalPosition: {x: 56.5, y: .5, z: -68.8899994}
   m_LocalScale: {x: .699300706, y: 1, z: .699300706}
   m_Children: []
   m_Father: {fileID: 953750468}
@@ -8189,7 +8189,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 786942741}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.3344231, y: .53678894, z: -70.432457}
+  m_LocalPosition: {x: 27.7000008, y: .5, z: -70.4000015}
   m_LocalScale: {x: .699300706, y: 1, z: .699300706}
   m_Children: []
   m_Father: {fileID: 953750468}
@@ -9696,7 +9696,13 @@ MonoBehaviour:
     playableSoundMonster3: {fileID: 8300000, guid: 2ce822648aa7e486bae293f3f5c1e561,
       type: 3}
     playableSoundRuby: {fileID: 8300000, guid: 7c7b80d4eb3ef499b8846ef90298ee8b, type: 3}
-    playableSoundLucyWarning: {fileID: 0}
+    playableSoundLucyWarning: {fileID: 8300000, guid: 01049e900b5e54ac4bb386f24b46ee07,
+      type: 3}
+    MaxRandomDelay: .5
+  RubyExplainsSomething:
+    Skip: 0
+    character: {fileID: 486269475}
+    playableSound: {fileID: 8300000, guid: 83612f8b7bd5b1f47bcf487c9eb581a3, type: 3}
   RubyRemovesDoorState:
     TargetObject: {fileID: 548368509}
   FollowLucyToMines1:

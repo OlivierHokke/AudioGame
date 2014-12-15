@@ -45,10 +45,10 @@ public class SingPuzzleState : BaseState
 
 		// If Alex is close to a monster, scream from the monster and Lucy is warning you to come back !
 		// If Alex is close to Rubygo to end
-		var distanceMonster1 = script.Lucy.transform.position - Monster1.transform.position;
-		var distanceMonster2 = script.Lucy.transform.position - Monster2.transform.position;
-		var distanceMonster3 = script.Lucy.transform.position - Monster3.transform.position;
-		var distanceRuby = script.Lucy.transform.position - Ruby.transform.position;
+		var distanceMonster1 = script.Player.transform.position - Monster1.transform.position;
+		var distanceMonster2 = script.Player.transform.position - Monster2.transform.position;
+		var distanceMonster3 = script.Player.transform.position - Monster3.transform.position;
+		var distanceRuby = script.Player.transform.position - Ruby.transform.position;
 
 
 		AudioObject ao = new AudioObject(script.Lucy.gameObject, playableSoundLucyWarning);
