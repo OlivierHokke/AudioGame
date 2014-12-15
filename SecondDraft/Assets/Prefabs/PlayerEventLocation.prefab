@@ -9,10 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 135: {fileID: 13500000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerEventLocation
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_TagString: Location
+  m_Icon: {fileID: 120240766, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -28,7 +28,7 @@ GameObject:
   - 135: {fileID: 13500002}
   - 23: {fileID: 2300000}
   - 114: {fileID: 11400000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - 135: {fileID: 13500004}
   - 23: {fileID: 2300002}
   - 114: {fileID: 11400002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   - 135: {fileID: 13500006}
   - 23: {fileID: 2300004}
   - 114: {fileID: 11400004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   - 135: {fileID: 13500008}
   - 23: {fileID: 2300006}
   - 114: {fileID: 11400006}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - 135: {fileID: 13500010}
   - 23: {fileID: 2300008}
   - 114: {fileID: 11400008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23, y: 1.10000002, z: -97.0999985}
+  m_LocalPosition: {x: 21.2000008, y: 1.10000002, z: 24.6000004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400010}
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: .300000012
-  magnitude: .0199999996
+  magnitude: .00999999978
   animateColor: 0
 --- !u!114 &11400002
 MonoBehaviour:
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: .300000012
-  magnitude: .0500000007
+  magnitude: .0199999996
   animateColor: 0
 --- !u!114 &11400004
 MonoBehaviour:
@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: .300000012
-  magnitude: .0500000007
+  magnitude: .0199999996
   animateColor: 0
 --- !u!114 &11400006
 MonoBehaviour:
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: .300000012
-  magnitude: .0500000007
+  magnitude: .0299999993
   animateColor: 0
 --- !u!114 &11400008
 MonoBehaviour:
