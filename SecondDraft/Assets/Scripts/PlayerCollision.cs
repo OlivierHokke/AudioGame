@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+How to use:
+1. Add all Quad and Fence objects to Walls Layer
+2. Add PlayerCollision script to alex
+3. Attach bump and scathe clips to PlayerCollision script
+*/
+
 public class PlayerCollision : MonoBehaviour {
 
     // the sound to play, can be attached in unity editor

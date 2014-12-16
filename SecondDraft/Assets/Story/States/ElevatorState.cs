@@ -15,7 +15,7 @@ public class ElevatorState : BaseState
 	private AudioPlayer audioPlayer;
 
 	public override void Start(Story script) {
-        script.Player.GetComponent<PlayerController>().LockMovement = true;
+        script.SetPlayerMovementLocked(true);
 		AudioObject ao = new AudioObject(script.Lucy, elevatorSound);
 		audioPlayer = AudioManager.PlayAudio(ao);
 	}
@@ -27,7 +27,7 @@ public class ElevatorState : BaseState
 	}
 
 	public override void End(Story script) {
-        script.Player.GetComponent<PlayerController>().LockMovement = false;
+        script.SetPlayerMovementLocked(false);
         if (targetPlayerPosition != null)
         {
             script.Player.transform.position = targetPlayerPosition.transform.position;

@@ -100,6 +100,7 @@ public class Story : MonoBehaviour {
     // Load the start state
     void Start()
     {
+        //LoadState(LucyExplains1);
         LoadState(LucyExplains1);
 
         // Define for some states that require it what the next state is.
@@ -144,18 +145,29 @@ public class Story : MonoBehaviour {
         LucyExplainsYouWin.NextState = EndState;
 
         Player.GetComponent<PlayerController>().TriggerEntered += OnPlayerEnteredTrigger;
+        Player.GetComponent<PlayerController>().TriggerExit += OnPlayerExitTrigger;
 	}
 
     void OnPlayerEnteredTrigger(object sender, TriggerEventArgs e)
     {
         currentState.PlayerEnteredTrigger(e.Trigger, this);
     }
-	
+
+    void OnPlayerExitTrigger(object sender, TriggerEventArgs e)
+    {
+        currentState.PlayerExitTrigger(e.Trigger, this);
+    }
+
 	void Update () 
     {
         if (currentState != null)
             currentState.Update(this);
 	}
+
+    public void SetPlayerMovementLocked(bool locked)
+    {
+        Player.GetComponent<PlayerController>().LockMovement = locked;
+    }
 
     public void LoadState(BaseState state)
     {
