@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 82: {fileID: 8200000}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -86,6 +87,25 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1582778171, guid: 205382ed54b28421a9cdbe54fcccba1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideListenerDirectionParameter: 0
+  full3d: 1
+  spatialInterpolation: 1
+  overrideListenerDistanceParameter: 0
+  enableReverb: 0
+  reverbCofactor: 50
+  enhanceDistEffect: 1
+  priorityRatio: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
