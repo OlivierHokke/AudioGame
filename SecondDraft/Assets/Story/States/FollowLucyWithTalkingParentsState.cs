@@ -26,11 +26,6 @@ public class FollowLucyWithTalkingParentsState : SimpleFollowLucyState
 
     public override void Start(Story script)
     {
-        AudioObject m = new AudioObject(script.Lucy, MotherSound, 1, Randomg.Range(0, MaxRandomDelay));
-        AudioObject f = new AudioObject(script.Lucy, FatherSound, 1, Randomg.Range(0, MaxRandomDelay));
-        AudioObject b = new AudioObject(script.Lucy, BrotherSound, 1, Randomg.Range(0, MaxRandomDelay));
-        //AudioObject l = new AudioObject(script.Lucy, LucySound, 1, Randomg.Range(0, MaxRandomDelay));
-
         motherPlayer = PlayWithRandomDelay(Mother, MotherSound);
         fatherPlayer = PlayWithRandomDelay(Father, FatherSound);
         brotherPlayer = PlayWithRandomDelay(Brother, BrotherSound);
@@ -60,5 +55,5 @@ public class FollowLucyWithTalkingParentsState : SimpleFollowLucyState
         // TODO: stop the players
         base.End(script);
     }
-    
+
 }

@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     public float walkUnitsPerSecond= 4f;
     public float anglesPerPixel = 0.5f;
-    public Camera camera;
+    new public Camera camera;
     public float maxLookVertical = 25f;
     public float minLookVertical = -25f;
     public float currentLookVertical = 0f;
@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
     public event EventHandler<TriggerEventArgs> TriggerEntered;
 
     public bool LockMovement = false;
-	
+
 	// Update is called once per frame
 	void Update ()
     {
