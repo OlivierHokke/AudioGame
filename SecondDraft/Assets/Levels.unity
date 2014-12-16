@@ -11745,10 +11745,10 @@ MonoBehaviour:
   currentLookVertical: 0
   currentLookHorizontal: 0
   oculusRiftEnabled: 0
-  oculusRiftRoot: {fileID: 0}
-  oculusRiftCamera: {fileID: 0}
-  normalRoot: {fileID: 0}
-  normalCamera: {fileID: 0}
+  oculusRiftRoot: {fileID: 1074958261}
+  oculusRiftCamera: {fileID: 475198670}
+  normalRoot: {fileID: 1409625166}
+  normalCamera: {fileID: 2098336733}
   LockMovement: 0
 --- !u!54 &1150910367
 Rigidbody:
@@ -14429,7 +14429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f99390b34e7ddfd429352ce1d484968a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderingCamera: {fileID: 0}
+  renderingCamera: {fileID: 2098336739}
 --- !u!1 &1471918829
 GameObject:
   m_ObjectHideFlags: 0
