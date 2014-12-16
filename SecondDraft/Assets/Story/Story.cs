@@ -101,7 +101,7 @@ public class Story : MonoBehaviour {
     void Start()
     {
         //LoadState(LucyExplains1);
-        LoadState(MinesPuzzle);
+        LoadState(LucyExplains1);
 
         // Define for some states that require it what the next state is.
         LucyExplains1.NextState = InitialMove;
