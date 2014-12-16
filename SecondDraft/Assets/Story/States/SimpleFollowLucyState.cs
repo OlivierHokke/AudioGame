@@ -19,8 +19,7 @@ public class SimpleFollowLucyState : LucyRingingBellState
     public float LucyAppearanceDelay = 5f;
 
     private float timeInState = 0f;
-    private Vector3 lucyStartPosition;
-    private Quaternion lucyStartRotation;
+    private PositionRotation lucyStart;
 
 
 
@@ -29,8 +28,8 @@ public class SimpleFollowLucyState : LucyRingingBellState
         base.Start(script);
 
         timeInState = 0f;
-        lucyStartPosition = script.Lucy.transform.position;
-        lucyStartRotation = script.Lucy.transform.rotation;
+        lucyStart.Position = script.Lucy.transform.position;
+        lucyStart.Rotation = script.Lucy.transform.rotation;
     }
 
     public override void Update(Story script)
@@ -41,9 +40,9 @@ public class SimpleFollowLucyState : LucyRingingBellState
         float progress = timeInState / LucyAppearanceDelay;
         if (progress < 1)
         {
-            script.Lucy.transform.position = this.lucyStartPosition + ((this.TargetLocation.transform.position - lucyStartPosition) * Ease.ioSinusoidal(progress));
-            script.Lucy.transform.rotation = Quaternion.RotateTowards(this.lucyStartRotation, this.TargetLocation.transform.rotation, 
-                Quaternion.Angle(this.lucyStartRotation, this.TargetLocation.transform.rotation) * Ease.ioSinusoidal(progress));
+            var newLucyPos = PositionRotation.Interpolate(lucyStart, 
+                new PositionRotation(this.TargetLocation.transform.position, this.TargetLocation.transform.rotation), 
+                Ease.ioSinusoidal(progress));
         }
         else
         {

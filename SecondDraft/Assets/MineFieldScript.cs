@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class MineFieldScript : MonoBehaviour {
     public int SizeX = 10;
@@ -11,9 +12,15 @@ public class MineFieldScript : MonoBehaviour {
     public Point2 StartPos = new Point2();
     public Point2 EndPos = new Point2(10, 10);
     public GameObject Mine;
+    public GameObject MineProximitySensor;
+    public AudioClip MineSound;
 
     private bool[,] grid;
     private List<GameObject> mines = new List<GameObject>();
+    Dictionary<GameObject, GameObject> mineProximitySensors = new Dictionary<GameObject, GameObject>();
+    private Dictionary<GameObject, AudioPlayer> minePlayers = new Dictionary<GameObject, AudioPlayer>();
+    private Dictionary<GameObject, Point2> minePositions = new Dictionary<GameObject, Point2>();
+    public GameObject[] Mines { get { return mines.ToArray(); } }
     private int placementTries = 0;
 
 	// Use this for initialization
@@ -102,11 +109,70 @@ public class MineFieldScript : MonoBehaviour {
             {
                 if (grid[i, j])
                 {
-                    var mine = (GameObject)GameObject.Instantiate(Mine, this.transform.position + GetRelativeMinePosition(i, j), new Quaternion());
-                    mine.transform.parent = this.transform;
-                    mines.Add(mine);
+                    AddMine(i, j);
                 }
             }
+    }
+
+    private void AddMine(int i, int j)
+    {
+        var minePosition = this.transform.position + GetRelativeMinePosition(i, j);
+        var mine = (GameObject)GameObject.Instantiate(Mine, minePosition, new Quaternion());
+        mine.transform.parent = this.transform;
+        var delay = Randomg.Range(0f, MineSound.length);
+        var minePlayer = AudioManager.PlayAudio(new AudioObject(mine, MineSound, 1, delay, true));
+        if (MineProximitySensor != null)
+        {
+            var mineProximitySensor = (GameObject)GameObject.Instantiate(MineProximitySensor, minePosition, new Quaternion());
+            mineProximitySensors.Add(mine, mineProximitySensor);
+        }
+        mines.Add(mine);
+        minePlayers.Add(mine, minePlayer);
+        minePositions.Add(mine, new Point2(i, j));
+    }
+
+    public MineCollisionType GetCollisionType(Collider col)
+    { 
+        var colGO = col.gameObject;
+        if (mineProximitySensors.Any(m => m.Value == colGO))
+            return MineCollisionType.Proximity;
+        if (mines.Any(m => m == colGO))
+            return MineCollisionType.Mine;
+        return MineCollisionType.None;
+    }
+
+    public GameObject GetCollidingMine(Collider col)
+    {
+        if (GetCollisionType(col) == MineCollisionType.None)
+            return null;
+        return mines.FirstOrDefault(m => m == col.gameObject) ?? mineProximitySensors.First(m => m.Value == col.gameObject).Key;
+    }
+
+    public void TriggerProximitySensor(GameObject mine, bool trigger)
+    {
+        Debug.Log("Setting Proximity sensor to " + trigger);
+        if (!minePlayers.ContainsKey(mine))
+        {
+            Debug.LogError("Mine not found!");
+            return;
+        }
+        minePlayers[mine].SetPitch(trigger ? 2 : 1);
+    }
+
+    public void RemoveMine(GameObject mineToRemove)
+    {
+        foreach (var mine in mines)
+        {
+            if (mine == mineToRemove)
+            {
+                if (mineProximitySensors.ContainsKey(mineToRemove))
+                    mineProximitySensors[mineToRemove].SetActive(false);
+                minePlayers[mine].StopPlaying();
+                mine.SetActive(false);
+                var minePosition = minePositions[mine];
+                grid[minePosition.x, minePosition.y] = false;
+            }
+        }
     }
 
 	// Update is called once per frame
@@ -144,4 +210,9 @@ public class MineFieldScript : MonoBehaviour {
             + cellSize / 2f
             + new Vector3((transform.localScale.x / (float)SizeX) * (float)i, 1, (transform.localScale.z / (float)SizeY) * (float)j);
     }
+}
+
+public enum MineCollisionType
+{
+    Proximity, Mine, None
 }

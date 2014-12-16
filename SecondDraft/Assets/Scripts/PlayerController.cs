@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     public float currentLookVertical = 0f;
 
     public event EventHandler<TriggerEventArgs> TriggerEntered;
+    public event EventHandler<TriggerEventArgs> TriggerExit;
 
     public bool LockMovement = false;
 	
@@ -40,6 +41,12 @@ public class PlayerController : MonoBehaviour {
     {
         if (TriggerEntered != null)
             TriggerEntered(this, new TriggerEventArgs(other));
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (TriggerExit != null)
+            TriggerExit(this, new TriggerEventArgs(other));
     }
 
 
