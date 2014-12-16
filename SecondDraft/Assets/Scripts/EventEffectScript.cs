@@ -9,7 +9,7 @@ public class EventEffectScript : MonoBehaviour {
     private float offset1 = 0f;
     private float offset2 = 0f;
     private float offset3 = 0f;
-    private float offset4 = 0f;
+    // private float offset4 = 0f;
     private Vector3 startScale;
 
 	// Use this for initialization
@@ -19,9 +19,9 @@ public class EventEffectScript : MonoBehaviour {
         offset1 = Randomg.Range01() * 10f;
         offset2 = Randomg.Range01() * 10f;
         offset3 = Randomg.Range01() * 10f;
-        offset4 = Randomg.Range01() * 10f;
+        // offset4 = Randomg.Range01() * 10f;
 	}
-	
+
 	// Update is called once per frame
     void Update()
     {

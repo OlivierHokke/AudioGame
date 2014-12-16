@@ -107,6 +107,10 @@ public class Story : MonoBehaviour {
         LucyExplains1.NextState = InitialMove;
         InitialMove.NextState = SecondMove;
         SecondMove.NextState = RemoveDoor;
+		// DEBUG LEVEL 2
+		RemoveDoor.NextState = teleportLevel2;
+		teleportLevel2.NextState = ExplainsFortress;
+		/*
         // Level 1
         RemoveDoor.NextState = ParentRoomState;
         ParentRoomState.NextState = LucyExplains2;
@@ -126,6 +130,7 @@ public class Story : MonoBehaviour {
         LucyExplainsPortal.NextState = PortalState;
         PortalState.NextState = teleportLevel2;
 		teleportLevel2.NextState = ExplainsFortress;
+		*/
         // Level 2
         ExplainsFortress.NextState = SingPuzzle;
         SingPuzzle.NextState = RubyExplainsSomething;
