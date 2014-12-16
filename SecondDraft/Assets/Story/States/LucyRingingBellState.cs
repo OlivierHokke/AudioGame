@@ -13,7 +13,6 @@ public class LucyRingingBellState : BaseState
 
     public override void Start(Story script)
     {
-        AudioObject lb = new AudioObject(script.Lucy, script.LucyBell, 1, Randomg.Range(0, MaxRandomBellDelay));
         LucyBellPlayer = PlayWithRandomDelay(script.Lucy, script.LucyBell);
 
         base.Start(script);
