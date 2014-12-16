@@ -276,19 +276,19 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 137546452}
     m_Modifications:
     - target: {fileID: 400000, guid: 772288348916a114fb961e5437deebcf, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -9.09000015
+      value: -17.9244385
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 772288348916a114fb961e5437deebcf, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.34000003
+      value: 58.3767891
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 772288348916a114fb961e5437deebcf, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 130.960007
+      value: 3.89352655
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 772288348916a114fb961e5437deebcf, type: 2}
       propertyPath: m_LocalRotation.x
@@ -308,7 +308,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 772288348916a114fb961e5437deebcf, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 772288348916a114fb961e5437deebcf, type: 2}
+      propertyPath: m_Name
+      value: Level2LucyStartLocation
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 772288348916a114fb961e5437deebcf, type: 2}
+      propertyPath: m_LocalScale.x
+      value: .769230843
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 772288348916a114fb961e5437deebcf, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .769230843
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 772288348916a114fb961e5437deebcf, type: 2}
@@ -377,7 +389,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
 --- !u!1 &60341502
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +401,7 @@ GameObject:
   - 33: {fileID: 60341506}
   - 64: {fileID: 60341505}
   - 23: {fileID: 60341504}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +564,7 @@ GameObject:
   - 33: {fileID: 65875430}
   - 64: {fileID: 65875429}
   - 23: {fileID: 65875428}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Knob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -713,7 +725,7 @@ GameObject:
   - 33: {fileID: 89325173}
   - 23: {fileID: 89325171}
   - 65: {fileID: 89325172}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -916,7 +928,7 @@ GameObject:
   - 33: {fileID: 92355992}
   - 23: {fileID: 92355991}
   - 65: {fileID: 92355990}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1277,7 +1289,7 @@ GameObject:
   - 33: {fileID: 126520684}
   - 23: {fileID: 126520683}
   - 65: {fileID: 126520682}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1456,8 +1468,10 @@ Transform:
   - {fileID: 1941523063}
   - {fileID: 1331945828}
   - {fileID: 1571165945}
+  - {fileID: 832004284}
+  - {fileID: 274185064}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
 --- !u!1 &176258838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,7 +1483,7 @@ GameObject:
   - 33: {fileID: 176258842}
   - 23: {fileID: 176258841}
   - 65: {fileID: 176258840}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1696,7 +1710,7 @@ GameObject:
   - 33: {fileID: 187654579}
   - 23: {fileID: 187654577}
   - 65: {fileID: 187654578}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1838,7 +1852,7 @@ GameObject:
   - 33: {fileID: 190754306}
   - 23: {fileID: 190754305}
   - 65: {fileID: 190754304}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1949,6 +1963,18 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 8200000, guid: 668ce56f8396ea64c8515e08c5b9c845, type: 2}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 668ce56f8396ea64c8515e08c5b9c845, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 668ce56f8396ea64c8515e08c5b9c845, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 668ce56f8396ea64c8515e08c5b9c845, type: 2}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2113,7 +2139,7 @@ GameObject:
   - 33: {fileID: 258646383}
   - 23: {fileID: 258646381}
   - 65: {fileID: 258646382}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2227,7 +2253,7 @@ GameObject:
   - 4: {fileID: 274185064}
   - 135: {fileID: 274185065}
   m_Layer: 8
-  m_Name: LucyEventLocation 1
+  m_Name: Level2LucyStartLocation
   m_TagString: Location
   m_Icon: {fileID: 266726316, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2240,16 +2266,16 @@ Transform:
   m_PrefabInternal: {fileID: 47398241}
   m_GameObject: {fileID: 274185063}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: -9.09000015, y: 1.34000003, z: 130.960007}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -17.9244385, y: 58.3767891, z: 3.89352655}
+  m_LocalScale: {x: .769230843, y: 1, z: .769230843}
   m_Children:
   - {fileID: 1492071370}
   - {fileID: 734009321}
   - {fileID: 1731858279}
   - {fileID: 1688753228}
   - {fileID: 891834238}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 137546452}
+  m_RootOrder: 9
 --- !u!135 &274185065
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2274,7 +2300,7 @@ GameObject:
   - 33: {fileID: 284172003}
   - 23: {fileID: 284172002}
   - 65: {fileID: 284172001}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2839,7 +2865,7 @@ GameObject:
   - 33: {fileID: 307997356}
   - 64: {fileID: 307997355}
   - 23: {fileID: 307997354}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2914,7 +2940,7 @@ GameObject:
   - 33: {fileID: 315085993}
   - 23: {fileID: 315085992}
   - 65: {fileID: 315085991}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3071,7 +3097,7 @@ GameObject:
   - 33: {fileID: 331654731}
   - 23: {fileID: 331654730}
   - 65: {fileID: 331654729}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3134,19 +3160,19 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 137546452}
     m_Modifications:
     - target: {fileID: 400000, guid: 59739849dbde62748bd71d5a9dafc990, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -9.06999969
+      value: -17.9090538
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 59739849dbde62748bd71d5a9dafc990, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.40999997
+      value: 58.4467888
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 59739849dbde62748bd71d5a9dafc990, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 129.679993
+      value: 2.9089005
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 59739849dbde62748bd71d5a9dafc990, type: 2}
       propertyPath: m_LocalRotation.x
@@ -3166,7 +3192,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 59739849dbde62748bd71d5a9dafc990, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 59739849dbde62748bd71d5a9dafc990, type: 2}
+      propertyPath: m_Name
+      value: Level2PlayerStartLocation
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 59739849dbde62748bd71d5a9dafc990, type: 2}
+      propertyPath: m_LocalScale.x
+      value: .769230783
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 59739849dbde62748bd71d5a9dafc990, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .769230783
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 59739849dbde62748bd71d5a9dafc990, type: 2}
@@ -3389,7 +3427,7 @@ GameObject:
   - 33: {fileID: 374745518}
   - 23: {fileID: 374745517}
   - 65: {fileID: 374745516}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3460,7 +3498,8 @@ GameObject:
   - 54: {fileID: 378899704}
   - 114: {fileID: 378899705}
   - 82: {fileID: 378899706}
-  m_Layer: 0
+  - 114: {fileID: 378899707}
+  m_Layer: 10
   m_Name: Alex
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3480,7 +3519,7 @@ Transform:
   - {fileID: 1853649760}
   - {fileID: 728320121}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!114 &378899702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3608,6 +3647,19 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &378899707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 378899700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e126ab8c9c966e4397c3afe019a83ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bumpClip: {fileID: 0}
+  scatheClip: {fileID: 0}
 --- !u!1 &384069068
 GameObject:
   m_ObjectHideFlags: 0
@@ -3619,7 +3671,7 @@ GameObject:
   - 33: {fileID: 384069072}
   - 23: {fileID: 384069071}
   - 65: {fileID: 384069070}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3685,7 +3737,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 385103232}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3726,7 +3778,7 @@ GameObject:
   - 33: {fileID: 387739574}
   - 23: {fileID: 387739573}
   - 65: {fileID: 387739572}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3843,7 +3895,7 @@ GameObject:
   - 33: {fileID: 395361036}
   - 64: {fileID: 395361035}
   - 23: {fileID: 395361034}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Knob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3986,7 +4038,7 @@ GameObject:
   - 33: {fileID: 410957643}
   - 23: {fileID: 410957641}
   - 65: {fileID: 410957642}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4055,7 +4107,7 @@ GameObject:
   - 33: {fileID: 429699021}
   - 23: {fileID: 429699019}
   - 65: {fileID: 429699020}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4124,7 +4176,7 @@ GameObject:
   - 33: {fileID: 436575881}
   - 23: {fileID: 436575880}
   - 65: {fileID: 436575879}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4193,7 +4245,7 @@ GameObject:
   - 33: {fileID: 439260376}
   - 23: {fileID: 439260375}
   - 65: {fileID: 439260374}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5098,7 +5150,7 @@ GameObject:
   - 33: {fileID: 532060875}
   - 23: {fileID: 532060874}
   - 65: {fileID: 532060873}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5167,7 +5219,7 @@ GameObject:
   - 33: {fileID: 548368513}
   - 64: {fileID: 548368512}
   - 23: {fileID: 548368511}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5242,7 +5294,7 @@ GameObject:
   - 33: {fileID: 566192409}
   - 23: {fileID: 566192408}
   - 65: {fileID: 566192407}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5460,6 +5512,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 87ac8ce2b07e1f644ada2d0ddfae4bb6, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 87ac8ce2b07e1f644ada2d0ddfae4bb6, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 87ac8ce2b07e1f644ada2d0ddfae4bb6, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87ac8ce2b07e1f644ada2d0ddfae4bb6, type: 2}
   m_RootGameObject: {fileID: 893553411}
@@ -5476,7 +5540,7 @@ GameObject:
   - 33: {fileID: 584169043}
   - 23: {fileID: 584169042}
   - 65: {fileID: 584169041}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5576,7 +5640,7 @@ GameObject:
   - 33: {fileID: 595709856}
   - 23: {fileID: 595709855}
   - 65: {fileID: 595709854}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5698,7 +5762,7 @@ GameObject:
   - 33: {fileID: 602157070}
   - 23: {fileID: 602157069}
   - 65: {fileID: 602157068}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5767,7 +5831,7 @@ GameObject:
   - 33: {fileID: 617696734}
   - 23: {fileID: 617696733}
   - 65: {fileID: 617696732}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5836,7 +5900,7 @@ GameObject:
   - 33: {fileID: 622807743}
   - 23: {fileID: 622807742}
   - 65: {fileID: 622807741}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5905,7 +5969,7 @@ GameObject:
   - 33: {fileID: 626295128}
   - 23: {fileID: 626295127}
   - 65: {fileID: 626295126}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5974,7 +6038,7 @@ GameObject:
   - 33: {fileID: 627186026}
   - 23: {fileID: 627186025}
   - 65: {fileID: 627186024}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6219,7 +6283,7 @@ GameObject:
   - 33: {fileID: 634362628}
   - 23: {fileID: 634362627}
   - 65: {fileID: 634362626}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6288,7 +6352,7 @@ GameObject:
   - 33: {fileID: 641162542}
   - 23: {fileID: 641162541}
   - 65: {fileID: 641162540}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6485,7 +6549,7 @@ GameObject:
   - 33: {fileID: 646175707}
   - 23: {fileID: 646175706}
   - 65: {fileID: 646175705}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6704,7 +6768,7 @@ GameObject:
   - 33: {fileID: 657979694}
   - 23: {fileID: 657979693}
   - 65: {fileID: 657979692}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6773,7 +6837,7 @@ GameObject:
   - 33: {fileID: 668887502}
   - 23: {fileID: 668887501}
   - 65: {fileID: 668887500}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6842,7 +6906,7 @@ GameObject:
   - 33: {fileID: 669655659}
   - 23: {fileID: 669655658}
   - 65: {fileID: 669655657}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6911,7 +6975,7 @@ GameObject:
   - 33: {fileID: 703991022}
   - 23: {fileID: 703991021}
   - 65: {fileID: 703991020}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7028,7 +7092,7 @@ GameObject:
   - 33: {fileID: 724991534}
   - 23: {fileID: 724991533}
   - 65: {fileID: 724991532}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7293,7 +7357,7 @@ GameObject:
   - 33: {fileID: 742594453}
   - 23: {fileID: 742594452}
   - 65: {fileID: 742594451}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7410,7 +7474,7 @@ GameObject:
   - 33: {fileID: 745205813}
   - 64: {fileID: 745205812}
   - 23: {fileID: 745205811}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Knob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7641,7 +7705,7 @@ GameObject:
   - 33: {fileID: 755055820}
   - 23: {fileID: 755055819}
   - 65: {fileID: 755055818}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7741,6 +7805,18 @@ Prefab:
     - target: {fileID: 400000, guid: 87ac8ce2b07e1f644ada2d0ddfae4bb6, type: 2}
       propertyPath: m_LocalScale.x
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 87ac8ce2b07e1f644ada2d0ddfae4bb6, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 87ac8ce2b07e1f644ada2d0ddfae4bb6, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 87ac8ce2b07e1f644ada2d0ddfae4bb6, type: 2}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87ac8ce2b07e1f644ada2d0ddfae4bb6, type: 2}
@@ -7846,7 +7922,7 @@ GameObject:
   - 33: {fileID: 770771990}
   - 23: {fileID: 770771989}
   - 65: {fileID: 770771988}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8003,7 +8079,7 @@ GameObject:
   - 33: {fileID: 783961916}
   - 64: {fileID: 783961915}
   - 23: {fileID: 783961914}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Knob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8293,7 +8369,7 @@ GameObject:
   - 33: {fileID: 800656699}
   - 23: {fileID: 800656698}
   - 65: {fileID: 800656697}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8610,7 +8686,7 @@ GameObject:
   - 33: {fileID: 823551731}
   - 23: {fileID: 823551729}
   - 65: {fileID: 823551730}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8678,7 +8754,7 @@ GameObject:
   - 4: {fileID: 832004284}
   - 135: {fileID: 832004285}
   m_Layer: 8
-  m_Name: PlayerEventLocation
+  m_Name: Level2PlayerStartLocation
   m_TagString: Location
   m_Icon: {fileID: 120240766, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -8691,16 +8767,16 @@ Transform:
   m_PrefabInternal: {fileID: 359186194}
   m_GameObject: {fileID: 832004283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.06999969, y: 1.40999997, z: 129.679993}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -17.9090538, y: 58.4467888, z: 2.9089005}
+  m_LocalScale: {x: .769230783, y: 1, z: .769230783}
   m_Children:
   - {fileID: 1165513325}
   - {fileID: 319591125}
   - {fileID: 115415249}
   - {fileID: 914079531}
   - {fileID: 1129063813}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 137546452}
+  m_RootOrder: 8
 --- !u!135 &832004285
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8725,7 +8801,7 @@ GameObject:
   - 33: {fileID: 855883294}
   - 64: {fileID: 855883293}
   - 23: {fileID: 855883292}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Knob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8844,7 +8920,7 @@ GameObject:
   - 33: {fileID: 869258449}
   - 23: {fileID: 869258448}
   - 65: {fileID: 869258447}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9001,7 +9077,7 @@ GameObject:
   - 33: {fileID: 885509692}
   - 23: {fileID: 885509690}
   - 65: {fileID: 885509691}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9158,7 +9234,7 @@ GameObject:
   - 33: {fileID: 893553415}
   - 64: {fileID: 893553414}
   - 23: {fileID: 893553413}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9391,7 +9467,7 @@ GameObject:
   - 33: {fileID: 933649180}
   - 23: {fileID: 933649179}
   - 65: {fileID: 933649178}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9476,7 +9552,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
 --- !u!114 &935053908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9678,8 +9754,8 @@ MonoBehaviour:
     Skip: 1
     playableSound: {fileID: 8300000, guid: fdc5ab3ab88ddf44db3232e66e81629d, type: 3}
   teleportLevel2:
-    targetPlayerPosition: {fileID: 92038997}
-    targetLucyPosition: {fileID: 832004283}
+    targetPlayerPosition: {fileID: 832004283}
+    targetLucyPosition: {fileID: 274185063}
     sound: {fileID: 8300000, guid: 83612f8b7bd5b1f47bcf487c9eb581a3, type: 3}
   ExplainsFortress:
     Skip: 0
@@ -9750,7 +9826,7 @@ Transform:
   - {fileID: 2045253174}
   - {fileID: 649924020}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!1 &940916597
 GameObject:
   m_ObjectHideFlags: 0
@@ -9762,7 +9838,7 @@ GameObject:
   - 33: {fileID: 940916601}
   - 23: {fileID: 940916600}
   - 65: {fileID: 940916599}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10402,7 +10478,7 @@ GameObject:
   - 33: {fileID: 1020507653}
   - 23: {fileID: 1020507652}
   - 65: {fileID: 1020507651}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10656,7 +10732,7 @@ GameObject:
   - 33: {fileID: 1053368454}
   - 23: {fileID: 1053368453}
   - 65: {fileID: 1053368452}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10795,7 +10871,7 @@ GameObject:
   - 33: {fileID: 1056583578}
   - 23: {fileID: 1056583576}
   - 65: {fileID: 1056583577}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10864,7 +10940,7 @@ GameObject:
   - 33: {fileID: 1084350318}
   - 23: {fileID: 1084350316}
   - 65: {fileID: 1084350317}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11109,7 +11185,7 @@ GameObject:
   - 33: {fileID: 1098597287}
   - 23: {fileID: 1098597286}
   - 65: {fileID: 1098597285}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11384,7 +11460,7 @@ GameObject:
   - 33: {fileID: 1156374379}
   - 23: {fileID: 1156374378}
   - 65: {fileID: 1156374377}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11453,7 +11529,7 @@ GameObject:
   - 33: {fileID: 1159321874}
   - 23: {fileID: 1159321873}
   - 65: {fileID: 1159321872}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11548,6 +11624,18 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 87ac8ce2b07e1f644ada2d0ddfae4bb6, type: 2}
       propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 87ac8ce2b07e1f644ada2d0ddfae4bb6, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 87ac8ce2b07e1f644ada2d0ddfae4bb6, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 87ac8ce2b07e1f644ada2d0ddfae4bb6, type: 2}
+      propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11654,7 +11742,7 @@ GameObject:
   - 33: {fileID: 1176208778}
   - 23: {fileID: 1176208777}
   - 65: {fileID: 1176208776}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12129,7 +12217,7 @@ GameObject:
   - 33: {fileID: 1287211995}
   - 23: {fileID: 1287211994}
   - 65: {fileID: 1287211993}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12246,7 +12334,7 @@ GameObject:
   - 33: {fileID: 1304556701}
   - 23: {fileID: 1304556700}
   - 65: {fileID: 1304556699}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12901,7 +12989,7 @@ GameObject:
   - 33: {fileID: 1385319492}
   - 23: {fileID: 1385319491}
   - 65: {fileID: 1385319490}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13031,7 +13119,7 @@ GameObject:
   - 33: {fileID: 1401992120}
   - 23: {fileID: 1401992119}
   - 65: {fileID: 1401992118}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13100,7 +13188,7 @@ GameObject:
   - 33: {fileID: 1406730704}
   - 23: {fileID: 1406730703}
   - 65: {fileID: 1406730702}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13169,7 +13257,7 @@ GameObject:
   - 33: {fileID: 1412890397}
   - 23: {fileID: 1412890396}
   - 65: {fileID: 1412890395}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13238,7 +13326,7 @@ GameObject:
   - 33: {fileID: 1424406611}
   - 23: {fileID: 1424406610}
   - 65: {fileID: 1424406609}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13434,7 +13522,7 @@ GameObject:
   - 33: {fileID: 1430393100}
   - 23: {fileID: 1430393099}
   - 65: {fileID: 1430393098}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13546,7 +13634,7 @@ Transform:
   m_Children:
   - {fileID: 1325965707}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!1 &1446391181
 GameObject:
   m_ObjectHideFlags: 0
@@ -13604,7 +13692,7 @@ GameObject:
   - 33: {fileID: 1449923721}
   - 23: {fileID: 1449923719}
   - 65: {fileID: 1449923720}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13784,7 +13872,7 @@ RectTransform:
   - {fileID: 1320917265}
   - {fileID: 994355414}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -13856,7 +13944,7 @@ GameObject:
   - 33: {fileID: 1471918833}
   - 23: {fileID: 1471918832}
   - 65: {fileID: 1471918831}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13925,7 +14013,7 @@ GameObject:
   - 33: {fileID: 1478111140}
   - 23: {fileID: 1478111139}
   - 65: {fileID: 1478111138}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14313,7 +14401,7 @@ GameObject:
   - 33: {fileID: 1515664258}
   - 64: {fileID: 1515664257}
   - 23: {fileID: 1515664256}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Knob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14383,7 +14471,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1519315080}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14447,7 +14535,7 @@ GameObject:
   - 33: {fileID: 1524161258}
   - 64: {fileID: 1524161257}
   - 23: {fileID: 1524161256}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14569,7 +14657,7 @@ GameObject:
   - 33: {fileID: 1525958664}
   - 64: {fileID: 1525958663}
   - 23: {fileID: 1525958662}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Knob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14737,7 +14825,7 @@ GameObject:
   - 33: {fileID: 1551540129}
   - 23: {fileID: 1551540128}
   - 65: {fileID: 1551540127}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14928,7 +15016,7 @@ GameObject:
   - 33: {fileID: 1581519110}
   - 23: {fileID: 1581519109}
   - 65: {fileID: 1581519108}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14997,7 +15085,7 @@ GameObject:
   - 33: {fileID: 1590833339}
   - 23: {fileID: 1590833338}
   - 65: {fileID: 1590833337}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15066,7 +15154,7 @@ GameObject:
   - 33: {fileID: 1596431296}
   - 23: {fileID: 1596431295}
   - 65: {fileID: 1596431294}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15347,6 +15435,18 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 87ac8ce2b07e1f644ada2d0ddfae4bb6, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 87ac8ce2b07e1f644ada2d0ddfae4bb6, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 87ac8ce2b07e1f644ada2d0ddfae4bb6, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87ac8ce2b07e1f644ada2d0ddfae4bb6, type: 2}
   m_RootGameObject: {fileID: 307997353}
@@ -15407,7 +15507,7 @@ GameObject:
   - 33: {fileID: 1670919307}
   - 23: {fileID: 1670919306}
   - 65: {fileID: 1670919305}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15564,7 +15664,7 @@ GameObject:
   - 33: {fileID: 1692105878}
   - 64: {fileID: 1692105877}
   - 23: {fileID: 1692105876}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Knob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15662,7 +15762,7 @@ Transform:
   - {fileID: 1896195560}
   - {fileID: 391341156}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
 --- !u!1 &1703753177
 GameObject:
   m_ObjectHideFlags: 0
@@ -15938,7 +16038,7 @@ GameObject:
   - 33: {fileID: 1712391145}
   - 23: {fileID: 1712391144}
   - 65: {fileID: 1712391143}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16229,7 +16329,7 @@ GameObject:
   - 33: {fileID: 1762632527}
   - 23: {fileID: 1762632525}
   - 65: {fileID: 1762632526}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16603,7 +16703,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
 --- !u!1 &1808622303
 GameObject:
   m_ObjectHideFlags: 0
@@ -16615,7 +16715,7 @@ GameObject:
   - 33: {fileID: 1808622306}
   - 23: {fileID: 1808622304}
   - 65: {fileID: 1808622305}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16732,7 +16832,7 @@ GameObject:
   - 33: {fileID: 1825470513}
   - 23: {fileID: 1825470512}
   - 65: {fileID: 1825470511}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16801,7 +16901,7 @@ GameObject:
   - 33: {fileID: 1835926472}
   - 64: {fileID: 1835926471}
   - 23: {fileID: 1835926470}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16871,7 +16971,7 @@ GameObject:
   - 33: {fileID: 1843045709}
   - 23: {fileID: 1843045707}
   - 65: {fileID: 1843045708}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17135,7 +17235,7 @@ GameObject:
   - 33: {fileID: 1873457425}
   - 64: {fileID: 1873457424}
   - 23: {fileID: 1873457423}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17205,7 +17305,7 @@ GameObject:
   - 33: {fileID: 1885376705}
   - 23: {fileID: 1885376704}
   - 65: {fileID: 1885376703}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17544,7 +17644,7 @@ GameObject:
   - 33: {fileID: 1915024493}
   - 23: {fileID: 1915024492}
   - 65: {fileID: 1915024491}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17859,7 +17959,7 @@ GameObject:
   - 33: {fileID: 1953025539}
   - 23: {fileID: 1953025538}
   - 65: {fileID: 1953025537}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17974,7 +18074,7 @@ GameObject:
   - 33: {fileID: 1967810387}
   - 23: {fileID: 1967810386}
   - 65: {fileID: 1967810385}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18043,7 +18143,7 @@ GameObject:
   - 33: {fileID: 1994924438}
   - 64: {fileID: 1994924437}
   - 23: {fileID: 1994924436}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18113,7 +18213,7 @@ GameObject:
   - 33: {fileID: 2000369057}
   - 23: {fileID: 2000369056}
   - 65: {fileID: 2000369055}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18209,7 +18309,7 @@ GameObject:
   - 33: {fileID: 2010918780}
   - 23: {fileID: 2010918779}
   - 65: {fileID: 2010918778}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18426,7 +18526,7 @@ GameObject:
   - 33: {fileID: 2033564363}
   - 23: {fileID: 2033564362}
   - 65: {fileID: 2033564361}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18681,7 +18781,7 @@ GameObject:
   - 33: {fileID: 2055238332}
   - 23: {fileID: 2055238331}
   - 65: {fileID: 2055238330}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18896,7 +18996,7 @@ GameObject:
   - 33: {fileID: 2090350298}
   - 23: {fileID: 2090350296}
   - 65: {fileID: 2090350297}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
