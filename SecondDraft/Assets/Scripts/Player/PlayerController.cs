@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject normalCamera;
 
     public event EventHandler<TriggerEventArgs> TriggerEntered;
+    public event EventHandler<TriggerEventArgs> TriggerExit;
 
     public bool LockMovement = false;
 	
@@ -70,5 +71,10 @@ public class PlayerController : MonoBehaviour {
             TriggerEntered(this, new TriggerEventArgs(other));
     }
 
+    void OnTriggerExit(Collider other)
+    {
+        if (TriggerExit != null)
+            TriggerExit(this, new TriggerEventArgs(other));
+    }
 
 }
