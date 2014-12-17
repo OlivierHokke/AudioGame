@@ -62,11 +62,14 @@ public class SingPuzzleState : BaseState
 
 		// Best distance to evaluate in order for the game to be nice
 		if (distanceMonster1.magnitude < 5.0f) {
-			AudioManager.PlayAudio(ao);
+			if (audioPlayer.finished)
+				AudioManager.PlayAudio(ao);
 		} else if (distanceMonster2.magnitude < 5.0f) {
-			AudioManager.PlayAudio(ao);
+			if (audioPlayer.finished)
+				AudioManager.PlayAudio(ao);
 		} else if (distanceMonster3.magnitude < 5.0f) {
-			AudioManager.PlayAudio(ao);
+			if (audioPlayer.finished)
+				AudioManager.PlayAudio(ao);
 		} else if (distanceRuby.magnitude < 5.0f) {
 			script.LoadState(NextState);
 		}
