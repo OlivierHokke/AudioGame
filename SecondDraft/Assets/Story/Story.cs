@@ -46,7 +46,7 @@ public class Story : MonoBehaviour {
     /// <summary>
     /// The player is in the elevator, waiting to get to the street
     /// </summary>
-    public ElevatorState ElevatorState = new ElevatorState();
+    public TeleportState ElevatorState = new TeleportState();
 
     /// <summary>
     /// Lucy explains the cars
@@ -78,11 +78,13 @@ public class Story : MonoBehaviour {
     /// The player reached the end of the level and is transported to a magical forest.
     /// </summary>
     public PortalState PortalState = new PortalState();
+	public TeleportState teleportLevel2 = new TeleportState();
 
     [Header("Level 2")]
     public LucyExplainingState ExplainsFortress = new LucyExplainingState();
     public SingPuzzleState SingPuzzle = new SingPuzzleState();
     public CharacterExplainingState RubyExplainsSomething = new CharacterExplainingState();
+	public LucyRemoveObjectState RubyRemovesDoorState = new LucyRemoveObjectState();
     public StepwiseFollowLucyState FollowLucyToMines1 = new StepwiseFollowLucyState();
     public StepwiseFollowLucyState FollowLucyToMines2 = new StepwiseFollowLucyState();
     public MinesPuzzleState MinesPuzzle = new MinesPuzzleState();
@@ -99,12 +101,17 @@ public class Story : MonoBehaviour {
     // Load the start state
     void Start()
     {
+        //LoadState(LucyExplains1);
         LoadState(LucyExplains1);
 
         // Define for some states that require it what the next state is.
         LucyExplains1.NextState = InitialMove;
         InitialMove.NextState = SecondMove;
         SecondMove.NextState = RemoveDoor;
+		// DEBUG LEVEL 2
+		RemoveDoor.NextState = teleportLevel2;
+		teleportLevel2.NextState = ExplainsFortress;
+		/*
         // Level 1
         RemoveDoor.NextState = ParentRoomState;
         ParentRoomState.NextState = LucyExplains2;
@@ -122,11 +129,14 @@ public class Story : MonoBehaviour {
 		EvadeSecondRoadCars.NextState=WalkToPortal;
         WalkToPortal.NextState = LucyExplainsPortal;
         LucyExplainsPortal.NextState = PortalState;
-        PortalState.NextState = ExplainsFortress;
+        PortalState.NextState = teleportLevel2;
+		teleportLevel2.NextState = ExplainsFortress;
+		*/
         // Level 2
         ExplainsFortress.NextState = SingPuzzle;
         SingPuzzle.NextState = RubyExplainsSomething;
-        RubyExplainsSomething.NextState = FollowLucyToMines1;
+		RubyExplainsSomething.NextState = RubyRemovesDoorState;
+		RubyRemovesDoorState.NextState=FollowLucyToMines1;
         FollowLucyToMines1.NextState = FollowLucyToMines2;
         FollowLucyToMines2.NextState = MinesPuzzle;
         MinesPuzzle.NextState = FollowLucyToBoss;
@@ -136,18 +146,29 @@ public class Story : MonoBehaviour {
         LucyExplainsYouWin.NextState = EndState;
 
         Player.GetComponent<PlayerController>().TriggerEntered += OnPlayerEnteredTrigger;
+        Player.GetComponent<PlayerController>().TriggerExit += OnPlayerExitTrigger;
 	}
 
     void OnPlayerEnteredTrigger(object sender, TriggerEventArgs e)
     {
         currentState.PlayerEnteredTrigger(e.Trigger, this);
     }
-	
+
+    void OnPlayerExitTrigger(object sender, TriggerEventArgs e)
+    {
+        currentState.PlayerExitTrigger(e.Trigger, this);
+    }
+
 	void Update () 
     {
         if (currentState != null)
             currentState.Update(this);
 	}
+
+    public void SetPlayerMovementLocked(bool locked)
+    {
+        Player.GetComponent<PlayerController>().LockMovement = locked;
+    }
 
     public void LoadState(BaseState state)
     {

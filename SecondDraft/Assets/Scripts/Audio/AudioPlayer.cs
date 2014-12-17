@@ -31,7 +31,23 @@ public class AudioPlayer
         audioAS = audioGO.GetComponent<AudioSource>();
         audioAS.clip = audio.clip;
         audioAS.volume = audio.volume;
+        audioAS.loop = audio.loop;
         audioAS.PlayDelayed(audio.delay);
+    }
+
+    public void StopPlaying()
+    {
+        audioAS.Stop();
+    }
+
+    public void StartPlaying()
+    {
+        audioAS.Play();
+    }
+
+    public void SetPitch(float pitch)
+    {
+        audioAS.pitch = pitch;
     }
 
     public virtual void Update(float deltaTime)

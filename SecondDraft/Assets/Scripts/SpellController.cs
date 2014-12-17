@@ -21,9 +21,9 @@ public abstract class SpellController : MonoBehaviour
 	protected abstract void OnTriggerEnter (Collider other);
 	
 	void OnTriggerExit(Collider other) {
-		if (other == Mallum.fireballLiveArea.collider) {
+		if (other == Mallum.spellLiveArea.collider) {
 			Debug.Log ("Destroyed");
-			Destroy (gameObject);
+//			Destroy (gameObject);
 		}
 	}
 }

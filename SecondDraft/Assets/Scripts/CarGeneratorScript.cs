@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using System.Text;
+using System;
+using UnityEngine;
 
 
 [Serializable]
@@ -17,7 +19,7 @@ public class CarGeneratorScript : MonoBehaviour {
 	private List<CarController> listCarsActive;
 	public CarController[] ListCarsActive
 	{
-		get { return listCarsActive.ToArray (); } 
+		get { return listCarsActive.ToArray (); }
 	}
 
 	private const float MIN_RANDOM_DELAY = 1.0f;
@@ -30,7 +32,7 @@ public class CarGeneratorScript : MonoBehaviour {
 		isActive = true;
 		listCarsActive = new List<CarController>();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		timeUntilNextCar -= Time.deltaTime;

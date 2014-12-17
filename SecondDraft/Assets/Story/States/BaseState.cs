@@ -11,4 +11,5 @@ public abstract class BaseState
     public virtual void Update(Story script) { }
     public virtual void End(Story script) { }
     public virtual void PlayerEnteredTrigger(Collider collider, Story script) { }
+    public virtual void PlayerExitTrigger(Collider collider, Story script) { }
 }

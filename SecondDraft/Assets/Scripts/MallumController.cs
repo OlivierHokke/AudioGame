@@ -7,21 +7,21 @@ public class MallumController : MonoBehaviour {
 	public GameObject fireball;
 	public GameObject powerUp;
 	public GameObject spawnPosition;
-	public GameObject fireballLiveArea;
+	public GameObject spellLiveArea;
 	public GameObject MallumRoom;
 	public float spellSpeed;
 	public bool isAwaken;
 
-	private int fireballsThrown;
+	private int spellsThrown;
 
-	private const float MIN_RANDOM_DELAY = 3.0f;
-	private const float MAX_RANDOM_DELAY = 10.0f;
+	private const float MIN_RANDOM_DELAY = 1.0f;
+	private const float MAX_RANDOM_DELAY = 1.5f;
 	private float timeUntilNextFireball;
 
 	// Use this for initialization
 	void Start () {
 		isAwaken = true;
-		fireballsThrown = 0;
+		spellsThrown = 0;
 		timeUntilNextFireball = 0;
 	}
 	
@@ -33,16 +33,21 @@ public class MallumController : MonoBehaviour {
 			timeUntilNextFireball = Randomg.Range(MIN_RANDOM_DELAY, MAX_RANDOM_DELAY);
 
 			GameObject spellGO = null;
+			SpellController spellCS = null;
 
-			if (fireballsThrown < 3) {
+			if (spellsThrown < 3) {
 				spellGO = Instantiate(fireball, spawnPosition.transform.position, spawnPosition.transform.rotation) as GameObject;
+				spellCS = spellGO.GetComponent<FireballController>();
+				spellsThrown++;
+			} else {
+				spellGO = Instantiate(powerUp, spawnPosition.transform.position, spawnPosition.transform.rotation) as GameObject;
+				spellCS = spellGO.GetComponent<PowerUpController>();
+				spellsThrown = 0;
 			}
 
-			spellGO.transform.LookAt(target.transform);
-			SpellController spellCS = spellGO.GetComponent<FireballController>();
-			spellCS.Init(this, spellSpeed);
 			spellGO.transform.parent = MallumRoom.transform;
-
+			spellGO.transform.LookAt(target.transform);
+			spellCS.Init(this, spellSpeed);
 		}
 	}
 	
