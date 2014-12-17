@@ -7,6 +7,7 @@ public class Story : MonoBehaviour {
     [Header("Important objects")]
     public GameObject Player;
     public GameObject Lucy;
+	public GameObject Mallum;
     [Header("Important sounds")]
     public AudioClip LucyBell;
 
