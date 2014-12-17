@@ -969,7 +969,7 @@ Transform:
   m_PrefabInternal: {fileID: 722422532}
   m_GameObject: {fileID: 92038997}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 70.5999985, y: 3, z: 85.0999985}
+  m_LocalPosition: {x: 71.5999985, y: 3, z: 85.0999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 183931010}
@@ -7260,7 +7260,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 772288348916a114fb961e5437deebcf, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 70.5999985
+      value: 71.5999985
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 772288348916a114fb961e5437deebcf, type: 2}
       propertyPath: m_LocalPosition.y
@@ -9851,8 +9851,8 @@ MonoBehaviour:
     Skip: 1
     playableSound: {fileID: 8300000, guid: fdc5ab3ab88ddf44db3232e66e81629d, type: 3}
   teleportLevel2:
-    targetPlayerPosition: {fileID: 92038997}
-    targetLucyPosition: {fileID: 832004283}
+    targetPlayerPosition: {fileID: 832004283}
+    targetLucyPosition: {fileID: 274185063}
     sound: {fileID: 8300000, guid: 83612f8b7bd5b1f47bcf487c9eb581a3, type: 3}
   ExplainsFortress:
     Skip: 0
@@ -9894,13 +9894,13 @@ MonoBehaviour:
     LucyStepFlyTime: 2
   MinesPuzzle:
     MaxRandomBellDelay: .5
-    TargetLocation: {fileID: 354539704}
-    SuccesSound: {fileID: 8300000, guid: 83612f8b7bd5b1f47bcf487c9eb581a3, type: 3}
+    TargetLocation: {fileID: 0}
+    SuccesSound: {fileID: 0}
     LucyAppearanceDelay: 5
-    MineField: {fileID: 2050849602}
-    DragBackLocation: {fileID: 702995284}
-    DragBackSound: {fileID: 8300000, guid: cfbd1e65d210c491289783703e488ee1, type: 3}
-    MineFieldDoor: {fileID: 2139610673}
+    MineField: {fileID: 0}
+    DragBackLocation: {fileID: 0}
+    DragBackSound: {fileID: 0}
+    MineFieldDoor: {fileID: 0}
   FollowLucyToBoss:
     MaxRandomBellDelay: .5
     TargetLocation: {fileID: 0}
@@ -19582,8 +19582,8 @@ MonoBehaviour:
     x: 4
     y: 0
   Mine: {fileID: 136722, guid: c9844dfd143f84c468606a9fcfeda8f2, type: 2}
-  MineProximitySensor: {fileID: 171862, guid: 03f807d9b1a15d64a8fa58a7ac36a1e2, type: 2}
-  MineSound: {fileID: 8300000, guid: bbb9b7a2bfa9a77479b3a414846e3c66, type: 3}
+  MineProximitySensor: {fileID: 0}
+  MineSound: {fileID: 0}
 --- !u!1 &2052761695
 GameObject:
   m_ObjectHideFlags: 0
