@@ -26,7 +26,7 @@ public class PlayerCollision : MonoBehaviour {
 
     void Start() {
         bumpAudioSource = new DynamicAudioPlayer(gameObject, bumpClip).audioSource;
-        bumpAudioSource.volume = 0.5f;
+        bumpAudioSource.volume = .8f;
         scatheAudioSource = new DynamicAudioPlayer(gameObject, scatheClip).audioSource;
         scatheAudioSource.loop = true;
     }
@@ -47,7 +47,7 @@ public class PlayerCollision : MonoBehaviour {
     void OnCollisionStay(Collision collision) {
         if (collision.gameObject.layer != wallLayer) return;
         scatheAudioSource.transform.position = collision.contacts[0].point;
-        scatheTargetVolume = collision.relativeVelocity.magnitude / 2.5f; // just some downscaling
+        scatheTargetVolume = collision.relativeVelocity.magnitude / 1.6f; // just some downscaling
         if (scatheAudioSource.isPlaying == false) {
             scatheAudioSource.Play();
         }
