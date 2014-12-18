@@ -88,6 +88,7 @@ public class Story : MonoBehaviour {
     public StepwiseFollowLucyState FollowLucyToMines1 = new StepwiseFollowLucyState();
     public StepwiseFollowLucyState FollowLucyToMines2 = new StepwiseFollowLucyState();
 	public StepwiseFollowLucyState FollowLucyToMines3 = new StepwiseFollowLucyState();
+	public StepwiseFollowLucyState FollowLucyToMines4 = new StepwiseFollowLucyState();
     public MinesPuzzleState MinesPuzzle = new MinesPuzzleState();
 	public SimpleFollowLucyState FollowLucyToBoss1 = new SimpleFollowLucyState();
 	public SimpleFollowLucyState FollowLucyToBoss2 = new SimpleFollowLucyState();
@@ -143,7 +144,8 @@ public class Story : MonoBehaviour {
 		RubyRemovesDoorState.NextState=FollowLucyToMines1;
         FollowLucyToMines1.NextState = FollowLucyToMines2;
 		FollowLucyToMines2.NextState = FollowLucyToMines3;
-		FollowLucyToMines3.NextState = MinesPuzzle;
+		FollowLucyToMines3.NextState = FollowLucyToMines4;
+		FollowLucyToMines4.NextState =   MinesPuzzle;
         MinesPuzzle.NextState = FollowLucyToBoss1;
         FollowLucyToBoss1.NextState = FollowLucyToBoss2;
 		FollowLucyToBoss2.NextState = FollowLucyToBoss3;
