@@ -18,6 +18,11 @@ public class PlayerController : MonoBehaviour {
     public GameObject normalRoot;
     public GameObject normalCamera;
 
+	public AudioClip growlSound;
+	private AudioPlayer growlPlayer;
+
+	private bool onFire = false;
+
     public event EventHandler<TriggerEventArgs> TriggerEntered;
     public event EventHandler<TriggerEventArgs> TriggerExit;
 
@@ -59,6 +64,11 @@ public class PlayerController : MonoBehaviour {
         camera.transform.localEulerAngles = -Vector3.right * currentLookVertical;*/
 	}
 
+	public void useGrowl() {
+		AudioObject ao = new AudioObject(this.gameObject, growlSound);
+		growlPlayer = AudioManager.PlayAudio(ao);
+	}
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
@@ -77,4 +87,11 @@ public class PlayerController : MonoBehaviour {
             TriggerExit(this, new TriggerEventArgs(other));
     }
 
+	public void setOnFire(bool state) {
+		onFire = state;
+	}
+
+	public bool isOnFire() {
+		return onFire;
+	}
 }

@@ -5,13 +5,19 @@ using System;
 [Serializable]
 public abstract class SpellController : MonoBehaviour
 {
-	private MallumController Mallum;
+	protected MallumController Mallum;
+
 	public float initialSpeed, speed;
+	public AudioClip spellSound;
+
+	private AudioPlayer spellPlayer;
 	
 	public virtual void Init(MallumController m, float startingSpeed) {
 		this.Mallum = m;
 		this.initialSpeed = startingSpeed;
 		this.speed = initialSpeed;
+		AudioObject ao = new AudioObject(this.gameObject, spellSound, 1, 0, true);
+		spellPlayer = AudioManager.PlayAudio (ao);
 	}
 
 	void FixedUpdate() {
@@ -22,8 +28,7 @@ public abstract class SpellController : MonoBehaviour
 	
 	void OnTriggerExit(Collider other) {
 		if (other == Mallum.spellLiveArea.collider) {
-			Debug.Log ("Destroyed");
-//			Destroy (gameObject);
+			Destroy (gameObject);
 		}
 	}
 }

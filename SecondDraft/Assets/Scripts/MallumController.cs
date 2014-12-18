@@ -13,16 +13,25 @@ public class MallumController : MonoBehaviour {
 	public bool isAwaken;
 
 	private int spellsThrown;
+	private int numberHits;
+	private bool dead;
 
-	private const float MIN_RANDOM_DELAY = 1.0f;
-	private const float MAX_RANDOM_DELAY = 1.5f;
+	public AudioClip spellSound;
+	private AudioPlayer spellPlayer;
+	private AudioObject spellAO;
+
+	private const float MIN_RANDOM_DELAY = 3.0f;
+	private const float MAX_RANDOM_DELAY = 4.0f;
 	private float timeUntilNextFireball;
 
 	// Use this for initialization
 	void Start () {
-		isAwaken = true;
+		isAwaken = false;
 		spellsThrown = 0;
 		timeUntilNextFireball = 0;
+		numberHits = 0;
+		dead = false;
+		spellAO = new AudioObject(this.gameObject, spellSound);
 	}
 	
 	// Update is called once per frame
@@ -48,10 +57,25 @@ public class MallumController : MonoBehaviour {
 			spellGO.transform.parent = MallumRoom.transform;
 			spellGO.transform.LookAt(target.transform);
 			spellCS.Init(this, spellSpeed);
+			spellPlayer = AudioManager.PlayAudio(spellAO);
 		}
 	}
-	
+
+	public void getHitByPlayer() {
+		numberHits++;
+		this.transform.Translate (new Vector3 (3.5f, 0f, 0f));
+
+		if (numberHits >= 2) {
+			setAwaken(false);
+			dead = true;
+		}
+	}
+
 	public void setAwaken(bool state) {
 		isAwaken = state;
+	}
+
+	public bool isDead() {
+		return dead;
 	}
 }

@@ -172,6 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialSpeed: 0
   speed: 0
+  spellSound: {fileID: 8300000, guid: 79fdc02ae03ba6645bb8996cd0d3f501, type: 3}
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
