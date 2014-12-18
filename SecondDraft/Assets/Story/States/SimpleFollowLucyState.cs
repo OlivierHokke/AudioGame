@@ -43,6 +43,8 @@ public class SimpleFollowLucyState : LucyRingingBellState
             var newLucyPos = PositionRotation.Interpolate(lucyStart, 
                 new PositionRotation(this.TargetLocation.transform.position, this.TargetLocation.transform.rotation), 
                 Ease.ioSinusoidal(progress));
+            script.Lucy.transform.position = newLucyPos.Position;
+            script.Lucy.transform.rotation = newLucyPos.Rotation;
         }
         else
         {
