@@ -89,9 +89,25 @@ public class SoundSystemManager : MonoBehaviour {
         }
     }
 
-    public void SetSystem(SoundSystem system)
+    public void SetUnityDefault()
     {
-        instance.soundSystem = system;
+        instance.soundSystem = SoundSystem.UnityDefault;
+        HandleListenerSettings();
+        HandleSourceSettings();
+    }
+
+    public void SetAstoundSound()
+    {
+        instance.soundSystem = SoundSystem.AstoundSound;
+        HandleListenerSettings();
+        HandleSourceSettings();
+    }
+
+    public void SetPhonon3D()
+    {
+        instance.soundSystem = SoundSystem.Phonon;
+        HandleListenerSettings();
+        HandleSourceSettings();
     }
 
     public enum SoundSystem
