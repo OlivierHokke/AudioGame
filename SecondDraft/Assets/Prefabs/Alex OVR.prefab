@@ -137,7 +137,7 @@ GameObject:
   - 54: {fileID: 5471202}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11417152}
-  - 114: {fileID: 11465586}
+  - 114: {fileID: 11442004}
   m_Layer: 0
   m_Name: Alex OVR
   m_TagString: Untagged
@@ -240,7 +240,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -93.5100021, y: 2, z: -96.0699997}
+  m_LocalPosition: {x: -54.2999992, y: 2, z: -88.6999969}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 424566}
@@ -504,7 +504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalCamera: {fileID: 2071200}
   oculusCamera: {fileID: 2071198}
---- !u!114 &11465586
+--- !u!114 &11442004
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -516,10 +516,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localWalkingDirection: {x: 0, y: 0, z: 1}
-  distanceToGround: {x: 0, y: -3.20000005, z: 0}
-  feetReachForward: 1.20000005
+  distanceToGround: {x: 0, y: -3, z: 0}
+  feetReachForward: .699999988
   feetGapWidth: .600000024
-  distancePerStep: 1.20000005
+  distancePerStep: 2.20000005
   randomness: .00999999978
   sounds:
   - ground: 0
