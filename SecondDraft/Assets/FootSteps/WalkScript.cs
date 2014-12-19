@@ -127,6 +127,7 @@ public class WalkScript : MonoBehaviour {
 
         GameObject go = Pool.get(currentFootsteps.gameObject, transform.position + distanceToGround + direction * feetReachForward + side * feetGapWidth * 0.5f);
         go.GetComponent<FootStepScript>().Initialize();
+        AstoundSoundManager.HandleAudioSource(go);
 
         passingFoot = (passingFoot == Foot.LEFT) ? Foot.RIGHT : Foot.LEFT;
     }

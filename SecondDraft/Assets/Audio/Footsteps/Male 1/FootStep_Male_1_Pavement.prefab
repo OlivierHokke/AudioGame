@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11436432}
   m_Layer: 0
   m_Name: FootStep_Male_1_Pavement
   m_TagString: Untagged
@@ -106,6 +107,25 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d876e35c8175e2b4cb8041008fefe36b, type: 3}
   - {fileID: 8300000, guid: 55c486acda59fe04eb0064a356be9795, type: 3}
   maxRandomPitch: .100000001
+--- !u!114 &11436432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1582778171, guid: 205382ed54b28421a9cdbe54fcccba1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideListenerDirectionParameter: 0
+  full3d: 1
+  spatialInterpolation: 1
+  overrideListenerDistanceParameter: 0
+  enableReverb: 0
+  reverbCofactor: 50
+  enhanceDistEffect: 1
+  priorityRatio: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

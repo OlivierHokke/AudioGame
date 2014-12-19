@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11436432}
   m_Layer: 0
   m_Name: FootStep_Male_1_Wood
   m_TagString: Untagged
@@ -106,6 +107,25 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f7db2ae19d8365f4fa9e996169a2a501, type: 3}
   - {fileID: 8300000, guid: 1c31d87424a1d51488e55d3c8f2d1050, type: 3}
   maxRandomPitch: .200000003
+--- !u!114 &11436432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1582778171, guid: 205382ed54b28421a9cdbe54fcccba1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideListenerDirectionParameter: 0
+  full3d: 1
+  spatialInterpolation: 1
+  overrideListenerDistanceParameter: 0
+  enableReverb: 0
+  reverbCofactor: 50
+  enhanceDistEffect: 1
+  priorityRatio: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
