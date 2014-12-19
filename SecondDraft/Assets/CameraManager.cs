@@ -116,6 +116,7 @@ public class CameraManager : MonoBehaviour {
 
     void Update()
     {
-        oculusRiftConnected = OVRDevice.IsHMDPresent();
+        // TODO:
+        //oculusRiftConnected = OVRDevice.IsHMDPresent();
     }
 }

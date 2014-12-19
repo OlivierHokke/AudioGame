@@ -39,6 +39,7 @@ public class SettingsButton : MonoBehaviour {
     private bool pressedRight;
     private CanvasGroup canvasGroup;
     private float targetAlpha = 1f;
+    private bool previouslyActivated;
 
     void Start()
     {
@@ -49,11 +50,18 @@ public class SettingsButton : MonoBehaviour {
     {
         SettingsManager.activeSettingType = transform.GetSiblingIndex();
     }
+
+    void OnEnable()
+    {
+        previouslyActivated = false;
+    }
 	
 	// Update is called once per frame
-	void Update () 
+	void Update ()
     {
-        if (SettingsManager.activeSettingType == transform.GetSiblingIndex())
+        bool activated = SettingsManager.activeSettingType == transform.GetSiblingIndex();
+
+        if (activated)
         {
             canvasGroup.alpha += (1f - canvasGroup.alpha) * Mathf.Min(1f, Time.deltaTime * 5f);
 
@@ -67,7 +75,21 @@ public class SettingsButton : MonoBehaviour {
                 pressedLeft = false;
                 pressedRight = false;
             }
+        }
 
+        SettingObject obj = null;
+        if (settings.Count > 0)
+        {
+            obj = settings[currentSettingIndex];
+        }
+
+        if (activated && !previouslyActivated && obj != null)
+        {
+            SettingsManager.instance.PlaySettingsAudio(obj.audio);
+        }
+
+        if (activated)
+        {
             targetAlpha = 1f;
         }
         else
@@ -77,23 +99,22 @@ public class SettingsButton : MonoBehaviour {
 
         canvasGroup.alpha += (targetAlpha - canvasGroup.alpha) * Mathf.Min(1f, Time.deltaTime * 5f);
 
-        if (previousSettingIndex != currentSettingIndex && settings.Count > 0)
+        if (previousSettingIndex != currentSettingIndex && obj != null)
         {
-            SettingObject obj = settings[currentSettingIndex];
             title.text = name;
             settingText.text = obj.name;
             descriptionText.text = obj.description;
             if (obj.audio != null)
             {
-                AudioObject ao = new AudioObject(gameObject, obj.audio, 1f);
-                AudioManager.PlayAudio(ao);
+                SettingsManager.instance.PlaySettingsAudio(obj.audio);
             }
             left.inactive = !HasLeft();
             right.inactive = !HasRight();
             obj.onSet.Invoke();
-            previousSettingIndex = currentSettingIndex;
-
         }
+
+        previousSettingIndex = currentSettingIndex;
+        previouslyActivated = activated;
 	}
 
     public void Left()

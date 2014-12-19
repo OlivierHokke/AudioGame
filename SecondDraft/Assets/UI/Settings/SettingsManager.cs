@@ -25,6 +25,10 @@ public class SettingsManager : MonoBehaviour
     public void ToggleSettings()
     {
         settingsBackground.SetActive(!settingsBackground.activeInHierarchy);
+        if (!IsSettingsShown())
+        {
+            activePlayer.StopPlaying();
+        }
     }
 
     public void NextSettingType()
@@ -45,7 +49,7 @@ public class SettingsManager : MonoBehaviour
         {
             activePlayer.StopPlaying();
         }
-        AudioObject ao = new AudioObject(gameObject, ac, 1f);
+        AudioObject ao = new AudioObject(instance.gameObject, ac, 1f);
         activePlayer = AudioManager.PlayAudio(ao);
     }
 

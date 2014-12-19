@@ -2185,7 +2185,7 @@ MonoBehaviour:
   - name: STEREO PANNED
     description: Using this setting, you are only able to determine how far left or
       right an object is relative to you.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 1f284220b1918f94eb0a0b68788bbc07, type: 3}
     onSet:
       m_PersistentCalls:
         m_Calls:
@@ -2207,7 +2207,7 @@ MonoBehaviour:
     description: Sound will be spatially simulated by Phonon 3D's technology, using
       models that mimic how the ears would perceive audio from a 3D environment. Allows
       full 3D spatial audio recognition.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 4222e2c3aaba588428d8ec8f811273ad, type: 3}
     onSet:
       m_PersistentCalls:
         m_Calls:
@@ -2229,7 +2229,7 @@ MonoBehaviour:
     description: Sound will be spatially simulated by AstoundSound's technology, using
       models that mimic how the brain would perceive audio from a 3D environment.
       Allows full 3D spatial audio recognition.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 46ec8a02220078642b33302a585b67c4, type: 3}
     onSet:
       m_PersistentCalls:
         m_Calls:
@@ -2290,7 +2290,6 @@ CanvasGroup:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 129698144}
-  m_Enabled: 1
   m_Alpha: .200000003
   m_Interactable: 1
   m_BlocksRaycasts: 1
@@ -5336,7 +5335,6 @@ CanvasGroup:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 359390229}
-  m_Enabled: 1
   m_Alpha: .200000003
   m_Interactable: 1
   m_BlocksRaycasts: 1
@@ -5359,7 +5357,7 @@ MonoBehaviour:
   - name: TURNED OFF
     description: "With this setting virtual reality through the Oculus Rift will not
       be used entirely.\r"
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 8de8b574946c9e5469ad07f7d5a13445, type: 3}
     onSet:
       m_PersistentCalls:
         m_Calls:
@@ -5380,7 +5378,7 @@ MonoBehaviour:
   - name: HEAD TRACKING ONLY
     description: This setting only uses the head tracking of the Oculus Rift. If visual
       aids are turned on, a guide could help the visually impaired player to get through.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: d4163f426a718af4ab8c686bfe20b7a6, type: 3}
     onSet:
       m_PersistentCalls:
         m_Calls:
@@ -5402,7 +5400,7 @@ MonoBehaviour:
     description: Actual stereoscopic camera output to the Oculus Rift is enabled,
       together with the Oculus Rift head tracking. Not of any use to visually impaired
       players.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 25c11e43c8b466c4fb7ed3a27ee8865f, type: 3}
     onSet:
       m_PersistentCalls:
         m_Calls:
@@ -11373,7 +11371,7 @@ MonoBehaviour:
   - name: SINGLE AXIS
     description: You can now use a keyboard or controller to move the character. Forward
       and backward act as expected, but pressing sideways turns the head of the character.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 19275d81317acd1469da1df6be49f853, type: 3}
     onSet:
       m_PersistentCalls:
         m_Calls:
@@ -11395,7 +11393,7 @@ MonoBehaviour:
     description: The first person shooter controls use a keyboard and mouse. The arrow
       keys on the keyboard make you walk and strafe, while the moving the mouse causes
       the character to turn. Alternatively, a controller can be used and works similarly.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 2fcd12b4a92eae141ae0104b4ea26f76, type: 3}
     onSet:
       m_PersistentCalls:
         m_Calls:
@@ -11418,7 +11416,7 @@ MonoBehaviour:
       makes the character walk, while the second one makes the character turn his
       head. When releasing this second stick, the character turns his full body in
       that direction.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: c87b1cec7916d984dbfc48477a369194, type: 3}
     onSet:
       m_PersistentCalls:
         m_Calls:
@@ -11449,7 +11447,6 @@ CanvasGroup:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 726905656}
-  m_Enabled: 1
   m_Alpha: .200000003
   m_Interactable: 1
   m_BlocksRaycasts: 1
@@ -22468,6 +22465,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -26266,7 +26264,7 @@ MonoBehaviour:
   - name: NO VISUAL AIDS
     description: The screen will be black. For non-visually impaired players, this
       may simulate blindness.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 499044454004c1a40933b206c6e7f3e6, type: 3}
     onSet:
       m_PersistentCalls:
         m_Calls:
@@ -26288,7 +26286,7 @@ MonoBehaviour:
     description: This allows visually impaired players to have guidance by a non-visually
       impared guide. Or, non-visually impaired players may play the game using visuals
       for an easy play-through.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: b92045eddb4a8104e864e2dea7c17d7f, type: 3}
     onSet:
       m_PersistentCalls:
         m_Calls:
@@ -26319,7 +26317,6 @@ CanvasGroup:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1743018207}
-  m_Enabled: 1
   m_Alpha: .200000003
   m_Interactable: 1
   m_BlocksRaycasts: 1
