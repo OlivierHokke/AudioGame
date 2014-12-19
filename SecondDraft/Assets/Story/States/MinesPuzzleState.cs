@@ -7,7 +7,6 @@ using UnityEngine;
 [Serializable]
 public class MinesPuzzleState : SimpleFollowLucyState
 {
-    public BaseState NextState;
 
     public MineFieldScript MineField;
     public GameObject DragBackLocation;

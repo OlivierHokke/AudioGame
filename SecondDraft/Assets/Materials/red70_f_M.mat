@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: red100_M
-  m_Shader: {fileID: 4800000, guid: 7d504d370bf7d974f92e6b7e094e6ed1, type: 3}
+  m_Name: red70_f_M
+  m_Shader: {fileID: 4800000, guid: 40c600541d119d6428731a712352fc5d, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -25,4 +25,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .282758594, g: 1, b: 0, a: 1}
+        second: {r: 1, g: .368627459, b: .356862754, a: .701960802}

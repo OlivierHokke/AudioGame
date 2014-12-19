@@ -4,14 +4,11 @@ using System;
 
 public class PlayerController : MonoBehaviour {
 
-    public float walkUnitsPerSecond = 4f;
-    public float turnUnitsPerSecond = 180f;
-    public float anglesPerPixel = 0.5f;
-    public float maxLookVertical = 25f;
-    public float minLookVertical = -25f;
-    public float currentLookVertical = 0f;
-    public float currentLookHorizontal = 0f;
 
+	public AudioClip growlSound;
+	private AudioPlayer growlPlayer;
+
+	private bool onFire = false;
 
     public event EventHandler<TriggerEventArgs> TriggerEntered;
     public event EventHandler<TriggerEventArgs> TriggerExit;
@@ -25,6 +22,11 @@ public class PlayerController : MonoBehaviour {
         if (!LockMovement)
         transform.position += c.GetMove();
         transform.rotation *= c.GetRotation();
+	}
+
+	public void useGrowl() {
+		AudioObject ao = new AudioObject(this.gameObject, growlSound);
+		growlPlayer = AudioManager.PlayAudio(ao);
 	}
 
     void OnDrawGizmos()
@@ -45,4 +47,11 @@ public class PlayerController : MonoBehaviour {
             TriggerExit(this, new TriggerEventArgs(other));
     }
 
+	public void setOnFire(bool state) {
+		onFire = state;
+	}
+
+	public bool isOnFire() {
+		return onFire;
+	}
 }

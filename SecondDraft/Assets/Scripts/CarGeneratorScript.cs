@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using UnityEngine;
+using System.Collections.Generic;
+using System;
 using System.Linq;
 using System.Text;
 using System;
@@ -13,9 +15,9 @@ public class CarGeneratorScript : MonoBehaviour {
 	public GameObject carLiveArea;
 	public float carSpeed;
 	public GameObject street;
-	public bool isActive;
-	private List<CarScript> listCarsActive;
-	public CarScript[] ListCarsActive
+	public bool isActive;	
+	private List<CarController> listCarsActive;
+	public CarController[] ListCarsActive
 	{
 		get { return listCarsActive.ToArray (); }
 	}
@@ -28,7 +30,7 @@ public class CarGeneratorScript : MonoBehaviour {
 	void Start () {
 		timeUntilNextCar = 0;
 		isActive = true;
-		listCarsActive = new List<CarScript>();
+		listCarsActive = new List<CarController>();
 	}
 
 	// Update is called once per frame
@@ -38,7 +40,7 @@ public class CarGeneratorScript : MonoBehaviour {
 		if (timeUntilNextCar < 0 && isActive) {
 			timeUntilNextCar = Randomg.Range(MIN_RANDOM_DELAY, MAX_RANDOM_DELAY);
             GameObject carGO = Instantiate(car, spawnPosition.transform.position, spawnPosition.transform.rotation) as GameObject;
-            CarScript carCS = carGO.GetComponent<CarScript>();
+            CarController carCS = carGO.GetComponent<CarController>();
             carCS.Init(this, carSpeed);
             carGO.transform.parent = street.transform;
             listCarsActive.Add(carCS);

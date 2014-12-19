@@ -7,6 +7,7 @@ public class Story : MonoBehaviour {
     [Header("Important objects")]
     public GameObject Player;
     public GameObject Lucy;
+	public GameObject Mallum;
     [Header("Important sounds")]
     public AudioClip LucyBell;
 
@@ -86,10 +87,15 @@ public class Story : MonoBehaviour {
 	public LucyRemoveObjectState RubyRemovesDoorState = new LucyRemoveObjectState();
     public StepwiseFollowLucyState FollowLucyToMines1 = new StepwiseFollowLucyState();
     public StepwiseFollowLucyState FollowLucyToMines2 = new StepwiseFollowLucyState();
+	public StepwiseFollowLucyState FollowLucyToMines3 = new StepwiseFollowLucyState();
+	public StepwiseFollowLucyState FollowLucyToMines4 = new StepwiseFollowLucyState();
     public MinesPuzzleState MinesPuzzle = new MinesPuzzleState();
-    public StepwiseFollowLucyState FollowLucyToBoss = new StepwiseFollowLucyState();
+	public SimpleFollowLucyState FollowLucyToBoss1 = new SimpleFollowLucyState();
+	public SimpleFollowLucyState FollowLucyToBoss2 = new SimpleFollowLucyState();
+	public SimpleFollowLucyState FollowLucyToBoss3 = new SimpleFollowLucyState();
     public LucyExplainingState LucyExplainsBoss = new LucyExplainingState();
     public FinalBossState FinalBoss = new FinalBossState();
+	public FollowLucyToWaterState FollowLucyToWater = new FollowLucyToWaterState();
     public LucyExplainingState LucyExplainsYouWin = new LucyExplainingState();
     public EndState EndState = new EndState();
  
@@ -101,7 +107,7 @@ public class Story : MonoBehaviour {
     void Start()
     {
         //LoadState(LucyExplains1);
-        LoadState(LucyExplains1);
+		LoadState(LucyExplains1);
 
         // Define for some states that require it what the next state is.
         LucyExplains1.NextState = InitialMove;
@@ -137,11 +143,17 @@ public class Story : MonoBehaviour {
 		RubyExplainsSomething.NextState = RubyRemovesDoorState;
 		RubyRemovesDoorState.NextState=FollowLucyToMines1;
         FollowLucyToMines1.NextState = FollowLucyToMines2;
-        FollowLucyToMines2.NextState = MinesPuzzle;
-        MinesPuzzle.NextState = FollowLucyToBoss;
-        FollowLucyToBoss.NextState = LucyExplainsBoss;
+		FollowLucyToMines2.NextState = FollowLucyToMines3;
+		FollowLucyToMines3.NextState = FollowLucyToMines4;
+		FollowLucyToMines4.NextState =   MinesPuzzle;
+        MinesPuzzle.NextState = FollowLucyToBoss1;
+        FollowLucyToBoss1.NextState = FollowLucyToBoss2;
+		FollowLucyToBoss2.NextState = FollowLucyToBoss3;
+		FollowLucyToBoss3.NextState = LucyExplainsBoss;
         LucyExplainsBoss.NextState = FinalBoss;
         FinalBoss.NextState = LucyExplainsYouWin;
+		FinalBoss.PlayerOnFireState = FollowLucyToWater;
+		FollowLucyToWater.NextState = FinalBoss;
         LucyExplainsYouWin.NextState = EndState;
 
         Player.GetComponent<PlayerController>().TriggerEntered += OnPlayerEnteredTrigger;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CarScript : MonoBehaviour {
+public class CarController : MonoBehaviour {
 
 	private CarGeneratorScript generator;
 	private float initialSpeed;
