@@ -21,7 +21,7 @@ public class TeleportState : BaseState
 	}
 
 	public override void Update(Story script) {
-		if (audioPlayer.finished) {
+		if (sound == null || audioPlayer.finished) {
 			script.LoadState(NextState);
 		}
 	}
