@@ -31,7 +31,7 @@ public class CarController : MonoBehaviour {
 	void OnTriggerExit(Collider other) {
 		if (other == generator.carLiveArea.collider) {
 			// If a car isn't in the game anymore we take if off the car list
-			generator.removeCarAt(0);
+			generator.RemoveCar(this.gameObject);
 			Destroy (gameObject);
 
 		} else if (other.tag == "Player" || other.tag == "Car") {

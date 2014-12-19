@@ -36,10 +36,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 130170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15d3dc6734c90614190e1356b3f36077, type: 3}
+  m_Script: {fileID: 11500000, guid: 0aa7ac142330ac64ea2b5fe0d1ee92ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  astoundSoundEnabled: 0
+  soundSystem: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 100012, guid: 66363ddfec70c4859924a093e915b13c, type: 2}
+  engineSound: {fileID: 8300000, guid: 230a2a8f5c24b49539431696da129636, type: 3}
   spawnPosition: {fileID: 100000}
   carLiveArea: {fileID: 100004}
   carSpeed: 15

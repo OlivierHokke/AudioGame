@@ -194,7 +194,7 @@ public class Story : MonoBehaviour {
 
     private void RemoveFinishedSuccessSounds()
     {
-        Debug.Log(string.Join("; ", storySoundPlayers.Select(s => s.Key.name.ToString() + ", " + s.Value.ToString()).ToArray()));
+        //Debug.Log(string.Join("; ", storySoundPlayers.Select(s => s.Key.name.ToString() + ", " + s.Value.ToString()).ToArray()));
         List<GameObject> playersToRemove = new List<GameObject>();
         foreach(var go in storySoundPlayers)
         {
