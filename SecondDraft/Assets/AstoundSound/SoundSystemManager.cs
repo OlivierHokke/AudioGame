@@ -1,0 +1,94 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class SoundSystemManager : MonoBehaviour {
+    public static SoundSystemManager instance;
+
+    public SoundSystem soundSystem = SoundSystem.UnityDefault;
+
+    void Awake()
+    {
+        instance = this;
+    }
+    
+    void Start()
+    {
+        HandleSourceSettings();
+        HandleListenerSettings();
+    }
+
+    public static void HandleAudioSource(GameObject gameObject)
+    {
+        if (gameObject.audio != null)
+        {
+            HandleAudioSource(gameObject.audio);
+        }
+    }
+
+    public static void HandleAudioSource(AudioSource audio)
+    {
+        SetAstoundSoundEnabled(audio, instance.soundSystem == SoundSystem.AstoundSound); 
+        SetPhononEnabled(audio, instance.soundSystem == SoundSystem.Phonon);
+    }
+
+    private static void SetAstoundSoundEnabled(AudioSource audio, bool enabled)
+    {
+        AstoundSoundRTIFilter filter = audio.GetComponent<AstoundSoundRTIFilter>();
+        if (enabled && filter == null)
+        {
+            filter = audio.gameObject.AddComponent<AstoundSoundRTIFilter>();
+        }
+        if (filter != null)
+            filter.enabled = enabled;
+    }
+
+    private static void SetPhononEnabled(AudioSource audio, bool enabled)
+    {
+        var filter = audio.GetComponent<BinauralSource>();
+        if (enabled && filter == null)
+        {
+            filter = audio.gameObject.AddComponent<BinauralSource>();
+        }
+        if (filter != null)
+            filter.enabled = enabled;
+    }
+
+    public static void HandleListenerSettings()
+    {
+        SetListenersEnabled<AstoundSoundRTIListener>(instance.soundSystem == SoundSystem.AstoundSound);
+        SetListenersEnabled<BinauralListener>(instance.soundSystem == SoundSystem.Phonon);
+    }
+
+    private static void SetListenersEnabled<T>(bool enabled) where T:MonoBehaviour
+    {
+        var listeners = FindObjectsOfType<T>();
+        foreach (var l in listeners)
+        {
+            // only possible if the listener is currently on an active audio listener
+            if (l.GetComponent<AudioListener>().enabled)
+                l.enabled = enabled;
+            else
+                l.enabled = false;
+        }
+    }
+
+    public static void HandleSourceSettings()
+    {
+        SetSourcesEnabled<AstoundSoundRTIFilter>(instance.soundSystem == SoundSystem.AstoundSound);
+        SetSourcesEnabled<BinauralSource>(instance.soundSystem == SoundSystem.Phonon);
+    }
+
+    private static void SetSourcesEnabled<T>(bool enabled) where T:MonoBehaviour
+    {
+       var filters = FindObjectsOfType<T>();
+        foreach (var f in filters)
+        {
+            f.enabled = enabled;
+        }
+    }
+
+    public enum SoundSystem
+    {
+        UnityDefault = 0, AstoundSound = 1, Phonon = 2
+    }
+}

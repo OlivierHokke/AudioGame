@@ -30,7 +30,7 @@ public class AudioPlayer
         audioGO.transform.parent = audio.parent.transform;
         audioGO.transform.localPosition = Vector3.zero;
 
-        AstoundSoundManager.HandleAudioSource(audioGO);
+        SoundSystemManager.HandleAudioSource(audioGO);
 
         audioAS = audioGO.GetComponent<AudioSource>();
         audioAS.clip = audio.clip;
@@ -58,7 +58,7 @@ public class AudioPlayer
     {
         if (finished) return;
 
-        if (!audioAS.isPlaying)
+        if (audioAS == null || !audioAS.isPlaying)
         {
             finished = true;
             removable = true;
