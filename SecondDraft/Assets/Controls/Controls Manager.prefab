@@ -45,11 +45,13 @@ MonoBehaviour:
   fixedDirectionControls:
     flipHorizontal: 1
     flipVertical: 0
+    ResetForwardRotation: 1
+    deadZoneSize: .5
     ForwardRotationAngle: -90
     up: {x: 0, y: 1, z: 0}
     turnSpeed: .00999999978
     moveSpeed: 2
-  DefaultControls: 0
+  DefaultControls: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

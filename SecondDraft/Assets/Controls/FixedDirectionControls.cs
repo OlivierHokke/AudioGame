@@ -9,6 +9,9 @@ public class FixedDirectionControls : BaseControls
 {
     public bool flipHorizontal = true;
     public bool flipVertical = false;
+    [Tooltip("If this boolean is set, the forward direction will be set to the current direction when the player releases the right joystick")]
+    public bool ResetForwardRotation = true;
+    public float deadZoneSize = 0.5f;
     public float ForwardRotationAngle = 0;
     public Quaternion ForwardRotation { get { return Quaternion.AngleAxis(ForwardRotationAngle, up); } }
     public Vector3 up = new Vector3(0, 1, 0);
@@ -43,7 +46,31 @@ public class FixedDirectionControls : BaseControls
     //    }
     //}
 
-    public override void OnEnable() { }
+    private Vector3 vert
+    {
+        get
+        {
+            var vert = PlaneDirections[0];
+            if (flipVertical) vert = vert.flip();
+            return vert;
+        }
+    }
+
+    private Vector3 horz
+    {
+        get
+        {
+            var horz = PlaneDirections[1]; 
+            if (flipHorizontal) horz = horz.flip();
+            return horz;
+        }
+    }
+
+
+    public override void OnEnable() 
+    {
+        lastRotDir = ForwardRotation * vert;
+    }
 
     public override Vector3 GetMove()
     {
@@ -52,7 +79,6 @@ public class FixedDirectionControls : BaseControls
 
     private Vector3 GetMoveDir()
     {
-
         Vector3 forward = CameraManager.GetCameraForwardVector();
         return forward * Time.deltaTime * moveSpeed * Input.GetAxis("Vertical");
         //var vert = PlaneDirections[0]; if (flipVertical) vert = vert.flip();
@@ -63,12 +89,19 @@ public class FixedDirectionControls : BaseControls
 
     private Vector3 GetLastRotateDir()
     {
-        var vert = PlaneDirections[0]; if (flipVertical) vert = vert.flip();
-        var horz = PlaneDirections[1]; if (flipHorizontal) horz = horz.flip();
-        var moveDir = ForwardRotation * (vert * Input.GetAxis("RightV") + horz * Input.GetAxis("RightH"));
-        moveDir.Normalize();
-        if (moveDir.magnitude > 0)
+        var input = new Vector2(Input.GetAxis("RightH"), Input.GetAxis("RightV"));
+        Debug.Log(input + "(" + input.magnitude + ")");
+        if (ResetForwardRotation && input.magnitude < deadZoneSize)
+        {
+            // Reset the ForwardRotationAngle:
+            ForwardRotationAngle = vert.angle(lastRotDir);
+        }
+        else
+        {
+            var moveDir = ForwardRotation * (vert * Input.GetAxis("RightV") + horz * Input.GetAxis("RightH"));
+            moveDir.Normalize();
             lastRotDir = moveDir;
+        }
         return lastRotDir;
     }
     
@@ -77,13 +110,13 @@ public class FixedDirectionControls : BaseControls
         var desiredDir = GetLastRotateDir();
         var currentDir = CameraManager.GetCameraForwardVector();
         var a = currentDir.cross(desiredDir);
-        if (a.magnitude == 0)
-            return Quaternion.identity;
+        var w = Mathf.Sqrt((Mathf.Pow(currentDir.magnitude, 2) * Mathf.Pow(desiredDir.magnitude, 2)) + currentDir.dot(desiredDir));
+        //Debug.Log("w: " + w);
+        if (float.IsNaN(w))
+            return Quaternion.AngleAxis(180, up);
 
-        var q = new Quaternion(a.x, a.y, a.z, 
-            Mathf.Sqrt((Mathf.Pow(currentDir.magnitude, 2) * Mathf.Pow(desiredDir.magnitude, 2)) + currentDir.dot(desiredDir)));
+        var q = new Quaternion(a.x, a.y, a.z, w);
         return q;
-        return Quaternion.RotateTowards(Quaternion.identity, q, turnSpeed * Time.deltaTime);
     }
 
     public override void OnDisable() { }
