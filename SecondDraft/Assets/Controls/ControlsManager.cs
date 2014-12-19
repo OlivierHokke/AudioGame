@@ -10,8 +10,10 @@ public class ControlsManager : MonoBehaviour {
 
     public static BaseControls current;
     public SingleAxisControls singleAxisControls;
+    public FirstPersonShooterControls firstPersonShooterControls;
     public FixedDirectionControls fixedDirectionControls;
     public ControllerOption DefaultControls = ControllerOption.SingleAxisControls;
+    public bool needsReset;
 
     public void SetSingleAxisControls()
     {
@@ -20,13 +22,22 @@ public class ControlsManager : MonoBehaviour {
 
     public void SetFirstPersonShooterControls()
     {
-        SetControls(singleAxisControls);
-        Debug.Log("TODO");
+        SetControls(firstPersonShooterControls);
     }
 
     public void SetFixedDirectionControls()
     {
         SetControls(fixedDirectionControls);
+    }
+
+    public bool NeedsReset()
+    {
+        return needsReset;
+    }
+
+    public void ResetDone()
+    {
+        needsReset = false;
     }
 
     public void SetControls(BaseControls controls)
@@ -35,6 +46,7 @@ public class ControlsManager : MonoBehaviour {
             current.OnDisable();
         current = controls;
         current.OnEnable();
+        needsReset = true;
     }
 
     void Start()

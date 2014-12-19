@@ -42,6 +42,12 @@ MonoBehaviour:
   singleAxisControls:
     walkSpeed: 4
     turnSpeed: 180
+  firstPersonShooterControls:
+    walkSpeed: 4
+    turnSpeed: 180
+    started: 0
+    currentY: 0
+    maxY: 30
   fixedDirectionControls:
     flipHorizontal: 1
     flipVertical: 0
@@ -52,6 +58,7 @@ MonoBehaviour:
     turnSpeed: .00999999978
     moveSpeed: 2
   DefaultControls: 0
+  needsReset: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

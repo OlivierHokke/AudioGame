@@ -5,6 +5,7 @@ using System;
 public class PlayerController : MonoBehaviour {
 
 
+    public Transform camerasContainer;
 	public AudioClip growlSound;
 	private AudioPlayer growlPlayer;
 
@@ -20,9 +21,17 @@ public class PlayerController : MonoBehaviour {
     {
         BaseControls c = ControlsManager.current;
         if (SettingsManager.instance.IsSettingsShown()) return;
+
+        if (ControlsManager.instance.NeedsReset())
+        {
+            Vector3 euler = camerasContainer.localEulerAngles;
+            camerasContainer.localEulerAngles = euler.setxz(0, 0);
+            ControlsManager.instance.ResetDone();
+        }
+
         if (!LockMovement)
-        transform.position += c.GetMove();
-        transform.rotation *= c.GetRotation();
+            transform.localPosition += c.GetMove(transform.localPosition);
+        camerasContainer.localRotation *= c.GetRotation(camerasContainer.localRotation);
 	}
 
 	public void useGrowl() {

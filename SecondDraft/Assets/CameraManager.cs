@@ -25,6 +25,12 @@ public class CameraManager : MonoBehaviour {
         return current.transform.TransformDirection(Vector3.forward);
     }
 
+    public static Vector3 GetCameraForwardMovementVector() { return instance.getCameraForwardMovementVector(); }
+    private Vector3 getCameraForwardMovementVector()
+    {
+        return current.transform.TransformDirection(Vector3.forward).sety(0).normalized;
+    }
+
     public static Vector3 GetCameraRightVector() { return instance.getCameraRightVector(); }
     private Vector3 getCameraRightVector()
     {

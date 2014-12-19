@@ -72,7 +72,7 @@ public class FixedDirectionControls : BaseControls
         lastRotDir = ForwardRotation * vert;
     }
 
-    public override Vector3 GetMove()
+    public override Vector3 GetMove(Vector3 current)
     {
         return GetMoveDir() * moveSpeed;
     }
@@ -105,7 +105,7 @@ public class FixedDirectionControls : BaseControls
         return lastRotDir;
     }
     
-    public override Quaternion GetRotation()
+    public override Quaternion GetRotation(Quaternion current)
     {
         var desiredDir = GetLastRotateDir();
         var currentDir = CameraManager.GetCameraForwardVector();
