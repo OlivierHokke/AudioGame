@@ -10,6 +10,8 @@ public class ControlsManager : MonoBehaviour {
 
     public static BaseControls current;
     public SingleAxisControls singleAxisControls;
+    public FixedDirectionControls fixedDirectionControls;
+    public ControllerOption DefaultControls = ControllerOption.SingleAxisControls;
 
     public void SetControls(BaseControls controls)
     {
@@ -21,6 +23,15 @@ public class ControlsManager : MonoBehaviour {
 
     void Start()
     {
-        SetControls(singleAxisControls);
+        switch(DefaultControls)
+        {
+            case ControllerOption.FixedDirectionControls: SetControls(fixedDirectionControls); break;
+            case ControllerOption.SingleAxisControls: SetControls(singleAxisControls); break;
+        }
+    }
+
+    public enum ControllerOption
+    {
+        SingleAxisControls, FixedDirectionControls
     }
 }

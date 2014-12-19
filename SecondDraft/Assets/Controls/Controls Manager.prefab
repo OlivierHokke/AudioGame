@@ -42,6 +42,14 @@ MonoBehaviour:
   singleAxisControls:
     walkSpeed: 4
     turnSpeed: 180
+  fixedDirectionControls:
+    flipHorizontal: 1
+    flipVertical: 0
+    ForwardRotationAngle: -90
+    up: {x: 0, y: 1, z: 0}
+    turnSpeed: .00999999978
+    moveSpeed: 2
+  DefaultControls: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
