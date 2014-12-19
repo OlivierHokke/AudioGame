@@ -17,6 +17,20 @@ public class AstoundSoundManager : MonoBehaviour {
         HandleListenerSettings();
         HandleSourceSettings();
     }
+
+    public void EnableAstoundSound()
+    {
+        astoundSoundEnabled = true;
+        HandleListenerSettings();
+        HandleSourceSettings();
+    }
+
+    public void DisableAstoundSound()
+    {
+        astoundSoundEnabled = false;
+        HandleListenerSettings();
+        HandleSourceSettings();
+    }
     
     public static void HandleAudioSource(GameObject gameObject)
     {

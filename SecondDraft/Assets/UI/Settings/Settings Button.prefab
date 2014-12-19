@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11407310}
   - 114: {fileID: 11427520}
   - 225: {fileID: 22527522}
+  - 114: {fileID: 11450164}
   m_Layer: 5
   m_Name: Settings Button
   m_TagString: Untagged
@@ -135,7 +136,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: OCULUS RIFT
+  m_Text: VISUAL AIDS
 --- !u!114 &11407300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,8 +162,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Actual stereoscropic camera output to the Oculus Rift is enabled, together
-    with the Oculus Rift head tracking. Not suitable for visually impaired players.
+  m_Text: Setting description, settings description settings description settings
+    description.  settings description settings description settings description settings
+    description settings description
 --- !u!114 &11407302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -411,17 +413,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4f4d8256a802449ba20802c2afb54f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: OCULUS RIFT
+  name: VISUAL AIDS
   playOnActive: {fileID: 0}
   settings:
-  - name: OFF
-    description: With this setting the Oculus Rift will not be used entirely.
+  - name: BLACK SCREEN
+    description: The screen will be black. For non-visually impaired players, this
+      may simulate blindness.
     audio: {fileID: 0}
     onSet:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 0}
-          m_MethodName: SetNormalMode
+          m_MethodName: SetActive
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -434,15 +437,15 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-  - name: HEAD TRACKING
-    description: This setting only uses the head tracking of the Oculus Rift. If visual
-      aids are turned on, a guide could help the visually impaired player to get through.
+  - name: FULL VISUAL AIDS
+    description: This allows visually impaired players to have guidance by a non-visually
+      impared guide.
     audio: {fileID: 0}
     onSet:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 0}
-          m_MethodName: SetHeadTrackingMode
+          m_MethodName: SetInactive
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -455,29 +458,7 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-  - name: FULL VIRTUAL REALITY
-    description: Actual stereoscropic camera output to the Oculus Rift is enabled,
-      together with the Oculus Rift head tracking. Not suitable for visually impaired
-      players.
-    audio: {fileID: 0}
-    onSet:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: SetOculusRiftMode
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-              Culture=neutral, PublicKeyToken=null
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  currentSettingIndex: 0
+  currentSettingIndex: 1
   left: {fileID: 11447570}
   right: {fileID: 11427522}
   title: {fileID: 11407298}
@@ -527,7 +508,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: FULL VIRTUAL REALITY
+  m_Text: SETTING NAME
 --- !u!114 &11447570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -547,6 +528,36 @@ MonoBehaviour:
   magnitude: 10
   hovering: 0
   inactive: 0
+--- !u!114 &11450164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11427520}
+          m_MethodName: OnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &11486982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -745,7 +756,7 @@ CanvasGroup:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107302}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: .200000003
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
