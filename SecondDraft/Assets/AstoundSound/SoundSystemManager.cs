@@ -29,6 +29,7 @@ public class SoundSystemManager : MonoBehaviour {
     {
         SetAstoundSoundEnabled(audio, instance.soundSystem == SoundSystem.AstoundSound); 
         SetPhononEnabled(audio, instance.soundSystem == SoundSystem.Phonon);
+        audio.panLevel = instance.soundSystem == SoundSystem.Phonon ? 0 : 1;
     }
 
     private static void SetAstoundSoundEnabled(AudioSource audio, bool enabled)
@@ -76,6 +77,7 @@ public class SoundSystemManager : MonoBehaviour {
     {
         SetSourcesEnabled<AstoundSoundRTIFilter>(instance.soundSystem == SoundSystem.AstoundSound);
         SetSourcesEnabled<BinauralSource>(instance.soundSystem == SoundSystem.Phonon);
+        FindObjectOfType<AudioSource>().panLevel = instance.soundSystem == SoundSystem.Phonon ? 0 : 1;
     }
 
     private static void SetSourcesEnabled<T>(bool enabled) where T:MonoBehaviour
@@ -85,6 +87,11 @@ public class SoundSystemManager : MonoBehaviour {
         {
             f.enabled = enabled;
         }
+    }
+
+    public void SetSystem(SoundSystem system)
+    {
+        instance.soundSystem = system;
     }
 
     public enum SoundSystem
