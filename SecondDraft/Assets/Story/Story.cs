@@ -110,7 +110,7 @@ public class Story : MonoBehaviour {
     void Start()
     {
         //LoadState(LucyExplains1);
-		LoadState(LucyExplains1);
+        LoadState(teleportLevel2);
 
         // Define for some states that require it what the next state is.
         LucyExplains1.NextState = InitialMove;

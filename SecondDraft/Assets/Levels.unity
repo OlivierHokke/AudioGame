@@ -14491,21 +14491,6 @@ MonoBehaviour:
   cutOffDistance: 100
   cutOffAmplitude: .0199999996
   max3DSoundSources: 25
---- !u!114 &851439073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11497696, guid: 22364a6d81376214783ac3547a730a6c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1685176575}
-  m_GameObject: {fileID: 851439064}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe0ba3bf268068c4f9edee7178180e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cutOffDistance: 100
-  cutOffAmplitude: .0199999996
-  max3DSoundSources: 25
 --- !u!1 &852145741
 GameObject:
   m_ObjectHideFlags: 0
@@ -15650,7 +15635,7 @@ MonoBehaviour:
   LucyBell: {fileID: 8300000, guid: eb066a4523c4d9d4cb0b95b229c0bc18, type: 3}
   SuccessSound: {fileID: 8300000, guid: 83612f8b7bd5b1f47bcf487c9eb581a3, type: 3}
   LucyExplains1:
-    Skip: 1
+    Skip: 0
     playableSound: {fileID: 8300000, guid: cf9215ca205bb4a9d94e6413a8b89d62, type: 3}
   InitialMove:
     MaxRandomBellDelay: .5
@@ -15661,7 +15646,7 @@ MonoBehaviour:
     TargetLocation: {fileID: 647160121}
     LucyAppearanceDelay: 2
   LucyExplains2:
-    Skip: 1
+    Skip: 0
     playableSound: {fileID: 8300000, guid: 13f632c3f916d41e684e5fcfe378e000, type: 3}
   RemoveDoor:
     TargetObject: {fileID: 307997353}
@@ -15687,9 +15672,9 @@ MonoBehaviour:
   ElevatorState:
     targetPlayerPosition: {fileID: 866151723}
     targetLucyPosition: {fileID: 649924019}
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: 58343a7cff18e41c98d5d4afde274ec9, type: 3}
   LucyExplainsCars:
-    Skip: 1
+    Skip: 0
     playableSound: {fileID: 8300000, guid: 300a0b67b92ba429ebc34bcb819caabe, type: 3}
   EvadeFirstRoad:
     MaxRandomBellDelay: .5
@@ -15734,10 +15719,10 @@ MonoBehaviour:
     maxStepDistance: 25
     LucyStepFlyTime: 2
   LucyExplainsPortal:
-    Skip: 1
+    Skip: 0
     playableSound: {fileID: 8300000, guid: 1fde2dceb64c34157ac9ce253afcd568, type: 3}
   PortalState:
-    Skip: 1
+    Skip: 0
     playableSound: {fileID: 8300000, guid: fdc5ab3ab88ddf44db3232e66e81629d, type: 3}
   teleportLevel2:
     targetPlayerPosition: {fileID: 832004283}

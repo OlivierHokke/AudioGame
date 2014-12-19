@@ -124,6 +124,7 @@ public class MineFieldScript : MonoBehaviour {
         if (MineProximitySensor != null)
         {
             var mineProximitySensor = (GameObject)GameObject.Instantiate(MineProximitySensor, minePosition, new Quaternion());
+            mineProximitySensor.transform.parent = this.transform;
             mineProximitySensors.Add(mine, mineProximitySensor);
         }
         mines.Add(mine);
