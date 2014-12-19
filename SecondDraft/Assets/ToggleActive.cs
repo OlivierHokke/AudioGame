@@ -8,4 +8,12 @@ public class ToggleActive : MonoBehaviour {
     {
         toToggle.SetActive(!toToggle.activeInHierarchy);
     }
+    public void SetActive()
+    {
+        toToggle.SetActive(true);
+    }
+    public void SetInactive()
+    {
+        toToggle.SetActive(false);
+    }
 }

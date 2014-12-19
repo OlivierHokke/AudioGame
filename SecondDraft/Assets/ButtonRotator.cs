@@ -27,8 +27,6 @@ public class ButtonRotator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-        Debug.Log(OVRDevice.IsHMDPresent());
-
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             ExecuteEvents.Execute(gameObject, new PointerEventData(EventSystem.current), ExecuteEvents.submitHandler);

@@ -75,26 +75,25 @@ public class CameraManager : MonoBehaviour {
         PlayerCompass.SetSource(current.gameObject);
     }
 
-    public void ToggleFullOculusRift()
+    public void SetNormalMode()
     {
-        oculusRiftEnabled = !oculusRiftEnabled;
-        useMonoCamera = !oculusRiftEnabled;
+        useMonoCamera = true;
+        oculusRiftEnabled = false;
         HandleSettings();
     }
 
-    public void ToggleMonoCamera()
+    public void SetHeadTrackingMode()
     {
-        useMonoCamera = !useMonoCamera;
+        useMonoCamera = true;
+        oculusRiftEnabled = true;
         HandleSettings();
     }
 
-    public void ToggleOculus() 
+    public void SetOculusRiftMode()
     {
-        if (oculusRiftEnabled) {
-            UseNormalCamera();
-        } else {
-            UseOculusRiftCameras();
-        }
+        useMonoCamera = false;
+        oculusRiftEnabled = true;
+        HandleSettings();
     }
 
     void Start()
