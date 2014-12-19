@@ -15,6 +15,7 @@ public class SettingsManager : MonoBehaviour
     public float inactiveAlpha = 0.4f;
     public bool pressedUp = false;
     public bool pressedDown = false;
+    public AudioPlayer activePlayer;
 
     public bool IsSettingsShown()
     {
@@ -36,6 +37,16 @@ public class SettingsManager : MonoBehaviour
     {
         activeSettingType--;
         activeSettingType = Mathf.Clamp(activeSettingType, 0, settingsPanel.transform.childCount - 1);
+    }
+
+    public void PlaySettingsAudio(AudioClip ac)
+    {
+        if (activePlayer != null)
+        {
+            activePlayer.StopPlaying();
+        }
+        AudioObject ao = new AudioObject(gameObject, ac, 1f);
+        activePlayer = AudioManager.PlayAudio(ao);
     }
 
     void Update()

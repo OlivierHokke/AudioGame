@@ -2206,7 +2206,7 @@ MonoBehaviour:
   - name: Phonon 3D
     description: Sound will be spatially simulated by Phonon 3D's technology, using
       models that mimic how the ears would perceive audio from a 3D environment. Allows
-      full 3D spatial audio recocnition.
+      full 3D spatial audio recognition.
     audio: {fileID: 0}
     onSet:
       m_PersistentCalls:
@@ -2228,7 +2228,7 @@ MonoBehaviour:
   - name: AstoundSound
     description: Sound will be spatially simulated by AstoundSound's technology, using
       models that mimic how the brain would perceive audio from a 3D environment.
-      Allows full 3D spatial audio recocnition.
+      Allows full 3D spatial audio recognition.
     audio: {fileID: 0}
     onSet:
       m_PersistentCalls:
@@ -5356,8 +5356,9 @@ MonoBehaviour:
   name: OCULUS RIFT
   playOnActive: {fileID: 0}
   settings:
-  - name: OFF
-    description: With this setting the Oculus Rift will not be used entirely.
+  - name: TURNED OFF
+    description: "With this setting virtual reality through the Oculus Rift will not
+      be used entirely.\r"
     audio: {fileID: 0}
     onSet:
       m_PersistentCalls:
@@ -5376,7 +5377,7 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-  - name: HEAD TRACKING
+  - name: HEAD TRACKING ONLY
     description: This setting only uses the head tracking of the Oculus Rift. If visual
       aids are turned on, a guide could help the visually impaired player to get through.
     audio: {fileID: 0}
@@ -5398,8 +5399,8 @@ MonoBehaviour:
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
   - name: FULL VIRTUAL REALITY
-    description: Actual stereoscropic camera output to the Oculus Rift is enabled,
-      together with the Oculus Rift head tracking. Not suitable for visually impaired
+    description: Actual stereoscopic camera output to the Oculus Rift is enabled,
+      together with the Oculus Rift head tracking. Not of any use to visually impaired
       players.
     audio: {fileID: 0}
     onSet:
@@ -11413,9 +11414,9 @@ MonoBehaviour:
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
   - name: RELATIVE TURNS
-    description: A controller is necessary for this setting. The first analog stick
+    description: A controller is necessary for this setting. The first analogue stick
       makes the character walk, while the second one makes the character turn his
-      head. When releasing the second stick, the character turns his full body in
+      head. When releasing this second stick, the character turns his full body in
       that direction.
     audio: {fileID: 0}
     onSet:
@@ -14467,21 +14468,6 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 851439064}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe0ba3bf268068c4f9edee7178180e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cutOffDistance: 100
-  cutOffAmplitude: .0199999996
-  max3DSoundSources: 25
---- !u!114 &851439073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11497696, guid: 22364a6d81376214783ac3547a730a6c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1685176575}
   m_GameObject: {fileID: 851439064}
   m_Enabled: 0
   m_EditorHideFlags: 0
@@ -26277,7 +26263,7 @@ MonoBehaviour:
   name: VISUAL AIDS
   playOnActive: {fileID: 0}
   settings:
-  - name: BLACK SCREEN
+  - name: NO VISUAL AIDS
     description: The screen will be black. For non-visually impaired players, this
       may simulate blindness.
     audio: {fileID: 0}
@@ -26300,7 +26286,8 @@ MonoBehaviour:
         PublicKeyToken=null
   - name: FULL VISUAL AIDS
     description: This allows visually impaired players to have guidance by a non-visually
-      impared guide.
+      impared guide. Or, non-visually impaired players may play the game using visuals
+      for an easy play-through.
     audio: {fileID: 0}
     onSet:
       m_PersistentCalls:

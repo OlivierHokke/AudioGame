@@ -1,0 +1,72 @@
+Visual Aids settings set to: "No visual aids".
+The screen will be black. For non-visually impaired players, this may simulate blindness.
+Press right to change the current setting.
+Press down to go to a different setting.
+Press escape to exit the settings menu.
+
+Visual Aids settings set to: "Full visual Aids".
+This allows visually impaired players to have guidance by a non-visually impaired guide. Or, non-visually impaired players may play the game using visuals for an easy play-through.
+Press left to change the current setting.
+Press down to go to a different setting.
+Press escape to exit the settings menu.
+
+Controls settings set to: Single Axis.
+You can now use a keyboard or controller to move the character. Forward and backward act as expected, but pressing sideways turns the head of the character.
+Press right to change the current setting.
+Press up or down to go to a different setting.
+Press escape to exit the settings menu.
+
+Controls settings set to: First Person Shooter.
+The first person shooter controls use a keyboard and mouse. The arrow keys on the keyboard make you walk and strafe, while the moving the mouse causes the character to turn. Alternatively, a controller can be used and works similarly.Press "left" for First Person Shooter Controls.
+Press left or right to change the current setting.
+Press up or down to go to a different setting.
+Press escape to exit the settings menu.
+
+Controls settings set to: Relative Turns.
+A controller is necessary for this setting. The first analogue stick makes the character walk, while the second one makes the character turn his head. When releasing this second stick, the character turns his full body in that direction.
+Press left to change the current setting.
+Press up or down to go to a different setting.
+Press escape to exit the settings menu.
+
+3D Sound Simulation settings set to: Stereo Panned.
+Using this setting, you are only able to determine how far left or right an object is relative to you.
+Press right to change the current setting.
+Press up or down to go to a different setting.
+Press escape to exit the settings menu.
+
+3D Sound Simulation settings set to: Phonon 3D.
+Sound will be spatially simulated by Phonon 3D's technology, using models that mimic how the ears would perceive audio from a 3D environment. Allows full 3D spatial audio recognition.
+Press left or right to change the current setting.
+Press up or down to go to a different setting.
+Press escape to exit the settings menu.
+
+3D Sound Simulation settings set to: AstoundSound.
+Sound will be spatially simulated by AstoundSound's technology, using models that mimic how the brain would perceive audio from a 3D environment. Allows full 3D spatial audio recognition.
+Press left to change the current setting.
+Press up or down to go to a different setting.
+Press escape to exit the settings menu.
+
+Virtual Reality by Oculus Rift turned off.
+With this setting virtual reality through the Oculus Rift will not be used entirely.
+Press right to change the current setting.
+Press up to go to a different setting.
+Press escape to exit the settings menu.
+
+Virtual Reality by Oculus Rift turned off.
+With this setting virtual reality through the Oculus Rift will not be used entirely.
+Press right to change the current setting.
+Press up to go to a different setting.
+Press escape to exit the settings menu.
+
+Virtual Reality by Oculus Rift settings set to Head Tracking Only.
+This setting only uses the head tracking of the Oculus Rift. If visual aids are turned on, a guide could help the visually impaired player to get through.
+Press left or right to change the current setting.
+Press up to go to a different setting.
+Press escape to exit the settings menu.
+
+Virtual Reality by Oculus Rift settings set to Full Virtual Reality.
+Actual stereoscopic camera output to the Oculus Rift is enabled, together with the Oculus Rift head tracking. Not of any use to visually impaired players.
+Press left to change the current setting.
+Press up to go to a different setting.
+Press escape to exit the settings menu.
+
