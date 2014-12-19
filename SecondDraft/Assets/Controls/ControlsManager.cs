@@ -13,6 +13,22 @@ public class ControlsManager : MonoBehaviour {
     public FixedDirectionControls fixedDirectionControls;
     public ControllerOption DefaultControls = ControllerOption.SingleAxisControls;
 
+    public void SetSingleAxisControls()
+    {
+        SetControls(singleAxisControls);
+    }
+
+    public void SetFirstPersonShooterControls()
+    {
+        SetControls(singleAxisControls);
+        Debug.Log("TODO");
+    }
+
+    public void SetFixedDirectionControls()
+    {
+        SetControls(fixedDirectionControls);
+    }
+
     public void SetControls(BaseControls controls)
     {
         if (current != null)

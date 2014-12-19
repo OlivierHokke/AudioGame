@@ -13,6 +13,7 @@ public class SettingsButton : MonoBehaviour {
     [Serializable]
     public class SettingObject {
         public string name;
+        [TextArea]
         public string description;
         public AudioClip audio;
         public UnityEvent onSet;
@@ -36,20 +37,45 @@ public class SettingsButton : MonoBehaviour {
 
     private bool pressedLeft;
     private bool pressedRight;
+    private CanvasGroup canvasGroup;
+    private float targetAlpha = 1f;
+
+    void Start()
+    {
+        canvasGroup = GetComponent<CanvasGroup>();
+    }
+
+    public void OnHover()
+    {
+        SettingsManager.activeSettingType = transform.GetSiblingIndex();
+    }
 	
 	// Update is called once per frame
 	void Update () 
     {
-        float changeSetting = Input.GetAxisRaw("Horizontal");
-        if (changeSetting < -0.9f) pressedLeft = true;
-        if (changeSetting > 0.9f) pressedRight = true;
-        if (changeSetting > -0.1f && changeSetting < 0.1f)
+        if (SettingsManager.activeSettingType == transform.GetSiblingIndex())
         {
-            if (pressedLeft) Left();
-            if (pressedRight) Right();
-            pressedLeft = false;
-            pressedRight = false;
+            canvasGroup.alpha += (1f - canvasGroup.alpha) * Mathf.Min(1f, Time.deltaTime * 5f);
+
+            float changeSetting = Input.GetAxisRaw("Horizontal");
+            if (changeSetting < -0.9f) pressedLeft = true;
+            if (changeSetting > 0.9f) pressedRight = true;
+            if (changeSetting > -0.1f && changeSetting < 0.1f)
+            {
+                if (pressedLeft) Left();
+                if (pressedRight) Right();
+                pressedLeft = false;
+                pressedRight = false;
+            }
+
+            targetAlpha = 1f;
         }
+        else
+        {
+            targetAlpha = SettingsManager.instance.inactiveAlpha;
+        }
+
+        canvasGroup.alpha += (targetAlpha - canvasGroup.alpha) * Mathf.Min(1f, Time.deltaTime * 5f);
 
         if (previousSettingIndex != currentSettingIndex && settings.Count > 0)
         {
@@ -82,6 +108,12 @@ public class SettingsButton : MonoBehaviour {
         if (!HasRight()) return;
         currentSettingIndex++;
         currentSettingIndex = Mathf.Clamp(currentSettingIndex, 0, settings.Count - 1);
+    }
+
+    public void RightLooped()
+    {
+        currentSettingIndex++;
+        currentSettingIndex = currentSettingIndex % settings.Count;
     }
 
     public bool HasLeft()

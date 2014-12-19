@@ -9,7 +9,7 @@ public class SideButtonAnimator : MonoBehaviour {
     public float activeSpeed = 4f;
     public float normalAlpha = 1f;
     public float inactiveAlpha = 0.2f;
-    public float magnitude = 6f;
+    public float magnitude = 0.1f;
 
     public bool hovering;
     public bool inactive;
@@ -45,7 +45,7 @@ public class SideButtonAnimator : MonoBehaviour {
         currentAlpha += ((inactive ? inactiveAlpha : normalAlpha) - currentAlpha) * Mathf.Min(1f, Time.deltaTime * 5f);
 
         time += Time.deltaTime * currentSpeed;
-        transform.position = startPosition.addx(Mathf.Cos(time));
+        (transform as RectTransform).pivot = new Vector2(0.5f + Mathf.Cos(time) * magnitude, 0.5f);
         img.color = img.color.seta(currentAlpha);
 	}
 }

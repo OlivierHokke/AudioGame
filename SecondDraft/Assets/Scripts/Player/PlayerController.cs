@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
 	void Update ()
     {
         BaseControls c = ControlsManager.current;
+        if (SettingsManager.instance.IsSettingsShown()) return;
         if (!LockMovement)
         transform.position += c.GetMove();
         transform.rotation *= c.GetRotation();
