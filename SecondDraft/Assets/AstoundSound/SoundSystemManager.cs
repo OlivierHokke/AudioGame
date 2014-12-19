@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class SoundSystemManager : MonoBehaviour {
     public static SoundSystemManager instance;
@@ -75,9 +76,9 @@ public class SoundSystemManager : MonoBehaviour {
 
     public static void HandleSourceSettings()
     {
+        FindObjectsOfType<AudioSource>().ToList().ForEach(a => a.panLevel = instance.soundSystem == SoundSystem.Phonon ? 0 : 1);
         SetSourcesEnabled<AstoundSoundRTIFilter>(instance.soundSystem == SoundSystem.AstoundSound);
         SetSourcesEnabled<BinauralSource>(instance.soundSystem == SoundSystem.Phonon);
-        FindObjectOfType<AudioSource>().panLevel = instance.soundSystem == SoundSystem.Phonon ? 0 : 1;
     }
 
     private static void SetSourcesEnabled<T>(bool enabled) where T:MonoBehaviour
