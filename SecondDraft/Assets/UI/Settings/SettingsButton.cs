@@ -41,6 +41,7 @@ public class SettingsButton : MonoBehaviour {
     private float targetAlpha = 1f;
     private bool previouslyActivated;
 
+
     void Start()
     {
         canvasGroup = GetComponent<CanvasGroup>();
@@ -63,7 +64,7 @@ public class SettingsButton : MonoBehaviour {
 
         if (activated)
         {
-            canvasGroup.alpha += (1f - canvasGroup.alpha) * Mathf.Min(1f, Time.deltaTime * 5f);
+            canvasGroup.alpha += (1f - canvasGroup.alpha) * Mathf.Min(1f, Time.unscaledDeltaTime * 5f);
 
             float changeSetting = Input.GetAxisRaw("Horizontal");
             if (changeSetting < -0.9f) pressedLeft = true;
@@ -97,19 +98,17 @@ public class SettingsButton : MonoBehaviour {
             targetAlpha = SettingsManager.instance.inactiveAlpha;
         }
 
-        canvasGroup.alpha += (targetAlpha - canvasGroup.alpha) * Mathf.Min(1f, Time.deltaTime * 5f);
+        canvasGroup.alpha += (targetAlpha - canvasGroup.alpha) * Mathf.Min(1f, Time.unscaledDeltaTime * 5f);
 
         if (previousSettingIndex != currentSettingIndex && obj != null)
         {
-            title.text = name;
-            settingText.text = obj.name;
-            descriptionText.text = obj.description;
-            if (obj.audio != null)
-            {
-                SettingsManager.instance.PlaySettingsAudio(obj.audio);
-            }
-            left.inactive = !HasLeft();
-            right.inactive = !HasRight();
+            if (title != null) title.text = name;
+            if (settingText != null) settingText.text = obj.name;
+            if (descriptionText != null) descriptionText.text = obj.description;
+            if (left != null) left.inactive = !HasLeft();
+            if (right != null) right.inactive = !HasRight();
+
+            if (obj.audio != null && activated) SettingsManager.instance.PlaySettingsAudio(obj.audio);
             obj.onSet.Invoke();
         }
 

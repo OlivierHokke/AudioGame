@@ -31,11 +31,11 @@ public class ButtonRotator : MonoBehaviour {
         {
             ExecuteEvents.Execute(gameObject, new PointerEventData(EventSystem.current), ExecuteEvents.submitHandler);
         }
-        
-        currentSpeed += ((hovering ? activeSpeed : staticSpeed) - currentSpeed) * Time.deltaTime * 5f;
-        currentSize += ((hovering ? activeSize : staticSize) - currentSize) * Time.deltaTime * 5f;
 
-        transform.localRotation *= Quaternion.AngleAxis(currentSpeed * Time.deltaTime, Vector3.forward);
+        currentSpeed += ((hovering ? activeSpeed : staticSpeed) - currentSpeed) * Time.unscaledDeltaTime * 5f;
+        currentSize += ((hovering ? activeSize : staticSize) - currentSize) * Time.unscaledDeltaTime * 5f;
+
+        transform.localRotation *= Quaternion.AngleAxis(currentSpeed * Time.unscaledDeltaTime, Vector3.forward);
         transform.localScale = Vector3.one * currentSize;
 	}
 }

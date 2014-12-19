@@ -1,3 +1,14 @@
+You are now in the settings menu. Press escape if you want to exit this menu and continue playing, or press M to mute the voices in the settings menu.
+
+Within this menu, you can change the following: 
+1. Visual aids settings, in case you have a guide to help you through the game.
+2. Controls settings, if you want to use different methods of manoeuvring through the 3D environment.
+3. 3D Sound Simulation settings, here you can choose which method should be used for simulating 3D sound over your stero headphones.
+4. Oculus Rift settings, the oculus rift is a virtual reality device that allows people to feel fully immersed into the environment. Accurate head tracking is an important feature that is essential to a fully immersive experience for visually impaired players.
+
+
+
+
 Visual Aids settings set to: "No visual aids".
 The screen will be black. For non-visually impaired players, this may simulate blindness.
 Press right to change the current setting.

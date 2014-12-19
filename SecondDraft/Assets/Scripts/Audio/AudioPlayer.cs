@@ -17,12 +17,15 @@ public class AudioPlayer
     protected GameObject audioGO;
     protected AudioSource audioAS;
     protected AstoundSoundRTIFilter filterAS;
+    protected bool paused = false;
+    protected float pausedAt = 0f;
 
 
     public AudioPlayer(AudioObject audio)
     {
         this.finished = false;
         this.removable = false;
+        this.paused = false;
         this.audio = audio;
 
         // create audio source with clip
@@ -39,6 +42,13 @@ public class AudioPlayer
         audioAS.PlayDelayed(audio.delay);
     }
 
+    public AudioClip GetAudioClip()
+    {
+        if (audioAS != null)
+            return audioAS.clip;
+        return null;
+    }
+
     public void StopPlaying()
     {
         if (audioAS != null)
@@ -51,6 +61,12 @@ public class AudioPlayer
             audioAS.Play();
     }
 
+    public void SetVolume(float volume)
+    {
+        if (audioAS != null)
+            audioAS.volume = volume;
+    }
+
     public void SetPitch(float pitch)
     {
         if (audioAS != null)
@@ -61,7 +77,24 @@ public class AudioPlayer
     {
         if (finished) return;
 
-        if (audioAS == null || !audioAS.isPlaying)
+        if (audio.pausable)
+        {
+            if (PauseManager.paused && !paused && audioAS != null)
+            {
+                pausedAt = audioAS.time;
+                audioAS.Stop();
+                paused = true;
+            }
+
+            if (!PauseManager.paused && paused && audioAS != null)
+            {
+                audioAS.Play();
+                audioAS.time = pausedAt;
+                paused = false;
+            }
+        }
+
+        if (audioAS == null || (audioAS.time > audioAS.clip.length - 0.04f))
         {
             finished = true;
             removable = true;

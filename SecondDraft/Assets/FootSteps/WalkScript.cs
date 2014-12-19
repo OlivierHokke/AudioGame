@@ -58,7 +58,7 @@ public class WalkScript : MonoBehaviour {
         toStep -= distanceMoved;
         previousPosition = positionNow;
 
-        if (distanceMoved < 0.000001f)
+        if (distanceMoved < 0.01f)
         {
             // we haven't moved, play a step once and then leave it at that
             if (!stopped)

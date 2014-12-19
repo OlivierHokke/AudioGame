@@ -41,10 +41,10 @@ public class SideButtonAnimator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-        currentSpeed += ((inactive ? inactiveSpeed : (hovering ? activeSpeed : normalSpeed)) - currentSpeed) * Mathf.Min(1f, Time.deltaTime * 5f);
-        currentAlpha += ((inactive ? inactiveAlpha : normalAlpha) - currentAlpha) * Mathf.Min(1f, Time.deltaTime * 5f);
+        currentSpeed += ((inactive ? inactiveSpeed : (hovering ? activeSpeed : normalSpeed)) - currentSpeed) * Mathf.Min(1f, Time.unscaledDeltaTime * 5f);
+        currentAlpha += ((inactive ? inactiveAlpha : normalAlpha) - currentAlpha) * Mathf.Min(1f, Time.unscaledDeltaTime * 5f);
 
-        time += Time.deltaTime * currentSpeed;
+        time += Time.unscaledDeltaTime * currentSpeed;
         (transform as RectTransform).pivot = new Vector2(0.5f + Mathf.Cos(time) * magnitude, 0.5f);
         img.color = img.color.seta(currentAlpha);
 	}

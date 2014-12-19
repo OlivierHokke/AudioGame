@@ -16,6 +16,24 @@ public class SettingsManager : MonoBehaviour
     public bool pressedUp = false;
     public bool pressedDown = false;
     public AudioPlayer activePlayer;
+    public AudioClip latestClip;
+    public bool mute = false;
+
+    public void ToggleMute()
+    {
+        mute = !mute;
+        if (activePlayer != null)
+        {
+            if (mute)
+            {
+                activePlayer.SetVolume(0f);
+            }
+            else
+            {
+                PlaySettingsAudio(latestClip);
+            }
+        }
+    }
 
     public bool IsSettingsShown()
     {
@@ -28,6 +46,7 @@ public class SettingsManager : MonoBehaviour
         if (!IsSettingsShown())
         {
             activePlayer.StopPlaying();
+            activeSettingType = 0;
         }
     }
 
@@ -49,12 +68,29 @@ public class SettingsManager : MonoBehaviour
         {
             activePlayer.StopPlaying();
         }
-        AudioObject ao = new AudioObject(instance.gameObject, ac, 1f);
+        AudioObject ao = new AudioObject(instance.gameObject, ac, mute ? 0f : 1f, 0f, false, false);
         activePlayer = AudioManager.PlayAudio(ao);
+        latestClip = ac;
     }
 
     void Update()
     {
+        if (IsSettingsShown())
+        {
+            PauseManager.Pause();
+            Screen.showCursor = true;
+        }
+        else
+        {
+            PauseManager.Resume();
+            Screen.showCursor = false;
+        }
+
+        if (IsSettingsShown() && Input.GetKeyDown(KeyCode.M))
+        {
+            ToggleMute();
+        }
+
         float changeSetting = Input.GetAxisRaw("Vertical");
         if (changeSetting < -0.9f) pressedDown = true;
         if (changeSetting > 0.9f) pressedUp = true;
