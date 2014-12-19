@@ -350,6 +350,14 @@ public static class VectorExtension
         if (angle < 0f) return angle + 2f * Mathf.PI;
         return angle;
     }
+
+    public static float angle(this Vector3 a, Vector3 b)
+    {
+        var angle = Vector3.Angle(a, b); // calculate angle
+        // assume the sign of the cross product's Y component:
+        return angle * Mathf.Sign(Vector3.Cross(a, b).y);
+    }
+
     // ------------------------------------------
     public static Vector2 flip(this Vector2 v)
     {
