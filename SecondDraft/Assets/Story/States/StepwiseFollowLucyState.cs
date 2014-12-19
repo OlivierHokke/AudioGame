@@ -10,7 +10,6 @@ public class StepwiseFollowLucyState : LucyRingingBellState
     public BaseState NextState;
 
     public GameObject TargetLocation;
-    public AudioClip SuccesSound;
     public GameObject LucyEventPrefab;
 
     public float maxStepDistance = 25f;
@@ -83,14 +82,12 @@ public class StepwiseFollowLucyState : LucyRingingBellState
     {
         if (collider.gameObject == currentTarget.gameObject)
         {
-            if (SuccesSound != null)
-                AudioManager.PlayAudio(new AudioObject(collider.gameObject, SuccesSound));
+            script.PlaySuccessSound(collider.gameObject);
             SetNextTarget(script.Lucy);
         }
         if (collider.gameObject == TargetLocation.gameObject)
         {
-            if (SuccesSound != null)
-                AudioManager.PlayAudio(new AudioObject(TargetLocation, SuccesSound));
+            script.PlaySuccessSound(collider.gameObject);
             script.LoadState(NextState);
         }
         base.PlayerEnteredTrigger(collider, script);

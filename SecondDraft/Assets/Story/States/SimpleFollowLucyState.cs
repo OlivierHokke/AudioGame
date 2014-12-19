@@ -12,8 +12,6 @@ public class SimpleFollowLucyState : LucyRingingBellState
 {
     public GameObject TargetLocation;
     public BaseState NextState;
-    public AudioClip SuccesSound;
-
 
     [Tooltip("Time it takes lucy to fly to the new location")]
     public float LucyAppearanceDelay = 5f;
@@ -66,9 +64,7 @@ public class SimpleFollowLucyState : LucyRingingBellState
     {
         if (collider.gameObject == TargetLocation.gameObject)
         {
-            if (SuccesSound != null)
-                AudioManager.PlayAudio(new AudioObject(TargetLocation, SuccesSound));
-
+            script.PlaySuccessSound(collider.gameObject);
             script.LoadState(NextState);
         }
         base.PlayerEnteredTrigger(collider, script);

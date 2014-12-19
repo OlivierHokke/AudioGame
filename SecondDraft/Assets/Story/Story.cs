@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Story : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class Story : MonoBehaviour {
 	public GameObject Mallum;
     [Header("Important sounds")]
     public AudioClip LucyBell;
+    public AudioClip SuccessSound;
 
     /// <summary>
     /// Lucy explains what happened to the player
@@ -102,6 +104,7 @@ public class Story : MonoBehaviour {
        
     // Current state that we are in
     private BaseState currentState;
+    public Dictionary<GameObject, AudioPlayer> storySoundPlayers = new Dictionary<GameObject, AudioPlayer>();
 
     // Load the start state
     void Start()
@@ -170,6 +173,7 @@ public class Story : MonoBehaviour {
 
 	void Update () 
     {
+        RemoveFinishedSuccessSounds();
         if (currentState != null)
             currentState.Update(this);
 	}
@@ -186,5 +190,32 @@ public class Story : MonoBehaviour {
 
         currentState = state;
         currentState.Start(this);
+    }
+
+    private void RemoveFinishedSuccessSounds()
+    {
+        Debug.Log(string.Join("; ", storySoundPlayers.Select(s => s.Key.name.ToString() + ", " + s.Value.ToString()).ToArray()));
+        List<GameObject> playersToRemove = new List<GameObject>();
+        foreach(var go in storySoundPlayers)
+        {
+            if (go.Value.finished)
+            {
+                GameObject.Destroy(go.Key);
+                playersToRemove.Add(go.Key);
+            }
+        }
+        foreach (var playerToRemove in playersToRemove)
+            storySoundPlayers.Remove(playerToRemove);
+    }
+
+    public void PlaySuccessSound(GameObject source)
+    {
+        if (SuccessSound == null) return;
+        var go = new GameObject("SuccessSoundPlayer");
+        go.transform.parent = source.transform.parent;
+        go.transform.position = source.transform.position;
+        go.transform.rotation = source.transform.rotation;
+        var player = AudioManager.PlayAudio(new AudioObject(go, SuccessSound));
+        storySoundPlayers.Add(go, player);
     }
 }

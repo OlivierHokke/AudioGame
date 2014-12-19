@@ -90,7 +90,7 @@ public class FixedDirectionControls : BaseControls
     private Vector3 GetLastRotateDir()
     {
         var input = new Vector2(Input.GetAxis("RightH"), Input.GetAxis("RightV"));
-        Debug.Log(input + "(" + input.magnitude + ")");
+        //Debug.Log(input + "(" + input.magnitude + ")");
         if (ResetForwardRotation && input.magnitude < deadZoneSize)
         {
             // Reset the ForwardRotationAngle:
