@@ -463,7 +463,7 @@ GameObject:
   - 4: {fileID: 48862364}
   - 114: {fileID: 48862363}
   m_Layer: 0
-  m_Name: Sound Manager
+  m_Name: Sound System Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2190,7 +2190,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 48862363}
-          m_MethodName: DisableAstoundSound
+          m_MethodName: SetUnityDefault
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2203,16 +2203,38 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-  - name: 3D SOUND BY AstoundSound
-    description: Sound will be spatially simulated using models that mimic how the
-      brain would perceive audio from a 3D environment. Allows full 3D spatial audio
-      recocnition.
+  - name: Phonon 3D
+    description: Sound will be spatially simulated by Phonon 3D's technology, using
+      models that mimic how the ears would perceive audio from a 3D environment. Allows
+      full 3D spatial audio recocnition.
     audio: {fileID: 0}
     onSet:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 48862363}
-          m_MethodName: EnableAstoundSound
+          m_MethodName: SetPhonon3D
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - name: AstoundSound
+    description: Sound will be spatially simulated by AstoundSound's technology, using
+      models that mimic how the brain would perceive audio from a 3D environment.
+      Allows full 3D spatial audio recocnition.
+    audio: {fileID: 0}
+    onSet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 48862363}
+          m_MethodName: SetAstoundSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -14329,6 +14351,7 @@ GameObject:
   - 81: {fileID: 851439067}
   - 114: {fileID: 851439066}
   - 114: {fileID: 851439071}
+  - 114: {fileID: 851439073}
   - 114: {fileID: 851439072}
   m_Layer: 0
   m_Name: Camera Combined
@@ -14446,6 +14469,21 @@ MonoBehaviour:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 851439064}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0ba3bf268068c4f9edee7178180e0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutOffDistance: 100
+  cutOffAmplitude: .0199999996
+  max3DSoundSources: 25
+--- !u!114 &851439073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11497696, guid: 22364a6d81376214783ac3547a730a6c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1685176575}
+  m_GameObject: {fileID: 851439064}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe0ba3bf268068c4f9edee7178180e0a, type: 3}
   m_Name: 
@@ -24379,7 +24417,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 130170, guid: dbef8b4a16a9eab43a2516766a6adafe, type: 2}
       propertyPath: m_Name
-      value: Sound Manager
+      value: Sound System Manager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbef8b4a16a9eab43a2516766a6adafe, type: 2}
