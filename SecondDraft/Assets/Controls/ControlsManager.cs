@@ -10,6 +10,7 @@ public class ControlsManager : MonoBehaviour {
 
     public static BaseControls current;
     public SingleAxisControls singleAxisControls;
+    public FixedDirectionControls fixedDirectionControls;
 
     public void SetControls(BaseControls controls)
     {
@@ -21,6 +22,7 @@ public class ControlsManager : MonoBehaviour {
 
     void Start()
     {
-        SetControls(singleAxisControls);
+        //SetControls(singleAxisControls);
+        SetControls(fixedDirectionControls);
     }
 }

@@ -21,6 +21,18 @@ public static class VectorExtension
         diff.z -= Mathf.Round(diff.z / depth) * depth;
         return diff;
     }
+
+    public static float maxDirection(this Vector3 v)
+    {
+        return new float[] { v.x, v.y, v.z}.OrderByDescending(f => Mathf.Abs(f)).First();
+    }
+
+    public static Vector3 Positivize(this Vector3 v)
+    {
+        if (v.maxDirection() < 0)
+            return v.flip();
+        return v;
+    }
     // ------------------------------------------
     public static Vector3 round(this Vector3 v)
     {
@@ -660,4 +672,6 @@ public static class VectorExtension
     {
         return new Vector3(p.x, p.y, 0);
     }
+
+
 }
