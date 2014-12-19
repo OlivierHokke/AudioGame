@@ -14329,6 +14329,7 @@ GameObject:
   - 81: {fileID: 851439067}
   - 114: {fileID: 851439066}
   - 114: {fileID: 851439071}
+  - 114: {fileID: 851439073}
   - 114: {fileID: 851439072}
   m_Layer: 0
   m_Name: Camera Combined
@@ -14445,7 +14446,22 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 851439064}
-  m_Enabled: 1
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0ba3bf268068c4f9edee7178180e0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutOffDistance: 100
+  cutOffAmplitude: .0199999996
+  max3DSoundSources: 25
+--- !u!114 &851439073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11497696, guid: 22364a6d81376214783ac3547a730a6c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1685176575}
+  m_GameObject: {fileID: 851439064}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe0ba3bf268068c4f9edee7178180e0a, type: 3}
   m_Name: 

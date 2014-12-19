@@ -41,17 +41,20 @@ public class AudioPlayer
 
     public void StopPlaying()
     {
-        audioAS.Stop();
+        if (audioAS != null)
+            audioAS.Stop();
     }
 
     public void StartPlaying()
     {
-        audioAS.Play();
+        if (audioAS != null)
+            audioAS.Play();
     }
 
     public void SetPitch(float pitch)
     {
-        audioAS.pitch = pitch;
+        if (audioAS != null)
+            audioAS.pitch = pitch;
     }
 
     public virtual void Update(float deltaTime)
