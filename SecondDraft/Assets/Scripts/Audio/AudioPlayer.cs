@@ -16,6 +16,7 @@ public class AudioPlayer
 
     protected GameObject audioGO;
     protected AudioSource audioAS;
+    protected AstoundSoundRTIFilter filterAS;
 
 
     public AudioPlayer(AudioObject audio)
@@ -28,6 +29,8 @@ public class AudioPlayer
         audioGO = (GameObject)GameObject.Instantiate(AudioManager.instance.audioSourcePrefab);
         audioGO.transform.parent = audio.parent.transform;
         audioGO.transform.localPosition = Vector3.zero;
+        filterAS = audioGO.GetComponent<AstoundSoundRTIFilter>();
+        filterAS.enabled = AstoundSoundManager.IsAstoundSoundActive();
         audioAS = audioGO.GetComponent<AudioSource>();
         audioAS.clip = audio.clip;
         audioAS.volume = audio.volume;

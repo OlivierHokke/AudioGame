@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class WalkScript : MonoBehaviour {
 
-    public const GroundType DEFAULT_GROUND_TYPE = GroundType.PAVEMENT;
+    public const GroundType DEFAULT_GROUND_TYPE = GroundType.WOOD;
     
     public Vector3 localWalkingDirection = Vector3.forward;
     public Vector3 distanceToGround = Vector3.down * 2;
@@ -48,7 +48,7 @@ public class WalkScript : MonoBehaviour {
         currentGroundType = DEFAULT_GROUND_TYPE;
 	}
 	
-	void FixedUpdate () 
+	void Update () 
     {
         DetermineGroundType();
 
@@ -58,7 +58,7 @@ public class WalkScript : MonoBehaviour {
         toStep -= distanceMoved;
         previousPosition = positionNow;
 
-        if (distanceMoved == 0f)
+        if (distanceMoved < 0.000001f)
         {
             // we haven't moved, play a step once and then leave it at that
             if (!stopped)
@@ -92,7 +92,7 @@ public class WalkScript : MonoBehaviour {
     void DetermineGroundType()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position - Vector3.up * 100f, Vector3.up, out hit, 200f))
+        if (Physics.Raycast(transform.position - Vector3.up * 100f, Vector3.up, out hit, 200f, LayerMask.GetMask("GroundType")))
         {
             GroundTypeArea gta = hit.collider.GetComponent<GroundTypeArea>();
             currentGroundType = gta.groundType;

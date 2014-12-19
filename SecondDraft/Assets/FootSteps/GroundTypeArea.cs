@@ -22,10 +22,10 @@ public class GroundTypeArea : MonoBehaviour {
         Vector3 me = transform.position;
         Vector3 _center = new Vector3(0, (size.y / 2f), 0);
         Vector3 _size = new Vector3(size.x, size.y, size.z);
-        Gizmos.color = new Color(0,0,0,0.2f);
+        Gizmos.color = new Color(1f, 0, 0);
         Gizmos.DrawWireCube(_center + me, _size);
         ((BoxCollider)collider).size = _size;
         ((BoxCollider)collider).center = new Vector3(0, (size.y / 2f), 0);
-        ((BoxCollider)collider).isTrigger = false;
+        ((BoxCollider)collider).isTrigger = true;
     }
 }

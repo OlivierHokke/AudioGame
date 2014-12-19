@@ -4,14 +4,6 @@ using System;
 
 public class PlayerController : MonoBehaviour {
 
-    public float walkUnitsPerSecond = 4f;
-    public float turnUnitsPerSecond = 180f;
-    public float anglesPerPixel = 0.5f;
-    public float maxLookVertical = 25f;
-    public float minLookVertical = -25f;
-    public float currentLookVertical = 0f;
-    public float currentLookHorizontal = 0f;
-
 
 	public AudioClip growlSound;
 	private AudioPlayer growlPlayer;

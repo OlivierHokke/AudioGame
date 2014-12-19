@@ -9,40 +9,83 @@ public class CameraManager : MonoBehaviour {
         instance = this;
     }
 
-    public bool oculusRiftEnabled;
+    public Camera combinedCamera;
     public GameObject oculusRiftRoot;
-    public GameObject oculusRiftCamera;
+    public Camera oculusRiftCamera;
     public GameObject normalRoot;
-    public GameObject normalCamera;
+    public Camera normalCamera;
+    public bool oculusRiftEnabled;
+    public bool oculusRiftConnected;
+    public bool useMonoCamera;
+    public Camera current;
 
     public static Vector3 GetCameraForwardVector() { return instance.getCameraForwardVector(); }
     private Vector3 getCameraForwardVector()
     {
-        return (oculusRiftEnabled ? oculusRiftCamera : normalCamera).transform.TransformDirection(Vector3.forward);
+        return current.transform.TransformDirection(Vector3.forward);
     }
 
     public static Vector3 GetCameraRightVector() { return instance.getCameraRightVector(); }
     private Vector3 getCameraRightVector()
     {
-        return (oculusRiftEnabled ? oculusRiftCamera : normalCamera).transform.TransformDirection(Vector3.right);
+        return current.transform.TransformDirection(Vector3.right);
     }
 
     public static void UseOculusRiftCameras() { instance.useOculusRiftCameras(); }
     private void useOculusRiftCameras()
     {
         oculusRiftEnabled = true;
-        if (!oculusRiftRoot.activeInHierarchy) oculusRiftRoot.SetActive(true);
-        if (normalRoot.activeInHierarchy) normalRoot.SetActive(false);
-        PlayerCompass.SetSource(oculusRiftCamera);
+        HandleSettings();
     }
 
     public static void UseNormalCamera() { instance.useNormalCamera(); }
     private void useNormalCamera()
     {
         oculusRiftEnabled = false;
-        if (oculusRiftRoot.activeInHierarchy) oculusRiftRoot.SetActive(false);
-        if (!normalRoot.activeInHierarchy) normalRoot.SetActive(true);
-        PlayerCompass.SetSource(normalCamera);
+        HandleSettings();
+    }
+
+    private void HandleSettings()
+    {
+        if (oculusRiftEnabled)
+        {
+            oculusRiftRoot.SetActive(true);
+            normalRoot.SetActive(false);
+            if (useMonoCamera)
+            {
+                current = combinedCamera;
+                //combinedCamera.gameObject.SetActive(true);
+                combinedCamera.depth = 2;
+            }
+            else
+            {
+                current = oculusRiftCamera;
+                //combinedCamera.gameObject.SetActive(false);
+                combinedCamera.depth = -2;
+            }
+        }
+        else
+        {
+            oculusRiftRoot.SetActive(false);
+            normalRoot.SetActive(true);
+            combinedCamera.gameObject.SetActive(true);
+            current = combinedCamera;
+        }
+
+        PlayerCompass.SetSource(current.gameObject);
+    }
+
+    public void ToggleFullOculusRift()
+    {
+        oculusRiftEnabled = !oculusRiftEnabled;
+        useMonoCamera = !oculusRiftEnabled;
+        HandleSettings();
+    }
+
+    public void ToggleMonoCamera()
+    {
+        useMonoCamera = !useMonoCamera;
+        HandleSettings();
     }
 
     public void ToggleOculus() 
@@ -64,5 +107,10 @@ public class CameraManager : MonoBehaviour {
         {
             UseNormalCamera();
         }
+    }
+
+    void Update()
+    {
+        oculusRiftConnected = OVRDevice.IsHMDPresent();
     }
 }
