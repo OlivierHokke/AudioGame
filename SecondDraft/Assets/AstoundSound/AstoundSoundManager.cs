@@ -17,6 +17,23 @@ public class AstoundSoundManager : MonoBehaviour {
         HandleListenerSettings();
         HandleSourceSettings();
     }
+    
+    public static void HandleAudioSource(GameObject gameObject)
+    {
+        if (gameObject.audio != null)
+            HandleAudioSource(gameObject.audio);
+    }
+
+    public static void HandleAudioSource(AudioSource audio)
+    {
+        AstoundSoundRTIFilter filter = audio.GetComponent<AstoundSoundRTIFilter>();
+        if (filter == null)
+        {
+            audio.gameObject.AddComponent<AstoundSoundRTIFilter>();
+            filter = audio.GetComponent<AstoundSoundRTIFilter>();
+        }
+        filter.enabled = IsAstoundSoundActive();
+    }
 
     public static void HandleListenerSettings()
     {
