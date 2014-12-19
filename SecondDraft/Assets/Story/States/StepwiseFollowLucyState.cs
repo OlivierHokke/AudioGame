@@ -83,13 +83,14 @@ public class StepwiseFollowLucyState : LucyRingingBellState
     {
         if (collider.gameObject == currentTarget.gameObject)
         {
+            if (SuccesSound != null)
+                AudioManager.PlayAudio(new AudioObject(collider.gameObject, SuccesSound));
             SetNextTarget(script.Lucy);
         }
         if (collider.gameObject == TargetLocation.gameObject)
         {
             if (SuccesSound != null)
                 AudioManager.PlayAudio(new AudioObject(TargetLocation, SuccesSound));
-
             script.LoadState(NextState);
         }
         base.PlayerEnteredTrigger(collider, script);

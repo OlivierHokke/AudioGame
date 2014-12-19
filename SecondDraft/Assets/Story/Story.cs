@@ -114,29 +114,27 @@ public class Story : MonoBehaviour {
         InitialMove.NextState = SecondMove;
         SecondMove.NextState = RemoveDoor;
 		// DEBUG LEVEL 2
-		RemoveDoor.NextState = teleportLevel2;
-		teleportLevel2.NextState = ExplainsFortress;
-		/*
+        //RemoveDoor.NextState = teleportLevel2;
+        //teleportLevel2.NextState = ExplainsFortress;
         // Level 1
         RemoveDoor.NextState = ParentRoomState;
         ParentRoomState.NextState = LucyExplains2;
         LucyExplains2.NextState = RemoveFlatDoor;
-		RemoveFlatDoor.NextState = FollowLucyToElevator;
-		FollowLucyToElevator.NextState = RemoveElevatorDoor;
-		RemoveElevatorDoor.NextState = ElevatorState;
-		ElevatorState.NextState = LucyExplainsCars;
+        RemoveFlatDoor.NextState = FollowLucyToElevator;
+        FollowLucyToElevator.NextState = RemoveElevatorDoor;
+        RemoveElevatorDoor.NextState = ElevatorState;
+        ElevatorState.NextState = LucyExplainsCars;
         LucyExplainsCars.NextState = EvadeFirstRoad;
         EvadeFirstRoad.NextState = WalkPastBuilding1;
         WalkPastBuilding1.NextState = WalkPastBuilding2;
         WalkPastBuilding2.NextState = LucyExplainsToCrossOtherRoad;
         LucyExplainsToCrossOtherRoad.NextState = EvadeFirstRoadCars;
-		EvadeFirstRoadCars.NextState = EvadeSecondRoadCars;
-		EvadeSecondRoadCars.NextState=WalkToPortal;
+        EvadeFirstRoadCars.NextState = EvadeSecondRoadCars;
+        EvadeSecondRoadCars.NextState=WalkToPortal;
         WalkToPortal.NextState = LucyExplainsPortal;
         LucyExplainsPortal.NextState = PortalState;
         PortalState.NextState = teleportLevel2;
-		teleportLevel2.NextState = ExplainsFortress;
-		*/
+        teleportLevel2.NextState = ExplainsFortress;
         // Level 2
         ExplainsFortress.NextState = SingPuzzle;
         SingPuzzle.NextState = RubyExplainsSomething;
