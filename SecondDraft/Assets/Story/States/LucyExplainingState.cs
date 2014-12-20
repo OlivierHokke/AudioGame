@@ -43,5 +43,8 @@ public class LucyExplainingState : BaseState
     }
 
     public override void End(Story script)
-    { }
+    {
+        if (audioPlayer != null && !audioPlayer.finished)
+            audioPlayer.Delete();
+    }
 }
