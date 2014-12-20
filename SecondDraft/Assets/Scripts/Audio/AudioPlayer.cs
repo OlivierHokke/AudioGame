@@ -49,16 +49,29 @@ public class AudioPlayer
         return null;
     }
 
-    public void StopPlaying()
+    public void PausePlaying()
     {
-        if (audioAS != null)
+        if (audioAS != null && !paused && audio.pausable)
+        {
+            paused = true;
+            pausedAt = audioAS.time;
             audioAS.Stop();
+        }
     }
 
-    public void StartPlaying()
+    public void ContinuePlaying()
     {
-        if (audioAS != null)
+        if (audioAS != null && paused && audio.pausable)
+        {
+            paused = false;
             audioAS.Play();
+            audioAS.time = pausedAt;
+        }
+    }
+
+    public void Delete()
+    {
+        removable = true;
     }
 
     public void SetVolume(float volume)
@@ -79,18 +92,13 @@ public class AudioPlayer
 
         if (audio.pausable)
         {
-            if (PauseManager.paused && !paused && audioAS != null)
+            if (PauseManager.paused)
             {
-                pausedAt = audioAS.time;
-                audioAS.Stop();
-                paused = true;
+                PausePlaying();
             }
-
-            if (!PauseManager.paused && paused && audioAS != null)
+            else
             {
-                audioAS.Play();
-                audioAS.time = pausedAt;
-                paused = false;
+                ContinuePlaying();
             }
         }
 

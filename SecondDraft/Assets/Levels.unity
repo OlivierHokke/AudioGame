@@ -2201,6 +2201,7 @@ CanvasGroup:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 129500178}
+  m_Enabled: 1
   m_Alpha: .200000003
   m_Interactable: 1
   m_BlocksRaycasts: 1
@@ -2461,6 +2462,7 @@ CanvasGroup:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 129698144}
+  m_Enabled: 1
   m_Alpha: .200000003
   m_Interactable: 1
   m_BlocksRaycasts: 1
@@ -5506,6 +5508,7 @@ CanvasGroup:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 359390229}
+  m_Enabled: 1
   m_Alpha: .200000003
   m_Interactable: 1
   m_BlocksRaycasts: 1
@@ -11539,9 +11542,9 @@ MonoBehaviour:
   name: CONTROLS
   playOnActive: {fileID: 0}
   settings:
-  - name: SINGLE AXIS
+  - name: SINGLE HANDED
     description: You can now use a keyboard or controller to move the character. Forward
-      and backward act as expected, but pressing sideways turns the head of the character.
+      and backward act as expected, but pressing sideways turns the body of the character.
     audio: {fileID: 8300000, guid: 19275d81317acd1469da1df6be49f853, type: 3}
     onSet:
       m_PersistentCalls:
@@ -11605,7 +11608,7 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-  currentSettingIndex: 1
+  currentSettingIndex: 0
   left: {fileID: 1911826547}
   right: {fileID: 1479894435}
   title: {fileID: 578938566}
@@ -11618,6 +11621,7 @@ CanvasGroup:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 726905656}
+  m_Enabled: 1
   m_Alpha: .200000003
   m_Interactable: 1
   m_BlocksRaycasts: 1
@@ -22706,7 +22710,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -26584,7 +26587,7 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-  currentSettingIndex: 1
+  currentSettingIndex: 0
   left: {fileID: 1466928665}
   right: {fileID: 111754716}
   title: {fileID: 148527913}
@@ -26597,6 +26600,7 @@ CanvasGroup:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1743018207}
+  m_Enabled: 1
   m_Alpha: .200000003
   m_Interactable: 1
   m_BlocksRaycasts: 1

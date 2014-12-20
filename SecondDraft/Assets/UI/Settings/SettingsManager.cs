@@ -45,7 +45,7 @@ public class SettingsManager : MonoBehaviour
         settingsBackground.SetActive(!settingsBackground.activeInHierarchy);
         if (!IsSettingsShown())
         {
-            activePlayer.StopPlaying();
+            activePlayer.Delete();
             activeSettingType = 0;
         }
     }
@@ -66,9 +66,9 @@ public class SettingsManager : MonoBehaviour
     {
         if (activePlayer != null)
         {
-            activePlayer.StopPlaying();
+            activePlayer.Delete();
         }
-        AudioObject ao = new AudioObject(instance.gameObject, ac, mute ? 0f : 1f, 0f, false, false);
+        AudioObject ao = new AudioObject(PlayerController.instance.gameObject, ac, mute ? 0f : 0.6f, 0f, false, false);
         activePlayer = AudioManager.PlayAudio(ao);
         latestClip = ac;
     }

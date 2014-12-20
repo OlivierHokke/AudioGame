@@ -3,7 +3,11 @@ using System.Collections;
 using System;
 
 public class PlayerController : MonoBehaviour {
-
+    public static PlayerController instance;
+    void Awake()
+    {
+        instance = this;
+    }
 
     public Transform camerasContainer;
 	public AudioClip growlSound;
