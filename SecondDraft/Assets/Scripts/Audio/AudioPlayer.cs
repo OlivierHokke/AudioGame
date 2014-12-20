@@ -102,7 +102,7 @@ public class AudioPlayer
             }
         }
 
-        if (audioAS == null || (audioAS.time > audioAS.clip.length - 0.04f))
+        if (audioAS == null || audioAS.clip == null || (!audioAS.loop && audioAS.time > audioAS.clip.length - 0.04f))
         {
             finished = true;
             removable = true;
