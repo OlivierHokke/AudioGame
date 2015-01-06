@@ -46,3 +46,11 @@ csproj.user
 *.userprefs
 /SecondDraft/Assets/UnityVS
 SecondDraft/phononrt.log
+/Release/Release-csharp.sln
+/Release/Library
+/Release/obj
+/Release/Assembly-CSharp.csproj
+/Release/Assembly-CSharp-Editor.csproj
+/Release/Assembly-CSharp-Editor-vs.csproj
+/Release/Assembly-CSharp-vs.csproj
+/Release/Release.sln

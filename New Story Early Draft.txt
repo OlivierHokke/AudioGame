@@ -1,0 +1,69 @@
+SKILLS
+  - Look at sources
+  - Walk to sources
+  - Follow sources
+  - Avoid Sources
+  - Orientation by spatial memory
+
+######### MOTIVATION
+Controls are not properly explained. Game starts to difficult. Skill curve too steep. Furthermore, 
+original story was too dark/scary/traumatizing maybe? Some parent might have objections.
+Therefore, let's find something kid friendly and with a better build up with regards to
+skill. Also, make it feel more realistic, like the controls make sense.
+
+######### IDEA
+
+GAME NAME: The legend of Iris
+In Greek mythology, Iris, connects humans to the gods. Iris is also a part of the eye, which relates
+to the blind 
+
+The player is connected through the computer with the spirit realm in order to control a creature
+from their Universe, and is asked to help lucy, because she needs the mind of a nice and skilled human
+for the tasks at hand.
+
+The human is asked to collect some items and bring it to the Queen of the Spirits. Lucy couldn't do this
+because some puzzles require the intelligent mind of an intelligent human with good orientation skills.
+
+CONTROLS #1:
+  The player is explained that a connection is going to be tried using an ancient network, called Iris.
+  The player hears some magical tones, and a machine failure and a windows error. Lucy says it has something
+  to do with the settings and the connection with the keyboard. Lucy asks if the player can put his hands
+  on the arrow keys, and press up, down, right, left. If the player fails, lucy asks the player to retry.
+  Next, when succeeded magical sounds restart and a succesful connection is made.
+
+  If the player fails, Grumble makes a grumpy goblin sounds. If player succeeds, Grumble makes happy goblin sounds.
+
+  Player is introduced with...
+  - ...the buttons
+  - ...the concept of the story
+  - ...the voice of Grumble
+
+CONTROLS #2
+  Player is connected to the Spirit Realm using the computer. The player now has control
+  over the creature, Grumble, from the spirit realm. Lucy asks the player to test if 
+  the connection was properly established. Also, Grumble might still be a bit sleepy, so that he might
+  fall over. Lucy asks the player to move forward, and backward. Grumble falls over, we hear a "thud". Lucy
+  giggles and helps Grumble up (player is being told). Next she asks the player to turn Grumble 360 degrees using 
+  mouse/keyboard/oculus rift. 
+
+  * unused controls are blocked until asked to use.
+
+  Player is introduced with...
+  - ...the functionality of the buttons
+  - ...the idea that the keyboard(+mouse/OR) is a control panel to controlling Grumble
+  - ...spatial sound, due to turning Grumble
+
+CONTROLS #3
+In order to get out of the creature's lair, Grumble needs to grab his key, wallet and turn off his belly massaging machine. When the player reaches the machine, Lucy lets player know that Grumble doesn't turn it off, but began sitting in the machine, having his belly rubbed (phone/controller rumbles). Lucy pushed Grumble out and Grumble turns off the machine, all grumpy and dissapointed. Finally, they head to the door.
+
+Whenever the player moves to the wrong direction, Lucy tells the player, and Grumble makes grumpy noises.
+Whenever the player moves to the right direction, Lucy tells the player, and Grumble makes happy noises.
+
+Player is introduced with...
+...moving around in a scene, locating a sound
+...the idea that Grumble still has some consciousness to perform tasks alone.
+
+LEVEL #1
+
+
+  MOEILIJK

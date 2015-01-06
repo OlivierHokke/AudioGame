@@ -15,6 +15,7 @@ GameObject:
   - 114: {fileID: 11424566}
   - 114: {fileID: 11417154}
   - 114: {fileID: 11497696}
+  - 114: {fileID: 11495682}
   m_Layer: 0
   m_Name: Camera Combined
   m_TagString: Untagged
@@ -664,6 +665,20 @@ MonoBehaviour:
   _HmdWarpParam: {x: 1, y: 0, z: 0, w: 0}
   material_CA: {fileID: 2100000, guid: 700ec7db7ac6ff24f9f4a3d4cd157910, type: 2}
   _ChromaticAberration: {x: .995999992, y: .991999984, z: 1.01400006, w: 1.01400006}
+--- !u!114 &11495682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124566}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0ba3bf268068c4f9edee7178180e0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutOffDistance: 100
+  cutOffAmplitude: .0199999996
+  max3DSoundSources: 25
 --- !u!114 &11497696
 MonoBehaviour:
   m_ObjectHideFlags: 1
