@@ -54,7 +54,8 @@ SecondDraft/phononrt.log
 /Release/Assembly-CSharp-Editor-vs.csproj
 /Release/Assembly-CSharp-vs.csproj
 /Release/Release.sln
-/Release/Assets/UnityVS.meta
+SecondDraft/phonon3d.log
+Release/phonon3d.log/Release/Assets/UnityVS.meta
 /Release/Assets/UnityVS/Editor.meta
 /Release/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll
 /Release/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll.meta
@@ -62,3 +63,4 @@ SecondDraft/phononrt.log
 /Release/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Messaging.dll.meta
 /Release/Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll
 /Release/Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll.meta
+/Release/Assets/UnityVS.meta
